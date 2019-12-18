@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.GuanLiActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginLeft="30dp"
+            android:id="@+id/sim_fanhui"
+            android:background="@mipmap/common_icon_back_black_n" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"
+            android:background="@mipmap/common_nav_message_black_n" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="350dp"
+            android:layout_height="260dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:id="@+id/img_zpys"
+            android:background="@mipmap/image1" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="13dp"
+            android:layout_height="12dp"
+            android:background="@mipmap/common_information_next_n"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_alignBottom="@id/img_zpys"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="查看资料"
+            android:textColor="@color/colorAccent3"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"
+            android:textSize="12sp"
+            android:id="@+id/text_zhiliao"
+            android:layout_alignBottom="@id/img_zpys"
+            />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginRight="36dp">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="80dp"
+            android:id="@+id/sim_wenzhen"
+            android:background="@mipmap/my_icon_historical" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="90dp"
+            android:id="@+id/sim_qianbao"
+            android:background="@mipmap/my_icon_wallet_n" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="36dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="历史问诊"
+            android:textSize="14sp"
+            android:layout_marginLeft="80dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我的钱包"
+            android:textSize="14sp"
+            android:layout_marginLeft="75dp"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginRight="36dp">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="80dp"
+            android:id="@+id/sim_jianyi"
+            android:background="@mipmap/my_icon_recommendations_adopted_n" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="90dp"
+            android:id="@+id/sim_xiaoxi"
+            android:background="@mipmap/my_icon_automatic_response_n" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="36dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="采纳建议"
+            android:textSize="14sp"
+            android:layout_marginLeft="80dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设置自动回复"
+            android:textSize="14sp"
+            android:layout_marginLeft="60dp"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

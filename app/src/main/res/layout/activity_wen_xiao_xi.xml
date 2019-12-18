@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#F2F2F2"
+    android:layout_height="match_parent"
+    tools:context=".activity.WenXiaoXiActivity">
+
+    <RelativeLayout
+        android:id="@+id/bbbb"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginLeft="30dp"
+            android:id="@+id/sim_fanhui_view"
+            android:layout_marginTop="10dp"
+            android:background="@mipmap/common_icon_back_black_n"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="问诊消息"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:gravity="center"
+            />
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recy_xitong"
+        />
+
+</LinearLayout>

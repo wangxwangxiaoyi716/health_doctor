@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".activity.HomeActivity">
+
+    <RelativeLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="主要业务"
+            android:layout_marginLeft="30dp"
+            android:textColor="@color/colorAccent3"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:id="@+id/sim_xiaoxi"
+            android:background="@mipmap/common_nav_message_black_n"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"
+            />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/relate_bage01"
+        android:background="@mipmap/inquiry_bg"
+        android:layout_width="match_parent"
+        android:layout_marginRight="30dp"
+        android:layout_height="150dp">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/doctor"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="59dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/tip_box"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="问诊"
+            android:textColor="#ffff"
+            android:textSize="14sp"
+            android:id="@+id/text_wenzhen"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="123dp"
+            android:layout_marginRight="10dp"
+            />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/relate_bage02"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@mipmap/promise_bg"
+        android:layout_width="match_parent"
+        android:layout_marginRight="30dp"
+        android:layout_height="150dp">
+
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="59dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/tip_box"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="答疑"
+            android:textColor="#ffff"
+            android:textSize="14sp"
+            android:id="@+id/text_dayi"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="123dp"
+            android:layout_marginRight="10dp"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我的信息"
+            android:layout_marginLeft="30dp"
+            android:textColor="@color/colorAccent3"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@mipmap/my_information_bg"
+        android:layout_width="match_parent"
+        android:layout_marginRight="30dp"
+        android:layout_height="150dp">
+
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="105dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="10dp"
+            android:background="@mipmap/system_image7"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/sim_doclor"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="曾小贤"
+            android:textSize="16sp"
+            android:layout_toRightOf="@id/sim_doclor"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="27dp"
+            android:id="@+id/text_name"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="广东省妇幼保健医院"
+            android:textSize="12sp"
+            android:layout_toRightOf="@id/sim_doclor"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="60dp"
+            android:id="@+id/text_dzyiyuan"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="副主任医师"
+            android:textSize="12sp"
+            android:layout_toRightOf="@id/sim_doclor"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="80dp"
+            android:id="@+id/text_yishi"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="小儿科"
+            android:textSize="12sp"
+            android:layout_toRightOf="@id/sim_doclor"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="100dp"
+            android:id="@+id/text_erke"
+            />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="59dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/tip_box"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="管理"
+            android:textColor="#ffff"
+            android:textSize="14sp"
+            android:id="@+id/text_guanli"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="123dp"
+            android:layout_marginRight="10dp"
+            />
+
+
+
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

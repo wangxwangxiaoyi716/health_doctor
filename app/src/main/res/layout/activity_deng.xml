@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.DengActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="225dp"
+        android:background="@mipmap/login_bg" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/emil_img"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="30dp"
+            android:background="@mipmap/login_icon_mail_n" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/emil_img"
+            android:layout_marginRight="50dp"
+            android:layout_toRightOf="@id/emil_img"
+            android:id="@+id/ed_email"
+            android:textSize="14sp"
+            android:text="1748624086@qq.com"
+            android:layout_marginTop="10dp"
+            android:hint="请输入邮箱账号" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/pwd_img"
+            android:layout_width="20dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="30dp"
+            android:background="@mipmap/login_icon_lock_n" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/pwd_img"
+            android:layout_marginRight="50dp"
+            android:layout_toRightOf="@id/pwd_img"
+            android:inputType="number"
+            android:text="123456"
+            android:id="@+id/ed_pwd"
+            android:layout_marginTop="10dp"
+            android:textSize="14sp"
+            android:hint="请输入密码" />
+
+        <ToggleButton
+            android:id="@+id/togg_log_eye"
+            android:layout_width="15dp"
+            android:layout_height="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="60dp"
+            android:background="@mipmap/login_icon_hide_password_n"
+            android:button="@null"
+            android:checked="true"
+            android:disabledAlpha="@android:integer/config_longAnimTime"
+            android:minWidth="@null"
+            android:minHeight="@null"
+            android:text="@null"
+            android:textOff="@null"
+            android:textOn="@null" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/wjmm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:textSize="10sp"
+            android:text="忘记密码" />
+
+        <TextView
+            android:id="@+id/shenqing_ruzhu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:textSize="14sp"
+            android:textColor="@color/colorAccent3"
+            android:layout_marginRight="50dp"
+            android:text="申请入驻" />
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_lv"
+        android:text="登录"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:textSize="16sp"
+        android:id="@+id/but_denglu"
+        android:layout_marginTop="130dp"
+        android:textColor="@color/colorAccent" />
+
+</LinearLayout>

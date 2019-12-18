@@ -4,14 +4,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bw.movie.base.BaseActivity;
-import com.bw.movie.base.BasePresenter;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.R;
-import com.wd.doctor.adapter.FindSickCircleListAdapter;
 import com.wd.doctor.bean.FaPingLunBean;
 import com.wd.doctor.bean.SickCircleInfoBean;
 import com.wd.doctor.contract.BingXiangQingContract;
@@ -46,6 +48,18 @@ public class BingXiangQingActivity extends BaseActivity<BingXiangQingPresenter> 
     TextView textJingli;
     @BindView(R.id.but_jieda)
     Button butJieda;
+    @BindView(R.id.text_pinglun)
+    TextView textPinglun;
+    @BindView(R.id.et_find_sick_info)
+    EditText etFindSickInfo;
+    @BindView(R.id.tv_expression)
+    TextView tvExpression;
+    @BindView(R.id.tv_send)
+    TextView tvSend;
+    @BindView(R.id.linner_ping)
+    LinearLayout linnerPing;
+    @BindView(R.id.shuru)
+    LinearLayout shuru;
     private SharedPreferences sp;
 
     @Override
@@ -67,8 +81,25 @@ public class BingXiangQingActivity extends BaseActivity<BingXiangQingPresenter> 
         String s = sp.getString("s", null);
         Intent intent = getIntent();
         int sickCircleId = intent.getIntExtra("sickCircleId", 0);
-        mpresenter.onBingXiangQingPresenter(id+"",s,sickCircleId+"");
+        mpresenter.onBingXiangQingPresenter(id + "", s, sickCircleId + "");
+
+        butJieda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                shuru.setVisibility(View.VISIBLE);
+            }
+        });
+
+        tvSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String fb = etFindSickInfo.getText().toString();
+                mpresenter.onFaPingLunPresenter(id+"",s,sickCircleId+"",fb);
+            }
+        });
+
     }
+
     @Override
     public void onBingXiangQing(SickCircleInfoBean sickCircleInfoBean) {
         //病友圈详情
@@ -83,12 +114,17 @@ public class BingXiangQingActivity extends BaseActivity<BingXiangQingPresenter> 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         textRiqi.setText(simpleDateFormat.format(date));
         textJingli.setText(result.getTreatmentHospital());
-
+        textPinglun.setText(result.getContent());
     }
 
     @Override
     public void onFaPingLunSuccess(FaPingLunBean faPingLunBean) {
         //评论
+        if (faPingLunBean.getStatus().equals("0000")){
+            Toast.makeText(this, "发表成功", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(this, faPingLunBean.getMessage(), Toast.LENGTH_SHORT).show();
+        }
 
     }
 
@@ -97,6 +133,7 @@ public class BingXiangQingActivity extends BaseActivity<BingXiangQingPresenter> 
     public void onXiangQing(String e) {
 
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,8 +145,6 @@ public class BingXiangQingActivity extends BaseActivity<BingXiangQingPresenter> 
     public void onViewClicked() {
         finish();
     }
-
-
 
 
 }

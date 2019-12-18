@@ -8,30 +8,10 @@
     tools:context=".activity.BingXiangQingActivity">
 
 
-    <LinearLayout
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:id="@+id/sim_fanhui"
-            android:background="@mipmap/common_icon_back_black_n"
-            />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="急寻:面神经炎的治疗方法"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:id="@+id/text_title"
-            android:gravity="center"
-            />
-
-    </LinearLayout>
 
 
     <LinearLayout
@@ -39,196 +19,222 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent3"
-            android:text="张三"
-            android:layout_marginLeft="30dp"
+        <LinearLayout
             android:layout_marginTop="10dp"
-            android:id="@+id/text_xm"
-            android:textSize="16sp"
-            />
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:id="@+id/sim_fanhui"
+                android:background="@mipmap/common_icon_back_black_n"
+                />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent3"
-            android:text="[病症]"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:textSize="16sp"
-            />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="急寻:面神经炎的治疗方法"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:id="@+id/text_title"
+                android:gravity="center"
+                />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="面神经炎"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:id="@+id/text_bingzhneg"
-            android:textSize="12sp"
-            />
+        </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent3"
-            android:text="[科室]"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:textSize="16sp"
-            />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="内科"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:id="@+id/text_neike"
-            android:textSize="12sp"
-            />
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent3"
-            android:text="[病症详情]"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:textSize="16sp"
-            />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="周围性神经炎"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:id="@+id/text_xiangqing"
-            android:textSize="12sp"
-            />
+            <TextView
+                android:id="@+id/text_xm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:text="张三"
+                android:textColor="@color/colorAccent3"
+                android:textSize="16sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent3"
-            android:text="[治疗经历]"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:textSize="16sp"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:text="[病症]"
+                android:textColor="@color/colorAccent3"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/text_bingzhneg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:text="面神经炎"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:text="[科室]"
+                android:textColor="@color/colorAccent3"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/text_neike"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:text="内科"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:text="[病症详情]"
+                android:textColor="@color/colorAccent3"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/text_xiangqing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:text="周围性神经炎"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:text="[治疗经历]"
+                android:textColor="@color/colorAccent3"
+                android:textSize="16sp" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/text_tiantan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:text="北京天坛医院" />
+
+                <TextView
+                    android:id="@+id/text_riqi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:text="时间" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/text_jingli"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:text="每天进行针扎按摩"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:text="[相关图片]"
+                android:textColor="@color/colorAccent3"
+                android:textSize="16sp" />
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:layout_width="320dp"
+                android:layout_height="144dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:background="@mipmap/zhenduanshu" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linner_ping"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent3"
+                android:text="我的解答"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="内科"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/text_pinglun"
+                android:textSize="12sp"
+                />
+
+        </LinearLayout>
+
+        <include layout="@layout/shurukuang_include"
+            android:id="@+id/include_lm"
             />
 
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="北京天坛医院"
-                android:layout_marginLeft="30dp"
-                android:id="@+id/text_tiantan"
+                android:text="30H币"
+                android:textSize="14sp"
+                android:textColor="#f00"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
                 />
-            <TextView
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="时间"
-                android:layout_marginLeft="30dp"
-                android:id="@+id/text_riqi"
-                android:layout_marginRight="30dp"
+                android:text="我来解答"
+                android:textSize="14sp"
+                android:textColor="#ffff"
+                android:background="@color/colorAccent3"
+                android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
+                android:id="@+id/but_jieda"
                 />
 
         </RelativeLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="每天进行针扎按摩"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:id="@+id/text_jingli"
-            android:textSize="12sp"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent3"
-            android:text="[相关图片]"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:textSize="16sp"
-            />
-
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:layout_width="320dp"
-            android:layout_height="144dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:background="@mipmap/zhenduanshu"
-            />
     </LinearLayout>
 
+    </ScrollView>
 
-    <LinearLayout
-        android:id="@+id/linner_ping"
-        android:visibility="gone"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent3"
-            android:text="我的解答"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:textSize="16sp"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="内科"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:id="@+id/text_pinglun"
-            android:textSize="12sp"
-            />
-
-    </LinearLayout>
-
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="30H币"
-            android:textSize="14sp"
-            android:textColor="#f00"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="我来解答"
-            android:textSize="14sp"
-            android:textColor="#ffff"
-            android:background="@color/colorAccent3"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:id="@+id/but_jieda"
-            />
-
-    </RelativeLayout>
 
 </LinearLayout>

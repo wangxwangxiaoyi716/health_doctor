@@ -9,8 +9,9 @@ package com.wd.doctor.bean;
 //查询病友圈详情
 public class SickCircleInfoBean {
 
+
     /**
-     * result : {"amount":0,"authorName":"LQ_PTBPO","departmentId":2,"departmentName":"骨科","detail":"4too宏观经济","disease":"退行性关节病","id":1655,"title":"挂机了","treatmentEndTime":1575561600000,"treatmentHospital":"你看看","treatmentProcess":"哈哈","treatmentStartTime":1575561600000,"userId":410,"whetherContent":2}
+     * result : {"amount":0,"authorName":"斯内克","content":"真好","departmentId":7,"departmentName":"内科","detail":"啊啊啊","disease":"高脂蛋白血症","id":22,"title":"啊啊啊","treatmentEndTime":1563811200000,"treatmentHospital":"啊啊啊","treatmentProcess":"选别的","treatmentStartTime":1563811200000,"userId":64,"whetherContent":1}
      * message : 查询成功
      * status : 0000
      */
@@ -46,23 +47,25 @@ public class SickCircleInfoBean {
     public static class ResultBean {
         /**
          * amount : 0
-         * authorName : LQ_PTBPO
-         * departmentId : 2
-         * departmentName : 骨科
-         * detail : 4too宏观经济
-         * disease : 退行性关节病
-         * id : 1655
-         * title : 挂机了
-         * treatmentEndTime : 1575561600000
-         * treatmentHospital : 你看看
-         * treatmentProcess : 哈哈
-         * treatmentStartTime : 1575561600000
-         * userId : 410
-         * whetherContent : 2
+         * authorName : 斯内克
+         * content : 真好
+         * departmentId : 7
+         * departmentName : 内科
+         * detail : 啊啊啊
+         * disease : 高脂蛋白血症
+         * id : 22
+         * title : 啊啊啊
+         * treatmentEndTime : 1563811200000
+         * treatmentHospital : 啊啊啊
+         * treatmentProcess : 选别的
+         * treatmentStartTime : 1563811200000
+         * userId : 64
+         * whetherContent : 1
          */
 
         private int amount;
         private String authorName;
+        private String content;
         private int departmentId;
         private String departmentName;
         private String detail;
@@ -90,6 +93,14 @@ public class SickCircleInfoBean {
 
         public void setAuthorName(String authorName) {
             this.authorName = authorName;
+        }
+
+        public String getContent() {
+            return content;
+        }
+
+        public void setContent(String content) {
+            this.content = content;
         }
 
         public int getDepartmentId() {

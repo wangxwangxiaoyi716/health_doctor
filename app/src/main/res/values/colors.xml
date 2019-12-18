@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3087ea</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#F1F1F1</color>
+    <color name="colorAccent2">#D81B60</color>
+    <color name="colorAccent3">#3087ea</color>
+    <color name="colorAccent4">#D81B60</color>
+    <color name="bai">#E6DDDD</color>
+    <color name="bai2">#FCFCFC</color>
+    <color name="fan">#783ece</color>
+    <color name="bule">#3087EA</color>
+</resources>

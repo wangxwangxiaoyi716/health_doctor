@@ -15,7 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.ChaiNaActivity"></activity>
+        <activity android:name=".HuanImageActivity"></activity>
+        <activity android:name=".activity.ImagePhotoActivity" />
+        <activity android:name=".activity.ChaiNaActivity" />
         <activity android:name=".activity.HuiFuActivity" />
         <activity android:name=".activity.TiActivity" />
         <activity android:name=".activity.TiXianActivity" />

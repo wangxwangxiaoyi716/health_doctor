@@ -121,6 +121,7 @@
 
     <RelativeLayout
         android:layout_marginLeft="30dp"
+        android:id="@+id/relayout_gl"
         android:layout_marginTop="20dp"
         android:background="@mipmap/my_information_bg"
         android:layout_width="match_parent"

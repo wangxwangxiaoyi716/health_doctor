@@ -12,6 +12,7 @@ import com.bw.movie.base.BasePresenter;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.R;
 import com.wd.doctor.adapter.FindSickCircleListAdapter;
+import com.wd.doctor.bean.FaPingLunBean;
 import com.wd.doctor.bean.SickCircleInfoBean;
 import com.wd.doctor.contract.BingXiangQingContract;
 import com.wd.doctor.presenter.BingXiangQingPresenter;
@@ -82,6 +83,12 @@ public class BingXiangQingActivity extends BaseActivity<BingXiangQingPresenter> 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         textRiqi.setText(simpleDateFormat.format(date));
         textJingli.setText(result.getTreatmentHospital());
+
+    }
+
+    @Override
+    public void onFaPingLunSuccess(FaPingLunBean faPingLunBean) {
+        //评论
 
     }
 

@@ -46,6 +46,8 @@ public class HomeActivity extends BaseActivity<HomePresenter> implements HomeCon
     RelativeLayout relateBage02;
     @BindView(R.id.sim_xiaoxi)
     SimpleDraweeView simXiaoxi;
+    @BindView(R.id.relayout_gl)
+    RelativeLayout relayoutGl;
     private SharedPreferences sp;
 
     @Override
@@ -65,6 +67,14 @@ public class HomeActivity extends BaseActivity<HomePresenter> implements HomeCon
         int id = sp.getInt("id", 0);
         String s = sp.getString("s", null);
         mpresenter.onFindDoctorPresenter(id + "", s);
+
+        relayoutGl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent9 = new Intent(HomeActivity.this, GuanLiActivity.class);
+                startActivity(intent9);
+            }
+        });
 
     }
 

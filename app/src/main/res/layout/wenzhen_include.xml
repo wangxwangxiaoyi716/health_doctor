@@ -4,7 +4,7 @@
     android:id="@+id/include_relate"
     android:layout_height="match_parent">
         <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/include_img"
+            android:id="@+id/inc_img"
             android:layout_width="168dp"
             android:layout_height="168dp"
             android:layout_centerInParent="true"
@@ -16,7 +16,7 @@
             android:textSize="14sp"
             android:text="嘤-空空如也!"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/include_img"
+            android:layout_below="@id/inc_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 </RelativeLayout>

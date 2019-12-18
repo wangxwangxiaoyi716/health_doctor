@@ -34,13 +34,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="500dp"
-            android:layout_height="40dp"
+        <com.google.android.material.tabs.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tab_layout"
+            app:tabMode="scrollable"
+            app:tabGravity="fill"
+            app:tabSelectedTextColor="#3087ea"
             android:layout_marginLeft="30dp"
-            android:layout_marginRight="80dp"
-            android:id="@+id/revy_keshi"
+            android:layout_marginRight="60dp"
+            android:layout_marginTop="10dp"
             />
+
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:layout_width="wrap_content"
@@ -54,14 +59,23 @@
 
     </RelativeLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:id="@+id/view_page"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <!--<androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="6dp"
         android:id="@+id/revy_tiaomu"
-        />
+        />-->
 
 
 </LinearLayout>

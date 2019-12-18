@@ -22,12 +22,7 @@ public class ChaiNaActivity extends BaseActivity {
     RelativeLayout relayoutVvv;
     @BindView(R.id.recy_caina)
     RecyclerView recyCaina;
-    @BindView(R.id.include_img)
-    SimpleDraweeView includeImg;
-    @BindView(R.id.include_text)
-    TextView includeText;
-    @BindView(R.id.include_relate)
-    RelativeLayout includeRelate;
+
 
     @Override
     protected BasePresenter providePresenter() {

@@ -48,9 +48,9 @@
     </RelativeLayout>
 
     <include layout="@layout/caina_include"
-        android:visibility="gone"
-        android:id="@+id/caina_include"
-        />
+    android:visibility="gone"
+    android:id="@+id/include_caina"
+    />
 
 
 </RelativeLayout>

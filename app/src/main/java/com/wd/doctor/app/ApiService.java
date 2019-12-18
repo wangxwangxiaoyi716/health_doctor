@@ -1,6 +1,7 @@
 package com.wd.doctor.app;
 
 import com.wd.doctor.bean.ApplyJoinBean;
+import com.wd.doctor.bean.FaPingLunBean;
 import com.wd.doctor.bean.FindDepartmentBean;
 import com.wd.doctor.bean.FindDoctorByIdBean;
 import com.wd.doctor.bean.FindInquiryRecordListBean;
@@ -9,6 +10,7 @@ import com.wd.doctor.bean.LoginBean;
 import com.wd.doctor.bean.SearchSickCircleBean;
 import com.wd.doctor.bean.SendEmailCodeBean;
 import com.wd.doctor.bean.SickCircleInfoBean;
+import com.wd.doctor.bean.XiTongZhaoBean;
 
 import java.util.Map;
 
@@ -75,4 +77,16 @@ public interface ApiService {
     //http://172.17.8.100/health/doctor/v1/applyJoin
     @POST("health/doctor/v1/applyJoin")
     Observable<ApplyJoinBean> getruzhu(@Body Map<String,Object> map);
+
+    //查询系统形象照
+    //http://172.17.8.100/health/doctor/v1/findSystemImagePic
+    @GET("health/doctor/v1/findSystemImagePic")
+    Observable<XiTongZhaoBean> getxtzp();
+
+
+
+    //发表评论
+    //http://172.17.8.100/health/doctor/sickCircle/verify/v1/publishComment?sickCircleId=22&content=真好
+    @POST("health/doctor/sickCircle/verify/v1/publishComment")
+    Observable<FaPingLunBean> getfapinglun(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId,@Query("sickCircleId") String sickCircleId,@Query("content") String content);
 }

@@ -14,29 +14,21 @@ import android.widget.TextView;
 import com.bw.movie.base.BaseActivity;
 import com.bw.movie.base.BasePresenter;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.wd.doctor.HuanImageActivity;
 import com.wd.doctor.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class GuanLiActivity extends BaseActivity {
+public class ImagePhotoActivity extends BaseActivity {
 
-
-    @BindView(R.id.sim_fanhui)
-    SimpleDraweeView simFanhui;
-    @BindView(R.id.img_zpys)
-    SimpleDraweeView imgZpys;
-    @BindView(R.id.text_zhiliao)
-    TextView textZhiliao;
-    @BindView(R.id.sim_wenzhen)
-    SimpleDraweeView simWenzhen;
-    @BindView(R.id.sim_qianbao)
-    SimpleDraweeView simQianbao;
-    @BindView(R.id.sim_jianyi)
-    SimpleDraweeView simJianyi;
-    @BindView(R.id.sim_xiaoxi)
-    SimpleDraweeView simXiaoxi;
+    @BindView(R.id.sim_pz)
+    SimpleDraweeView simPz;
+    @BindView(R.id.xxz)
+    TextView xxz;
+    @BindView(R.id.buton_wcsz)
+    Button butonWcsz;
     private Dialog dialog;
     private View mInflate;
 
@@ -47,14 +39,13 @@ public class GuanLiActivity extends BaseActivity {
 
     @Override
     protected int provideLayoutId() {
-        return R.layout.activity_guan_li;
+        return R.layout.activity_image_photo;
     }
-
 
     @Override
     protected void initData() {
         super.initData();
-        imgZpys.setOnClickListener(new View.OnClickListener() {
+        simPz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 show(view);
@@ -66,10 +57,12 @@ public class GuanLiActivity extends BaseActivity {
     public void show(View view) {
         dialog = new Dialog(this, R.style.DialogTheme);
         //填充对话框的布局
-        mInflate = LayoutInflater.from(this).inflate(R.layout.genghuan, null);
+        mInflate = LayoutInflater.from(this).inflate(R.layout.set_ceshi, null);
         //初始化控件
-        //更换形象照
-      Button mPic = mInflate.findViewById(R.id.set_but_pic);
+        //相册
+        Button mAlbum = mInflate.findViewById(R.id.set_but_album);
+        //拍照
+        Button mPic = mInflate.findViewById(R.id.set_but_pic);
         //取消
         Button mDiesmiss = mInflate.findViewById(R.id.set_but_dismiss);
         /*点击*/
@@ -80,11 +73,11 @@ public class GuanLiActivity extends BaseActivity {
                 dialog.dismiss();
             }
         });
-        //更换形象照
-        mPic.setOnClickListener(new View.OnClickListener() {
+        //相册
+        mAlbum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(GuanLiActivity.this, ImagePhotoActivity.class);
+                Intent intent = new Intent(ImagePhotoActivity.this, HuanImageActivity.class);
                 startActivity(intent);
                 dialog.dismiss();
             }
@@ -110,6 +103,58 @@ public class GuanLiActivity extends BaseActivity {
         dialog.show();//显示对话框
     }
 
+
+
+
+    /*public void show(View view) {
+        mDialog = new Dialog(this, R.style.DialogTheme);
+        //填充对话框的布局
+        mInflate = LayoutInflater.from(this).inflate(R.layout.set_ceshi, null);
+        //初始化控件
+        //拍照
+        mPic = mInflate.findViewById(R.id.set_but_pic);
+        //取消
+        mDiesmiss = mInflate.findViewById(R.id.set_but_dismiss);
+        //相册
+        mAlbum = mInflate.findViewById(R.id.set_but_album);
+        *//*点击*//*
+        //调起相机
+        mPic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        //相册
+        mAlbum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                IntentUtils.getInstence().intentStart(SetImageActivity.this, ImagePhotoActivity.class);
+                finish();
+            }
+        });
+        //取消
+        mDiesmiss.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDialog.dismiss();
+            }
+        });
+        //将布局设置给Dialog
+        mDialog.setContentView(mInflate);
+        //获取当前Activity所在的窗体
+        Window dialogWindow = mDialog.getWindow();
+        //设置Dialog从窗体底部弹出
+        dialogWindow.setGravity(Gravity.BOTTOM);
+        //获得窗体的属性
+        WindowManager.LayoutParams lp = dialogWindow.getAttributes();
+        lp.y = 20;//设置Dialog距离底部的距离
+        //将属性设置给窗体
+        dialogWindow.setAttributes(lp);
+        mDialog.show();//显示对话框
+    }*/
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -117,30 +162,7 @@ public class GuanLiActivity extends BaseActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.sim_fanhui, R.id.text_zhiliao, R.id.sim_wenzhen, R.id.sim_qianbao, R.id.sim_jianyi, R.id.sim_xiaoxi})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.sim_fanhui:
-                finish();
-                break;
-            case R.id.text_zhiliao:
-                Intent intent = new Intent(GuanLiActivity.this, ZhiLiaoActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.sim_wenzhen:
-                break;
-            case R.id.sim_qianbao:
-                Intent intent1 = new Intent(GuanLiActivity.this, MoneyBaoActivity.class);
-                startActivity(intent1);
-                break;
-            case R.id.sim_jianyi:
-                Intent intent3 = new Intent(GuanLiActivity.this, ChaiNaActivity.class);
-                startActivity(intent3);
-                break;
-            case R.id.sim_xiaoxi:
-                Intent intent2 = new Intent(GuanLiActivity.this, HuiFuActivity.class);
-                startActivity(intent2);
-                break;
-        }
+    @OnClick(R.id.buton_wcsz)
+    public void onViewClicked() {
     }
 }

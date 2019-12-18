@@ -3,23 +3,24 @@ package com.wd.doctor.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import com.bw.movie.base.BaseActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.google.android.material.tabs.TabLayout;
 import com.wd.doctor.R;
-import com.wd.doctor.adapter.FindDePartMentAdapter;
-import com.wd.doctor.adapter.FindSickCircleListAdapter;
 import com.wd.doctor.bean.FindDepartmentBean;
 import com.wd.doctor.bean.FindDoctorByIdBean;
 import com.wd.doctor.bean.FindSickCircleListBean;
 import com.wd.doctor.contract.HomeContract;
+import com.wd.doctor.fragment.BingYouQuanFragment;
 import com.wd.doctor.presenter.HomePresenter;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -27,12 +28,16 @@ import butterknife.OnClick;
 public class DaYiActivity extends BaseActivity<HomePresenter> implements HomeContract.Iview {
     @BindView(R.id.sim_fanhui)
     SimpleDraweeView simFanhui;
-    @BindView(R.id.revy_keshi)
-    RecyclerView revyKeshi;
+    /*@BindView(R.id.revy_keshi)
+    RecyclerView revyKeshi;*/
     @BindView(R.id.sim_shoushuo)
     SimpleDraweeView simShoushuo;
-    @BindView(R.id.revy_tiaomu)
-    RecyclerView revyTiaomu;
+    @BindView(R.id.tab_layout)
+    TabLayout tabLayout;
+    @BindView(R.id.view_page)
+    ViewPager viewPage;
+    /*@BindView(R.id.revy_tiaomu)
+    RecyclerView revyTiaomu;*/
 
     @Override
     protected HomePresenter providePresenter() {
@@ -48,7 +53,7 @@ public class DaYiActivity extends BaseActivity<HomePresenter> implements HomeCon
     protected void initData() {
         super.initData();
         mpresenter.onFindDepartMentPresenter();
-        mpresenter.onFindSickCircleListPresenter("1", "1", "5");
+        /*mpresenter.onFindSickCircleListPresenter("1", "1", "5");*/
     }
 
     @Override
@@ -59,7 +64,43 @@ public class DaYiActivity extends BaseActivity<HomePresenter> implements HomeCon
     @Override
     public void onFindDepartMentSuccess(FindDepartmentBean findDepartmentBean) {
 
-        if (findDepartmentBean.getStatus().equals("0000")) {
+        List<FindDepartmentBean.ResultBean> result = findDepartmentBean.getResult();
+        ArrayList<String> list = new ArrayList<>();
+        for (int i=0;i<result.size();i++){
+            list.add(result.get(i).getDepartmentName());
+        }
+
+        viewPage.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
+            @Override
+            public Fragment getItem(int position) {
+                //创建fragment对象并返回
+                Bundle bundle = new Bundle();
+                bundle.putInt("id", result.get(position).getId());
+                //实例化Fragment
+                BingYouQuanFragment homeFragment = new BingYouQuanFragment();
+                homeFragment.setArguments(bundle);
+                return homeFragment;
+            }
+
+            @Override
+            public int getCount() {
+                return list.size();
+            }
+
+            @Override
+            public CharSequence getPageTitle(int position) {
+                return list.get(position);
+            }
+
+        });
+        //关联
+        tabLayout.setupWithViewPager(viewPage);
+        viewPage.setOffscreenPageLimit(list.size());
+
+
+
+
+        /*if (findDepartmentBean.getStatus().equals("0000")) {
             //科室列表
             List<FindDepartmentBean.ResultBean> result = findDepartmentBean.getResult();
             if (result != null){
@@ -78,14 +119,14 @@ public class DaYiActivity extends BaseActivity<HomePresenter> implements HomeCon
             }
         } else {
             Toast.makeText(this, findDepartmentBean.getMessage(), Toast.LENGTH_SHORT).show();
-        }
+        }*/
 
     }
 
     @Override
     public void onFindSickCircleListSuccess(FindSickCircleListBean findSickCircleListBean) {
 
-        if (findSickCircleListBean.getStatus().equals("0000")){
+        /*if (findSickCircleListBean.getStatus().equals("0000")){
             //病圈列表
             List<FindSickCircleListBean.ResultBean> result = findSickCircleListBean.getResult();
             if (result != null){
@@ -96,7 +137,7 @@ public class DaYiActivity extends BaseActivity<HomePresenter> implements HomeCon
             }
         }else {
             Toast.makeText(this, findSickCircleListBean.getMessage(), Toast.LENGTH_SHORT).show();
-        }
+        }*/
 
 
     }

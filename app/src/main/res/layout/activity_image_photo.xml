@@ -24,13 +24,13 @@
         android:layout_width="match_parent"
         android:layout_height="320dp">
 
-        <com.facebook.drawee.view.SimpleDraweeView
+        <ImageView
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:background="@mipmap/my_icon_camera_n"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
-            android:id="@+id/sim_pz"
+            android:id="@+id/sim_pzimag"
             />
 
         <TextView
@@ -41,7 +41,7 @@
             android:id="@+id/xxz"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
-            android:layout_below="@id/sim_pz"
+            android:layout_below="@id/sim_pzimag"
             />
         <TextView
             android:layout_width="wrap_content"

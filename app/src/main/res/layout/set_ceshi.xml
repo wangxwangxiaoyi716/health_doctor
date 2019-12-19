@@ -24,12 +24,23 @@
         android:text="从形象库中选择"
         android:textColor="@color/colorAccent3"
         android:textSize="14sp" />
+    <Button
+        android:id="@+id/but_xc"
+        android:layout_width="340dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/set_but_album"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/pop_ceshi"
+        android:gravity="center"
+        android:text="相册"
+        android:textColor="@color/colorAccent3"
+        android:textSize="14sp" />
 
     <Button
         android:id="@+id/set_but_dismiss"
         android:layout_width="340dp"
         android:layout_height="40dp"
-        android:layout_below="@id/set_but_album"
+        android:layout_below="@id/but_xc"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/pop_ceshi"

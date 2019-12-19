@@ -9,9 +9,8 @@ package com.wd.doctor.bean;
 //查询病友圈详情
 public class SickCircleInfoBean {
 
-
     /**
-     * result : {"amount":0,"authorName":"斯内克","content":"真好","departmentId":7,"departmentName":"内科","detail":"啊啊啊","disease":"高脂蛋白血症","id":22,"title":"啊啊啊","treatmentEndTime":1563811200000,"treatmentHospital":"啊啊啊","treatmentProcess":"选别的","treatmentStartTime":1563811200000,"userId":64,"whetherContent":1}
+     * result : {"amount":10,"authorName":"下雨吧","content":"真好","departmentId":2,"departmentName":"骨科","detail":"详情","disease":"病症描述","id":8,"picture":"http://172.17.8.100/images/health/user/head_pic/default/default_head_1.jpg","title":"急寻：面神经炎的治疗方法","treatmentEndTime":1536681600000,"treatmentHospital":"治疗医院","treatmentProcess":"治疗过程描述","treatmentStartTime":1486051200000,"userId":1,"whetherContent":1}
      * message : 查询成功
      * status : 0000
      */
@@ -46,20 +45,21 @@ public class SickCircleInfoBean {
 
     public static class ResultBean {
         /**
-         * amount : 0
-         * authorName : 斯内克
+         * amount : 10
+         * authorName : 下雨吧
          * content : 真好
-         * departmentId : 7
-         * departmentName : 内科
-         * detail : 啊啊啊
-         * disease : 高脂蛋白血症
-         * id : 22
-         * title : 啊啊啊
-         * treatmentEndTime : 1563811200000
-         * treatmentHospital : 啊啊啊
-         * treatmentProcess : 选别的
-         * treatmentStartTime : 1563811200000
-         * userId : 64
+         * departmentId : 2
+         * departmentName : 骨科
+         * detail : 详情
+         * disease : 病症描述
+         * id : 8
+         * picture : http://172.17.8.100/images/health/user/head_pic/default/default_head_1.jpg
+         * title : 急寻：面神经炎的治疗方法
+         * treatmentEndTime : 1536681600000
+         * treatmentHospital : 治疗医院
+         * treatmentProcess : 治疗过程描述
+         * treatmentStartTime : 1486051200000
+         * userId : 1
          * whetherContent : 1
          */
 
@@ -71,6 +71,7 @@ public class SickCircleInfoBean {
         private String detail;
         private String disease;
         private int id;
+        private String picture;
         private String title;
         private long treatmentEndTime;
         private String treatmentHospital;
@@ -141,6 +142,14 @@ public class SickCircleInfoBean {
 
         public void setId(int id) {
             this.id = id;
+        }
+
+        public String getPicture() {
+            return picture;
+        }
+
+        public void setPicture(String picture) {
+            this.picture = picture;
         }
 
         public String getTitle() {

@@ -15,6 +15,7 @@
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:layout_marginLeft="30dp"
+            android:padding="50dp"
             android:layout_marginTop="5dp"
             android:id="@+id/sim_fanhui_view"
             android:background="@mipmap/common_icon_back_black_n"
@@ -36,6 +37,7 @@
             android:textSize="10sp"
             android:layout_marginTop="5dp"
             android:text="去绑定"
+            android:id="@+id/text_bangding"
             android:layout_alignParentRight="true"
             android:layout_marginRight="30dp"
             />

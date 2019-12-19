@@ -26,18 +26,16 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class DaYiActivity extends BaseActivity<HomePresenter> implements HomeContract.Iview {
-    @BindView(R.id.sim_fanhui)
-    SimpleDraweeView simFanhui;
-    /*@BindView(R.id.revy_keshi)
-    RecyclerView revyKeshi;*/
+
     @BindView(R.id.sim_shoushuo)
     SimpleDraweeView simShoushuo;
     @BindView(R.id.tab_layout)
     TabLayout tabLayout;
     @BindView(R.id.view_page)
     ViewPager viewPage;
-    /*@BindView(R.id.revy_tiaomu)
-    RecyclerView revyTiaomu;*/
+    @BindView(R.id.fanhui)
+    SimpleDraweeView fanhui;
+
 
     @Override
     protected HomePresenter providePresenter() {
@@ -66,7 +64,7 @@ public class DaYiActivity extends BaseActivity<HomePresenter> implements HomeCon
 
         List<FindDepartmentBean.ResultBean> result = findDepartmentBean.getResult();
         ArrayList<String> list = new ArrayList<>();
-        for (int i=0;i<result.size();i++){
+        for (int i = 0; i < result.size(); i++) {
             list.add(result.get(i).getDepartmentName());
         }
 
@@ -154,10 +152,10 @@ public class DaYiActivity extends BaseActivity<HomePresenter> implements HomeCon
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.sim_fanhui, R.id.sim_shoushuo})
+    @OnClick({R.id.fanhui, R.id.sim_shoushuo})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.sim_fanhui:
+            case R.id.fanhui:
                 finish();
                 break;
             case R.id.sim_shoushuo:

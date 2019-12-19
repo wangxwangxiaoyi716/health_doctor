@@ -12,6 +12,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="30dp"
         android:id="@+id/fanhui"
+        android:padding="10dp"
         android:background="@mipmap/common_icon_back_black_n"
         />
 
@@ -181,7 +182,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <TextView
             android:layout_width="wrap_content"
@@ -190,6 +191,7 @@
             android:textSize="10sp"
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
             android:textColor="@color/colorAccent3"
             />
 

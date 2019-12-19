@@ -27,7 +27,7 @@ public class WenZhenActivity extends BaseActivity<WenZhenPresenter> implements W
     RecyclerView wenzhenRecy;
     @BindView(R.id.include_text)
     TextView includeText;
-    @BindView(R.id.include_relate)
+    @BindView(R.id.include_ke)
     RelativeLayout includeRelate;
     private SharedPreferences sp;
 

@@ -25,6 +25,7 @@
         <com.facebook.drawee.view.SimpleDraweeView
             android:layout_width="20dp"
             android:layout_height="20dp"
+            android:padding="10dp"
             android:id="@+id/sim_xiaoxi"
             android:background="@mipmap/common_nav_message_black_n"
             android:layout_alignParentRight="true"

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.BangDingActivity">
+
+    <RelativeLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginLeft="30dp"
+            android:padding="50dp"
+            android:layout_marginTop="5dp"
+            android:id="@+id/sim_fanhui_view"
+            android:background="@mipmap/common_icon_back_black_n"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="绑定信息"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:gravity="center"
+            />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="身份证"
+        android:textSize="16sp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="30dp"
+        />
+    <View
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/colorAccent3"
+        android:layout_width="52dp"
+        android:layout_height="3sp"/>
+
+    <RelativeLayout
+        android:layout_marginTop="8dp"
+        android:layout_width="260dp"
+        android:background="@drawable/senfen_bian"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_height="160dp">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="290dp"
+            android:layout_height="160dp"
+            android:background="@mipmap/id_card_front"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:text="绑定身份证>>"
+            android:textColor="@color/colorAccent3"
+            android:textSize="14sp"
+            android:id="@+id/text_shenfenzheng"
+            />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="银行卡"
+        android:textSize="16sp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
+        />
+    <View
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/colorAccent3"
+        android:layout_width="52dp"
+        android:layout_height="3sp"/>
+
+    <RelativeLayout
+        android:layout_marginTop="8dp"
+        android:layout_width="260dp"
+        android:background="@drawable/senfen_bian"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_height="160dp">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="290dp"
+            android:layout_height="160dp"
+            android:background="@mipmap/bank_card_front"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:text="绑定银行卡>>"
+            android:textColor="@color/colorAccent3"
+            android:textSize="14sp"
+            android:id="@+id/text_yinhangka"
+            />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:text="如需更改银行卡信息 请致电000-5967432"
+            android:textColor="@color/colorAccent3"
+            android:layout_marginBottom="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

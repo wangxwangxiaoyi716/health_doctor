@@ -38,7 +38,7 @@ public class MoHuChaActivity extends BaseActivity<MoHuChaPresenter> implements M
     SimpleDraweeView includeImg;
     @BindView(R.id.include_text)
     TextView includeText;
-    @BindView(R.id.include_relate)
+    @BindView(R.id.include_mao)
     RelativeLayout includeRelate;
 
     @Override
@@ -58,16 +58,15 @@ public class MoHuChaActivity extends BaseActivity<MoHuChaPresenter> implements M
         if (searchSickCircleBean.getStatus().equals("0000")){
             List<SearchSickCircleBean.ResultBean> result = searchSickCircleBean.getResult();
             if (result != null){
-                includeRelate.setVisibility(View.GONE);
                 recyModainying.setVisibility(View.VISIBLE);
+                includeRelate.setVisibility(View.GONE);
                 MoHuChaXunAdapter moHuChaXunAdapter = new MoHuChaXunAdapter(MoHuChaActivity.this,result);
                 recyModainying.setAdapter(moHuChaXunAdapter);
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MoHuChaActivity.this);
                 recyModainying.setLayoutManager(linearLayoutManager);
             }else {
-                includeRelate.setVisibility(View.VISIBLE);
                 recyModainying.setVisibility(View.GONE);
-                includeText.setText("抱歉! 没有找到您输入的关键字的相关病友圈");
+                includeRelate.setVisibility(View.VISIBLE);
             }
         }else {
             Toast.makeText(this, searchSickCircleBean.getMessage(), Toast.LENGTH_SHORT).show();

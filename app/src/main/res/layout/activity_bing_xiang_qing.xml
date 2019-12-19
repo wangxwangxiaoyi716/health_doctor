@@ -11,9 +11,6 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -25,9 +22,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <com.facebook.drawee.view.SimpleDraweeView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
                 android:layout_marginLeft="30dp"
+                android:padding="10dp"
                 android:id="@+id/sim_fanhui"
                 android:background="@mipmap/common_icon_back_black_n"
                 />
@@ -169,8 +167,9 @@
                 android:layout_width="320dp"
                 android:layout_height="144dp"
                 android:layout_gravity="center"
+                android:id="@+id/sim_xiangqingzp"
                 android:layout_marginTop="5dp"
-                android:background="@mipmap/zhenduanshu" />
+                 />
         </LinearLayout>
 
         <LinearLayout
@@ -207,6 +206,7 @@
 
 
         <RelativeLayout
+            android:id="@+id/recyxq_include"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
@@ -215,6 +215,7 @@
                 android:text="30H币"
                 android:textSize="14sp"
                 android:textColor="#f00"
+                android:id="@+id/textHbi"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 />

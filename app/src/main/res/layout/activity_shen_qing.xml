@@ -12,6 +12,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="30dp"
         android:id="@+id/fanhui"
+        android:padding="10dp"
         android:background="@mipmap/common_icon_back_black_n"
         />
 

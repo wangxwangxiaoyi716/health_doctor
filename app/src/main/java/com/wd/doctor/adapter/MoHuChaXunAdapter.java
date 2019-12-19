@@ -8,6 +8,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.wd.doctor.R;
+import com.wd.doctor.activity.BingXiangQingActivity;
 import com.wd.doctor.bean.FindSickCircleListBean;
 import com.wd.doctor.bean.SearchSickCircleBean;
 
@@ -49,6 +50,16 @@ public class MoHuChaXunAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             Date date = new Date(list.get(position).getReleaseTime());
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
             ((MyList) holder).riqi_text.setText(simpleDateFormat.format(date));
+
+            ((MyList) holder).layout_linner01.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, BingXiangQingActivity.class);
+                    int sickCircleId = list.get(position).getSickCircleId();
+                    intent.putExtra("sickCircleId",sickCircleId);
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 
@@ -60,12 +71,14 @@ public class MoHuChaXunAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     class MyList extends RecyclerView.ViewHolder{
         TextView text_nametitile,text_time,riqi_text;
+        RelativeLayout layout_linner01;
 
         public MyList(@NonNull View itemView) {
             super(itemView);
             text_nametitile = itemView.findViewById(R.id.text_nametitile);
             text_time = itemView.findViewById(R.id.text_time);
             riqi_text = itemView.findViewById(R.id.riqi_text);
+            layout_linner01 = itemView.findViewById(R.id.layout_linner01);
         }
     }
 }

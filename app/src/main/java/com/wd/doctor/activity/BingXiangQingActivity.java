@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +19,7 @@ import com.wd.doctor.bean.FaPingLunBean;
 import com.wd.doctor.bean.SickCircleInfoBean;
 import com.wd.doctor.contract.BingXiangQingContract;
 import com.wd.doctor.presenter.BingXiangQingPresenter;
+import com.wd.doctor.view.HideIMEUtil;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -60,7 +62,17 @@ public class BingXiangQingActivity extends BaseActivity<BingXiangQingPresenter> 
     LinearLayout linnerPing;
     @BindView(R.id.shuru)
     LinearLayout shuru;
+    @BindView(R.id.sim_xiangqingzp)
+    SimpleDraweeView simXiangqingzp;
+    @BindView(R.id.recyxq_include)
+    RelativeLayout recyxqInclude;
+    @BindView(R.id.textHbi)
+    TextView textHbi;
     private SharedPreferences sp;
+    private int id;
+    private String s;
+    private int sickCircleId;
+    private int whetherContent;
 
     @Override
     protected BingXiangQingPresenter providePresenter() {
@@ -77,16 +89,18 @@ public class BingXiangQingActivity extends BaseActivity<BingXiangQingPresenter> 
     protected void initData() {
         super.initData();
         sp = getSharedPreferences("sp", Context.MODE_PRIVATE);
-        int id = sp.getInt("id", 0);
-        String s = sp.getString("s", null);
+        id = sp.getInt("id", 0);
+        s = sp.getString("s", null);
         Intent intent = getIntent();
-        int sickCircleId = intent.getIntExtra("sickCircleId", 0);
+        sickCircleId = intent.getIntExtra("sickCircleId", 0);
         mpresenter.onBingXiangQingPresenter(id + "", s, sickCircleId + "");
+
 
         butJieda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 shuru.setVisibility(View.VISIBLE);
+
             }
         });
 
@@ -94,35 +108,81 @@ public class BingXiangQingActivity extends BaseActivity<BingXiangQingPresenter> 
             @Override
             public void onClick(View view) {
                 String fb = etFindSickInfo.getText().toString();
-                mpresenter.onFaPingLunPresenter(id+"",s,sickCircleId+"",fb);
+                mpresenter.onFaPingLunPresenter(id + "", s, sickCircleId + "", fb);
+                shuru.setVisibility(View.GONE);
             }
         });
 
+
+        /*shuru.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (whetherContent == 1){
+                    recyxqInclude.setVisibility(View.VISIBLE);
+                    textHbi.setVisibility(View.GONE);
+                    butJieda.setVisibility(View.GONE);
+                }else if (whetherContent == 2){
+                    recyxqInclude.setVisibility(View.GONE);
+                    textHbi.setVisibility(View.VISIBLE);
+                    butJieda.setVisibility(View.VISIBLE);
+                }
+                etFindSickInfo.setVisibility(View.GONE);
+                HideIMEUtil.wrap(BingXiangQingActivity.this);
+            }
+        });*/
+
     }
+
 
     @Override
     public void onBingXiangQing(SickCircleInfoBean sickCircleInfoBean) {
-        //病友圈详情
-        SickCircleInfoBean.ResultBean result = sickCircleInfoBean.getResult();
-        textTitle.setText(result.getTitle());
-        textXm.setText(result.getAuthorName());
-        textBingzhneg.setText(result.getDisease());
-        textNeike.setText(result.getDepartmentName());
-        textXiangqing.setText(result.getTreatmentProcess());
-        textTiantan.setText(result.getDetail());
-        Date date = new Date(result.getTreatmentEndTime());
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        textRiqi.setText(simpleDateFormat.format(date));
-        textJingli.setText(result.getTreatmentHospital());
-        textPinglun.setText(result.getContent());
+
+        if (sickCircleInfoBean.getStatus().equals("0000")) {
+            //病友圈详情
+            SickCircleInfoBean.ResultBean result = sickCircleInfoBean.getResult();
+
+            if (result != null) {
+                /*whetherContent = result.getWhetherContent();
+                if (whetherContent == 1){
+                    recyxqInclude.setVisibility(View.VISIBLE);
+                    textHbi.setVisibility(View.GONE);
+                    butJieda.setVisibility(View.GONE);
+                }else if (whetherContent == 2){
+                    recyxqInclude.setVisibility(View.GONE);
+                    textHbi.setVisibility(View.VISIBLE);
+                    butJieda.setVisibility(View.VISIBLE);
+                }
+                recyxqInclude.setVisibility(View.GONE);
+                HideIMEUtil.wrap(BingXiangQingActivity.this);*/
+                textTitle.setText(result.getTitle());
+                textXm.setText(result.getAuthorName());
+                textBingzhneg.setText(result.getDisease());
+                textNeike.setText(result.getDepartmentName());
+                textXiangqing.setText(result.getTreatmentProcess());
+                textTiantan.setText(result.getDetail());
+                Date date = new Date(result.getTreatmentEndTime());
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                textRiqi.setText(simpleDateFormat.format(date));
+                textJingli.setText(result.getTreatmentHospital());
+                textPinglun.setText(result.getContent());
+                simXiangqingzp.setImageURI(result.getPicture());
+                textHbi.setText(result.getAmount()+"H币");
+            }
+        } else {
+            Toast.makeText(this, sickCircleInfoBean.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     @Override
     public void onFaPingLunSuccess(FaPingLunBean faPingLunBean) {
         //评论
-        if (faPingLunBean.getStatus().equals("0000")){
+        if (faPingLunBean.getStatus().equals("0000")) {
             Toast.makeText(this, "发表成功", Toast.LENGTH_SHORT).show();
-        }else {
+            mpresenter.onBingXiangQingPresenter(id + "", s, sickCircleId + "");
+        } else {
             Toast.makeText(this, faPingLunBean.getMessage(), Toast.LENGTH_SHORT).show();
         }
 

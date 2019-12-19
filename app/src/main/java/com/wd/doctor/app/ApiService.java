@@ -1,6 +1,7 @@
 package com.wd.doctor.app;
 
 import com.wd.doctor.bean.ApplyJoinBean;
+import com.wd.doctor.bean.BangYinHuangCardBean;
 import com.wd.doctor.bean.FaPingLunBean;
 import com.wd.doctor.bean.FindDepartmentBean;
 import com.wd.doctor.bean.FindDoctorByIdBean;
@@ -89,4 +90,11 @@ public interface ApiService {
     //http://172.17.8.100/health/doctor/sickCircle/verify/v1/publishComment?sickCircleId=22&content=真好
     @POST("health/doctor/sickCircle/verify/v1/publishComment")
     Observable<FaPingLunBean> getfapinglun(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId,@Query("sickCircleId") String sickCircleId,@Query("content") String content);
+
+    //绑定银行卡
+    //http://172.17.8.100/health/doctor/verify/v1/bindDoctorBankCard
+    @POST("health/doctor/verify/v1/bindDoctorBankCard")
+    Observable<BangYinHuangCardBean> getbangyinhangka(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId, @Query("bankCardNumber") String bankCardNumber, @Query("bankName") String bankName, @Query("bankCardType") String bankCardType);
+
+
 }

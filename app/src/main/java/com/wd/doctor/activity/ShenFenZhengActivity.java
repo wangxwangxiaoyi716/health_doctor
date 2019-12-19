@@ -1,7 +1,6 @@
 package com.wd.doctor.activity;
 
 import android.app.Dialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -20,23 +19,21 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class GuanLiActivity extends BaseActivity {
+public class ShenFenZhengActivity extends BaseActivity {
 
 
-    @BindView(R.id.img_zpys)
-    SimpleDraweeView imgZpys;
-    @BindView(R.id.text_zhiliao)
-    TextView textZhiliao;
-    @BindView(R.id.sim_wenzhen)
-    SimpleDraweeView simWenzhen;
-    @BindView(R.id.sim_qianbao)
-    SimpleDraweeView simQianbao;
-    @BindView(R.id.sim_jianyi)
-    SimpleDraweeView simJianyi;
-    @BindView(R.id.sim_xiaoxi)
-    SimpleDraweeView simXiaoxi;
-    @BindView(R.id.hui)
-    SimpleDraweeView hui;
+    @BindView(R.id.sim_fanhui_view)
+    SimpleDraweeView simFanhuiView;
+    @BindView(R.id.sim_xjsfz)
+    SimpleDraweeView simXj;
+    @BindView(R.id.text_paizhao)
+    TextView textPaizhao;
+    @BindView(R.id.text_paishe)
+    TextView textPaishe;
+    @BindView(R.id.button_next)
+    Button buttonNext;
+    @BindView(R.id.sim_pzsfz)
+    SimpleDraweeView simPzsfz;
     private Dialog dialog;
     private View mInflate;
 
@@ -47,28 +44,24 @@ public class GuanLiActivity extends BaseActivity {
 
     @Override
     protected int provideLayoutId() {
-        return R.layout.activity_guan_li;
+        return R.layout.activity_shen_fen_zheng;
     }
-
 
     @Override
     protected void initData() {
         super.initData();
-        imgZpys.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                show(view);
-            }
-        });
+
     }
 
 
     public void show(View view) {
         dialog = new Dialog(this, R.style.DialogTheme);
         //填充对话框的布局
-        mInflate = LayoutInflater.from(this).inflate(R.layout.genghuan, null);
+        mInflate = LayoutInflater.from(this).inflate(R.layout.set_shenfz, null);
         //初始化控件
-        //更换形象照
+        //相册
+        Button mAlbum = mInflate.findViewById(R.id.set_but_album);
+        //拍照
         Button mPic = mInflate.findViewById(R.id.set_but_pic);
         //取消
         Button mDiesmiss = mInflate.findViewById(R.id.set_but_dismiss);
@@ -80,12 +73,12 @@ public class GuanLiActivity extends BaseActivity {
                 dialog.dismiss();
             }
         });
-        //更换形象照
-        mPic.setOnClickListener(new View.OnClickListener() {
+        //相册
+        mAlbum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(GuanLiActivity.this, ImagePhotoActivity.class);
-                startActivity(intent);
+                /*Intent intent = new Intent(ShenFenZhengActivity.this, HuanImageActivity.class);
+                startActivity(intent);*/
                 dialog.dismiss();
             }
         });
@@ -110,6 +103,7 @@ public class GuanLiActivity extends BaseActivity {
         dialog.show();//显示对话框
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -117,30 +111,24 @@ public class GuanLiActivity extends BaseActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.hui, R.id.text_zhiliao, R.id.sim_wenzhen, R.id.sim_qianbao, R.id.sim_jianyi, R.id.sim_xiaoxi})
+    @OnClick({R.id.sim_fanhui_view, R.id.sim_xjsfz, R.id.sim_pzsfz, R.id.button_next})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.hui:
+            case R.id.sim_fanhui_view:
                 finish();
                 break;
-            case R.id.text_zhiliao:
-                Intent intent = new Intent(GuanLiActivity.this, ZhiLiaoActivity.class);
-                startActivity(intent);
+            case R.id.sim_xjsfz:
+                show(view);
                 break;
-            case R.id.sim_wenzhen:
+            case R.id.sim_pzsfz:
+                show(view);
                 break;
-            case R.id.sim_qianbao:
-                Intent intent1 = new Intent(GuanLiActivity.this, MoneyBaoActivity.class);
-                startActivity(intent1);
-                break;
-            case R.id.sim_jianyi:
-                Intent intent3 = new Intent(GuanLiActivity.this, ChaiNaActivity.class);
-                startActivity(intent3);
-                break;
-            case R.id.sim_xiaoxi:
-                Intent intent2 = new Intent(GuanLiActivity.this, HuiFuActivity.class);
-                startActivity(intent2);
+            case R.id.button_next:
                 break;
         }
+    }
+
+    @OnClick(R.id.sim_pzsfz)
+    public void onViewClicked() {
     }
 }

@@ -50,6 +50,7 @@
             <EditText
                 android:id="@+id/new_email1"
                 android:layout_width="220dp"
+                android:inputType="number"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="14dp"
                 android:hint="请设置新密码"
@@ -78,6 +79,7 @@
                 android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="14dp"
+                android:inputType="number"
                 android:hint="请再次确认密码"
                 android:textSize="14sp" />
 

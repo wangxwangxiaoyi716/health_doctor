@@ -9,10 +9,13 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.bw.movie.base.BaseActivity;
 import com.bw.movie.base.BasePresenter;
+import com.bw.movie.utils.SPUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.R;
 
@@ -24,7 +27,7 @@ public class GuanLiActivity extends BaseActivity {
 
 
     @BindView(R.id.img_zpys)
-    SimpleDraweeView imgZpys;
+    ImageView imgZpys;
     @BindView(R.id.text_zhiliao)
     TextView textZhiliao;
     @BindView(R.id.sim_wenzhen)
@@ -60,6 +63,15 @@ public class GuanLiActivity extends BaseActivity {
                 show(view);
             }
         });
+
+
+        SPUtils zp = new SPUtils(GuanLiActivity.this, "zp");
+        String path = zp.getString("path");
+        if (path != null){
+            Glide.with(this).load(path)
+                    .into(imgZpys);
+        }
+
     }
 
 

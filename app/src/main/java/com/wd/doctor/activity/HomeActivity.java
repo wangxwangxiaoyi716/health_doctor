@@ -5,11 +5,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.bw.movie.base.BaseActivity;
+import com.bw.movie.utils.SPUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.R;
 import com.wd.doctor.bean.FindDepartmentBean;
@@ -29,7 +32,7 @@ public class HomeActivity extends BaseActivity<HomePresenter> implements HomeCon
     @BindView(R.id.text_dayi)
     TextView textDayi;
     @BindView(R.id.sim_doclor)
-    SimpleDraweeView simDoclor;
+    ImageView simDoclor;
     @BindView(R.id.text_name)
     TextView textName;
     @BindView(R.id.text_dzyiyuan)
@@ -75,6 +78,14 @@ public class HomeActivity extends BaseActivity<HomePresenter> implements HomeCon
                 startActivity(intent9);
             }
         });
+
+
+        SPUtils zp = new SPUtils(HomeActivity.this, "zp");
+        String path = zp.getString("path");
+        if (path != null){
+            Glide.with(this).load(path)
+                    .into(simDoclor);
+        }
 
     }
 

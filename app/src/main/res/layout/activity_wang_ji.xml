@@ -15,7 +15,6 @@
         android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/fanhui"
-            android:padding="10dp"
             android:src="@mipmap/common_icon_back_white_n"
             android:layout_marginLeft="30dp"
             android:layout_width="16dp"
@@ -51,6 +50,7 @@
                 android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="14dp"
+                android:inputType="number"
                 android:hint="请输入邮箱账号"
                 android:textSize="14sp" />
             <CheckBox
@@ -82,6 +82,7 @@
                 android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="14dp"
+                android:inputType="number"
                 android:hint="请输入验证码"
                 android:textSize="14sp" />
         </RelativeLayout>

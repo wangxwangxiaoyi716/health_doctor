@@ -27,7 +27,7 @@
         <ImageView
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:background="@mipmap/my_icon_camera_n"
+            android:src="@mipmap/my_icon_camera_n"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
             android:id="@+id/sim_pzimag"

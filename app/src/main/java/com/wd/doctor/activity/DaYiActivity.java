@@ -51,7 +51,7 @@ public class DaYiActivity extends BaseActivity<HomePresenter> implements HomeCon
     protected void initData() {
         super.initData();
         mpresenter.onFindDepartMentPresenter();
-        /*mpresenter.onFindSickCircleListPresenter("1", "1", "5");*/
+
     }
 
     @Override
@@ -95,47 +95,12 @@ public class DaYiActivity extends BaseActivity<HomePresenter> implements HomeCon
         tabLayout.setupWithViewPager(viewPage);
         viewPage.setOffscreenPageLimit(list.size());
 
-
-
-
-        /*if (findDepartmentBean.getStatus().equals("0000")) {
-            //科室列表
-            List<FindDepartmentBean.ResultBean> result = findDepartmentBean.getResult();
-            if (result != null){
-                FindDePartMentAdapter findDePartMentAdapter = new FindDePartMentAdapter(DaYiActivity.this, result);
-                revyKeshi.setAdapter(findDePartMentAdapter);
-                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(DaYiActivity.this);
-                linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
-                revyKeshi.setLayoutManager(linearLayoutManager);
-
-                findDePartMentAdapter.setSetOnclickListener(new FindDePartMentAdapter.SetOnclickListener() {
-                    @Override
-                    public void click(int id) {
-                        mpresenter.onFindSickCircleListPresenter(id + "", "1", "5");
-                    }
-                });
-            }
-        } else {
-            Toast.makeText(this, findDepartmentBean.getMessage(), Toast.LENGTH_SHORT).show();
-        }*/
-
     }
 
     @Override
     public void onFindSickCircleListSuccess(FindSickCircleListBean findSickCircleListBean) {
 
-        /*if (findSickCircleListBean.getStatus().equals("0000")){
-            //病圈列表
-            List<FindSickCircleListBean.ResultBean> result = findSickCircleListBean.getResult();
-            if (result != null){
-                FindSickCircleListAdapter findSickCircleListAdapter = new FindSickCircleListAdapter(DaYiActivity.this, result);
-                revyTiaomu.setAdapter(findSickCircleListAdapter);
-                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(DaYiActivity.this);
-                revyTiaomu.setLayoutManager(linearLayoutManager);
-            }
-        }else {
-            Toast.makeText(this, findSickCircleListBean.getMessage(), Toast.LENGTH_SHORT).show();
-        }*/
+
 
 
     }

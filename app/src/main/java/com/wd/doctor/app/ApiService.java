@@ -1,5 +1,6 @@
 package com.wd.doctor.app;
 
+import com.facebook.drawee.backends.pipeline.info.ImageOrigin;
 import com.wd.doctor.bean.ApplyJoinBean;
 import com.wd.doctor.bean.BangYinHuangCardBean;
 import com.wd.doctor.bean.FaPingLunBean;
@@ -10,18 +11,22 @@ import com.wd.doctor.bean.FindSickCircleListBean;
 import com.wd.doctor.bean.LoginBean;
 import com.wd.doctor.bean.SearchSickCircleBean;
 import com.wd.doctor.bean.SendEmailCodeBean;
+import com.wd.doctor.bean.ShangChuanBean;
 import com.wd.doctor.bean.SickCircleInfoBean;
 import com.wd.doctor.bean.XiTongZhaoBean;
 
 import java.util.Map;
 
 import io.reactivex.Observable;
+import okhttp3.MultipartBody;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.Query;
 
 /*
@@ -84,8 +89,6 @@ public interface ApiService {
     @GET("health/doctor/v1/findSystemImagePic")
     Observable<XiTongZhaoBean> getxtzp();
 
-
-
     //发表评论
     //http://172.17.8.100/health/doctor/sickCircle/verify/v1/publishComment?sickCircleId=22&content=真好
     @POST("health/doctor/sickCircle/verify/v1/publishComment")
@@ -95,6 +98,13 @@ public interface ApiService {
     //http://172.17.8.100/health/doctor/verify/v1/bindDoctorBankCard
     @POST("health/doctor/verify/v1/bindDoctorBankCard")
     Observable<BangYinHuangCardBean> getbangyinhangka(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId, @Query("bankCardNumber") String bankCardNumber, @Query("bankName") String bankName, @Query("bankCardType") String bankCardType);
+
+
+    //绑定银行卡
+    //http://172.17.8.100/health/doctor/verify/v1/uploadImagePic
+    @POST("health/doctor/verify/v1/uploadImagePic")
+    @Multipart
+    Observable<ShangChuanBean> getshangchuan(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId, @Part MultipartBody.Part imagePic);
 
 
 }

@@ -32,13 +32,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.facebook.drawee.view.SimpleDraweeView
+        <ImageView
             android:layout_width="350dp"
             android:layout_height="260dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
+            android:src="@mipmap/image1"
             android:id="@+id/img_zpys"
-            android:background="@mipmap/image1" />
+            />
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:layout_width="13dp"

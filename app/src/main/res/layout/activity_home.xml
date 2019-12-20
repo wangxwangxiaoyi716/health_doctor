@@ -130,11 +130,11 @@
         android:layout_height="150dp">
 
 
-        <com.facebook.drawee.view.SimpleDraweeView
+        <ImageView
             android:layout_width="105dp"
             android:layout_height="130dp"
             android:layout_marginTop="10dp"
-            android:background="@mipmap/system_image7"
+            android:src="@mipmap/system_image7"
             android:layout_marginLeft="10dp"
             android:id="@+id/sim_doclor"
             />

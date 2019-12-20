@@ -41,6 +41,7 @@
             android:id="@+id/tab_layout"
             app:tabMode="scrollable"
             app:tabGravity="fill"
+            app:tabIndicatorHeight="0dp"
             app:tabSelectedTextColor="#3087ea"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="60dp"

@@ -1,5 +1,6 @@
 package com.wd.doctor.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -55,6 +56,8 @@ public class XiuGaiActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.next2:
+                Intent intent = new Intent(XiuGaiActivity.this, DengActivity.class);
+                startActivity(intent);
                 break;
         }
     }

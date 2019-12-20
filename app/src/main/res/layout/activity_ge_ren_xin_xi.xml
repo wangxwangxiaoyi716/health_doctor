@@ -32,12 +32,21 @@
             android:textSize="16dp"
             android:layout_marginLeft="30dp"
             />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*请填写正确的信息有助于快速通过审核"
+            android:layout_marginTop="10dp"
+            android:textColor="#f00"
+            android:textSize="10dp"
+            android:layout_marginLeft="30dp"
+            />
 
     </LinearLayout>
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -55,10 +64,14 @@
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:inputType="text"
+                android:hint="请输入姓名"
+                android:textSize="12sp"
+                android:paddingLeft="10dp"
                 android:background="@drawable/login_shape"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:id="@+id/ed_ruzhuyx"
+                android:id="@+id/ed_xm"
                 />
 
         </RelativeLayout>
@@ -86,10 +99,14 @@
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:inputType="text"
+                android:hint="请输入您所在医院"
+                android:paddingLeft="15dp"
+                android:textSize="12sp"
                 android:background="@drawable/login_shape"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:id="@+id/ed_ruzhuyzm"
+                android:id="@+id/ed_yi"
                 />
 
 
@@ -121,10 +138,11 @@
                 android:background="@drawable/login_shape"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:text="儿科"
+                android:inputType="text"
+                android:hint="请输入您所在的科室"
                 android:textSize="12sp"
                 android:paddingLeft="14dp"
-                android:id="@+id/ed_ruzhupwd"
+                android:id="@+id/ed_mm1"
                 />
 
             <com.facebook.drawee.view.SimpleDraweeView
@@ -161,12 +179,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:paddingLeft="14dp"
-                android:text="主任医师"
                 android:textSize="12sp"
+                android:inputType="text"
+                android:hint="请输入您的职称"
                 android:background="@drawable/login_shape"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:id="@+id/ed_ruzhupwd2"
+                android:id="@+id/ed_mm2"
                 />
             <com.facebook.drawee.view.SimpleDraweeView
                 android:layout_width="16dp"
@@ -188,7 +207,7 @@
         android:id="@+id/but_netgeren"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:textColor="#ffff"
         android:text="下一步"
         android:textSize="16sp"

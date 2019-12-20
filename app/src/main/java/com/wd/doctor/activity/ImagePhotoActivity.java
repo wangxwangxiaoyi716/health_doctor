@@ -2,10 +2,13 @@ package com.wd.doctor.activity;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,9 +23,13 @@ import com.bumptech.glide.Glide;
 import com.bw.movie.ToastUtils;
 import com.bw.movie.base.BaseActivity;
 import com.bw.movie.base.BasePresenter;
+import com.bw.movie.utils.SPUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.HuanImageActivity;
 import com.wd.doctor.R;
+import com.wd.doctor.bean.ShangChuanBean;
+import com.wd.doctor.contract.ShangChuanContract;
+import com.wd.doctor.presenter.ShangChuanPresenter;
 import com.wd.doctor.view.ImageUtil;
 
 import java.io.File;
@@ -34,8 +41,8 @@ import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 
-public class ImagePhotoActivity extends BaseActivity {
-
+public class ImagePhotoActivity extends BaseActivity<ShangChuanPresenter> implements ShangChuanContract.Iview {
+    public static final String TAG = "ImagePhotoActivity";
     @BindView(R.id.sim_pzimag)
     ImageView simPz;
     @BindView(R.id.xxz)
@@ -45,10 +52,13 @@ public class ImagePhotoActivity extends BaseActivity {
     private Dialog dialog;
     private View mInflate;
     private MultipartBody.Part picture;
+    private SharedPreferences sp;
+    private SharedPreferences zp;
+
 
     @Override
-    protected BasePresenter providePresenter() {
-        return null;
+    protected ShangChuanPresenter providePresenter() {
+        return new ShangChuanPresenter();
     }
 
     @Override
@@ -65,6 +75,30 @@ public class ImagePhotoActivity extends BaseActivity {
                 show(view);
             }
         });
+
+        sp = getSharedPreferences("sp", Context.MODE_PRIVATE);
+        int id = sp.getInt("id", 0);
+        String s = sp.getString("s", null);
+        mpresenter.onShangChuanPresenter(id+"",s,picture);
+
+
+
+    }
+
+    @Override
+    public void onShangChuanSuccess(ShangChuanBean shangChuanBean) {
+        Log.d(TAG, "onShangChuanSuccess: "+shangChuanBean.getMessage());
+        if (shangChuanBean.getStatus().equals("0000")){
+            Toast.makeText(this, "上传成功", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(this, shangChuanBean.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    @Override
+    public void onShangChuanFliuse(String e) {
+
     }
 
 
@@ -145,8 +179,11 @@ public class ImagePhotoActivity extends BaseActivity {
             if (resultCode == Activity.RESULT_OK) {
                 Uri uri = data.getData();
                 if (uri != null) {
+
                     //用一个工具类获取图片的绝对路径,我会粘到下方
                     String path = ImageUtil.getPath(ImagePhotoActivity.this, uri);
+                    SPUtils zp = new SPUtils(ImagePhotoActivity.this, "zp");
+                    zp.putString("path",path);
                     Glide.with(this).load(path)
                             .into(simPz);
                     if (path != null) {
@@ -173,5 +210,8 @@ public class ImagePhotoActivity extends BaseActivity {
 
     @OnClick(R.id.buton_wcsz)
     public void onViewClicked() {
+        finish();
     }
+
+
 }

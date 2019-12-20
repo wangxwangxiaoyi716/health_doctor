@@ -9,6 +9,9 @@ import com.bw.movie.base.BaseActivity;
 import com.bw.movie.base.BasePresenter;
 import com.wd.doctor.R;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -16,16 +19,16 @@ import butterknife.OnClick;
 public class GeRenXinXiActivity extends BaseActivity {
 
 
-    @BindView(R.id.ed_ruzhuyx)
-    EditText edRuzhuyx;
-    @BindView(R.id.ed_ruzhuyzm)
-    EditText edRuzhuyzm;
-    @BindView(R.id.ed_ruzhupwd)
-    EditText edRuzhupwd;
-    @BindView(R.id.ed_ruzhupwd2)
-    EditText edRuzhupwd2;
     @BindView(R.id.but_netgeren)
     Button butNetgeren;
+    @BindView(R.id.ed_xm)
+    EditText edXm;
+    @BindView(R.id.ed_yi)
+    EditText edYi;
+    @BindView(R.id.ed_mm1)
+    EditText edMm1;
+    @BindView(R.id.ed_mm2)
+    EditText edMm2;
 
     @Override
     protected BasePresenter providePresenter() {
@@ -38,6 +41,12 @@ public class GeRenXinXiActivity extends BaseActivity {
     }
 
     @Override
+    protected void initData() {
+        super.initData();
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation
@@ -46,7 +55,7 @@ public class GeRenXinXiActivity extends BaseActivity {
 
     @OnClick(R.id.but_netgeren)
     public void onViewClicked() {
-        Intent intent = new Intent(GeRenXinXiActivity.this, ShenQingActivity.class);
+        Intent intent = new Intent(GeRenXinXiActivity.this, RuZhuActivity.class);
         startActivity(intent);
     }
 }

@@ -88,7 +88,7 @@ public class RuZhuActivity extends BaseActivity<RuZhuPresenter> implements RuZhu
                 if (yx.isEmpty() || hqyzm.isEmpty() || pwd1.isEmpty() || pwd2.isEmpty()){
                     Toast.makeText(this, "邮箱，验证码，密码，再次确认密码，不可以为空", Toast.LENGTH_SHORT).show();
                 }else {
-                    Intent intent = new Intent(RuZhuActivity.this, GeRenXinXiActivity.class);
+                    Intent intent = new Intent(RuZhuActivity.this, ShenQingActivity.class);
                     startActivity(intent);
                 }
 

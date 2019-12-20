@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="为您设置一张证件照吧"
+        android:textColor="@color/colorAccent3"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="30dp"
+        />
+
+    <RelativeLayout
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="320dp">
+
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@mipmap/my_icon_camera_n"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:id="@+id/sim_pzimag"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="自定义形象照"
+            android:textSize="12sp"
+            android:id="@+id/xxz"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/sim_pzimag"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="让你形象独一无二"
+            android:textSize="12sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/xxz"
+            />
+
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="360dp"
+            android:layout_height="120dp"
+            android:background="@mipmap/according_to_the_image"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            />
+    </RelativeLayout>
+
+
+    <Button
+        android:layout_marginTop="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_kuang"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:textColor="@color/bai2"
+        android:textSize="14sp"
+        android:text="完成设置"
+        android:id="@+id/buton_wcsz"
+        />
+
+</LinearLayout>

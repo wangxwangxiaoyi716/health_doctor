@@ -18,7 +18,6 @@
         <activity android:name=".activity.YinHangKaActivity"></activity>
         <activity android:name=".activity.ShenFenZhengActivity" />
         <activity android:name=".activity.BangDingActivity" />
-        <activity android:name=".HuanImageActivity" />
         <activity android:name=".activity.ImagePhotoActivity" />
         <activity android:name=".activity.ChaiNaActivity" />
         <activity android:name=".activity.HuiFuActivity" />

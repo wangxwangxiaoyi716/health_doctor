@@ -7,74 +7,45 @@
     android:layout_height="match_parent"
     tools:context=".activity.ImagePhotoActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:text="为您设置一张证件照吧"
-        android:textColor="@color/colorAccent3"
-        android:layout_marginTop="70dp"
-        android:layout_marginLeft="30dp"
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="9"
+        android:id="@+id/view_ge"
         />
 
-    <RelativeLayout
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="70dp"
-        android:layout_width="match_parent"
-        android:layout_height="320dp">
-
-        <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:src="@mipmap/my_icon_camera_n"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="40dp"
-            android:id="@+id/sim_pzimag"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="自定义形象照"
-            android:textSize="12sp"
-            android:id="@+id/xxz"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
-            android:layout_below="@id/sim_pzimag"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="让你形象独一无二"
-            android:textSize="12sp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
-            android:layout_below="@id/xxz"
-            />
-
-
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:layout_width="360dp"
-            android:layout_height="120dp"
-            android:background="@mipmap/according_to_the_image"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            />
-    </RelativeLayout>
-
-
-    <Button
-        android:layout_marginTop="60dp"
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_kuang"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:textColor="@color/bai2"
-        android:textSize="14sp"
-        android:text="完成设置"
-        android:id="@+id/buton_wcsz"
-        />
+        >
+
+        <RadioButton
+            android:id="@+id/radio_but01"
+            android:layout_weight="1"
+            android:button="@null"
+            android:text="系统"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:id="@+id/radio_but02"
+            android:layout_weight="1"
+            android:button="@null"
+            android:text="上传"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RadioGroup>
+
+
 
 </LinearLayout>

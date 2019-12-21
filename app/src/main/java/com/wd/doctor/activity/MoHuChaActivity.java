@@ -1,13 +1,19 @@
 package com.wd.doctor.activity;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bw.movie.ToastUtils;
+import com.bw.movie.app.App;
 import com.bw.movie.base.BaseActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.R;
@@ -36,8 +42,6 @@ public class MoHuChaActivity extends BaseActivity<MoHuChaPresenter> implements M
     RecyclerView recyModainying;
     @BindView(R.id.include_img)
     SimpleDraweeView includeImg;
-    @BindView(R.id.include_text)
-    TextView includeText;
     @BindView(R.id.include_mao)
     RelativeLayout includeRelate;
 
@@ -51,24 +55,55 @@ public class MoHuChaActivity extends BaseActivity<MoHuChaPresenter> implements M
         return R.layout.activity_mo_hu_cha;
     }
 
+    @Override
+    protected void initData() {
+        super.initData();
+
+        edMohucha.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+
+            @Override
+            public boolean onEditorAction(TextView v, int actionId,
+                                          KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    // 先隐藏键盘
+                    ((InputMethodManager) App.getAppContext()
+                            .getSystemService(Context.INPUT_METHOD_SERVICE))
+                            .hideSoftInputFromWindow(MoHuChaActivity.this
+                                            .getCurrentFocus().getWindowToken(),
+                                    InputMethodManager.HIDE_NOT_ALWAYS);
+                    if (edMohucha.getText().toString().isEmpty()) {
+                        ToastUtils.show("搜索栏不能为空！");
+                    } else {
+
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
+    }
+
 
     @Override
     public void onMoHuChaSuccess(SearchSickCircleBean searchSickCircleBean) {
         //模糊查询
-        if (searchSickCircleBean.getStatus().equals("0000")){
+        if (searchSickCircleBean.getStatus().equals("0000")) {
             List<SearchSickCircleBean.ResultBean> result = searchSickCircleBean.getResult();
-            if (result != null){
-                recyModainying.setVisibility(View.VISIBLE);
-                includeRelate.setVisibility(View.GONE);
-                MoHuChaXunAdapter moHuChaXunAdapter = new MoHuChaXunAdapter(MoHuChaActivity.this,result);
-                recyModainying.setAdapter(moHuChaXunAdapter);
-                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MoHuChaActivity.this);
-                recyModainying.setLayoutManager(linearLayoutManager);
-            }else {
-                recyModainying.setVisibility(View.GONE);
-                includeRelate.setVisibility(View.VISIBLE);
+            if (result != null) {
+                if (result.isEmpty()) {
+                    recyModainying.setVisibility(View.GONE);
+                    includeRelate.setVisibility(View.VISIBLE);
+                } else {
+                    recyModainying.setVisibility(View.VISIBLE);
+                    includeRelate.setVisibility(View.GONE);
+                    MoHuChaXunAdapter moHuChaXunAdapter = new MoHuChaXunAdapter(MoHuChaActivity.this, result);
+                    recyModainying.setAdapter(moHuChaXunAdapter);
+                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MoHuChaActivity.this);
+                    recyModainying.setLayoutManager(linearLayoutManager);
+                }
             }
-        }else {
+
+        } else {
             Toast.makeText(this, searchSickCircleBean.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
@@ -94,6 +129,16 @@ public class MoHuChaActivity extends BaseActivity<MoHuChaPresenter> implements M
             case R.id.but_bingquanshou:
                 String mohu = edMohucha.getText().toString();
                 mpresenter.onMoHuChaPresenter(mohu);
+                if (mohu != null) {
+                    includeRelate.setVisibility(View.GONE);
+                    recyModainying.setVisibility(View.VISIBLE);
+                } else {
+                    recyModainying.setVisibility(View.GONE);
+                    includeRelate.setVisibility(View.VISIBLE);
+
+
+                }
+
                 break;
         }
     }

@@ -3,6 +3,7 @@ package com.wd.doctor.app;
 import com.facebook.drawee.backends.pipeline.info.ImageOrigin;
 import com.wd.doctor.bean.ApplyJoinBean;
 import com.wd.doctor.bean.BangYinHuangCardBean;
+import com.wd.doctor.bean.DectorMomeyBean;
 import com.wd.doctor.bean.FaPingLunBean;
 import com.wd.doctor.bean.FindDepartmentBean;
 import com.wd.doctor.bean.FindDoctorByIdBean;
@@ -100,11 +101,15 @@ public interface ApiService {
     Observable<BangYinHuangCardBean> getbangyinhangka(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId, @Query("bankCardNumber") String bankCardNumber, @Query("bankName") String bankName, @Query("bankCardType") String bankCardType);
 
 
-    //绑定银行卡
-    //http://172.17.8.100/health/doctor/verify/v1/uploadImagePic
+    //图片上传
+    // http://172.17.8.100/health/doctor/verify/v1/uploadImagePic
     @POST("health/doctor/verify/v1/uploadImagePic")
     @Multipart
     Observable<ShangChuanBean> getshangchuan(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId, @Part MultipartBody.Part imagePic);
 
+    //医生钱包
+    //http://172.17.8.100/health/doctor/verify/v1/findDoctorWallet
+    @GET("health/doctor/verify/v1/findDoctorWallet")
+    Observable<DectorMomeyBean> getyishengmoney(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId);
 
 }

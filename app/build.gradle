@@ -71,6 +71,10 @@ dependencies {
     implementation 'com.dyhdyh.support:glide:1.0.0'
     //普通Xbanner版本依赖
     implementation 'com.github.xiaohaibin:XBanner:1.7.0'
+    //Recycleview刷新效果依赖
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
+    //没有使用特殊Header和Footer，可以不加下面这行
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-14'
 
 
 

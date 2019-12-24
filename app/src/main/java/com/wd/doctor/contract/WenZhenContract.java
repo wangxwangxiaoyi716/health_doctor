@@ -3,6 +3,7 @@ package com.wd.doctor.contract;
 import com.bw.movie.base.BaseView;
 import com.wd.doctor.bean.FindInquiryRecordListBean;
 import com.wd.doctor.bean.SickCircleInfoBean;
+import com.wd.doctor.bean.WenZhenLeiBiaoBean;
 
 /*
  *@auther:王晓义
@@ -12,7 +13,7 @@ import com.wd.doctor.bean.SickCircleInfoBean;
  **/
 public interface WenZhenContract {
     interface Iview extends BaseView {
-        void onWenZhenSuccess(FindInquiryRecordListBean findInquiryRecordListBean);
+        void onWenZhenSuccess(WenZhenLeiBiaoBean wenZhenLeiBiaoBean);
         void onWenZhenFiuse(String e);
     }
 
@@ -20,7 +21,7 @@ public interface WenZhenContract {
     interface Imodel{
         void onWenZhenModel(String doctorId,String sessionId,IMtroWork iMtroWork);
         interface IMtroWork{
-            void onWenZhenSuccess(FindInquiryRecordListBean findInquiryRecordListBean);
+            void onWenZhenSuccess(WenZhenLeiBiaoBean wenZhenLeiBiaoBean);
             void onWenZhenFiuse(String resultes);
         }
     }

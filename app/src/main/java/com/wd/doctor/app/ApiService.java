@@ -13,7 +13,9 @@ import com.wd.doctor.bean.LoginBean;
 import com.wd.doctor.bean.SearchSickCircleBean;
 import com.wd.doctor.bean.SendEmailCodeBean;
 import com.wd.doctor.bean.ShangChuanBean;
+import com.wd.doctor.bean.ShenFenZhengBean;
 import com.wd.doctor.bean.SickCircleInfoBean;
+import com.wd.doctor.bean.WenZhenLeiBiaoBean;
 import com.wd.doctor.bean.XiTongZhaoBean;
 
 import java.util.Map;
@@ -25,6 +27,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
@@ -77,7 +80,7 @@ public interface ApiService {
     //查询医生的问诊记录列表
     //http://172.17.8.100/health/doctor/inquiry/verify/v1/findInquiryRecordList
     @GET("health/doctor/inquiry/verify/v1/findInquiryRecordList")
-    Observable<FindInquiryRecordListBean> getwenzhenlei(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId);
+    Observable<WenZhenLeiBiaoBean> getwenzhenlei(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId);
 
 
     //申请入驻
@@ -111,5 +114,12 @@ public interface ApiService {
     //http://172.17.8.100/health/doctor/verify/v1/findDoctorWallet
     @GET("health/doctor/verify/v1/findDoctorWallet")
     Observable<DectorMomeyBean> getyishengmoney(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId);
+
+
+    //绑定身份证
+    //http://172.17.8.100/health/doctor/verify/v1/bindDoctorIdCard
+    @POST("health/doctor/verify/v1/bindDoctorIdCard")
+    @Headers({"Content-Type: application/json","Accept: application/json"})
+    Observable<ShenFenZhengBean> getshenfenzheng(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId, @Body Map<String,Object> BodyMap);
 
 }

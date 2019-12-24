@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:clickable="true"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#E4E7E8"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="6dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="6dp">
+
+        <ImageView
+            android:id="@+id/sim_yuyin"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginRight="10dp"
+            android:clickable="true"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/common_icon_voice_n" />
+
+        <EditText
+            android:id="@+id/ed_liaotian"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#ffff"
+            android:maxLines="3"
+            android:minHeight="36dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/voice_text"
+            style="@style/text_subhead_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/corners_edit"
+            android:gravity="center"
+            android:minHeight="36dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="按住说话"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/sim_biaoqing"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginLeft="10dp"
+            android:clickable="true"
+            android:src="@mipmap/common_icon_expression_n" />
+
+        <ImageView
+            android:id="@+id/sim_liaotianzp"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginLeft="10dp"
+            android:clickable="true"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/common_icon_picture_n" />
+        <ImageView
+            android:id="@+id/emotion_fa"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginLeft="10dp"
+            android:clickable="true"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/common_icon_send_n"
+            android:visibility="gone"
+            />
+
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

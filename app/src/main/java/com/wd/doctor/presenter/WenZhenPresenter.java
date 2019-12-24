@@ -2,6 +2,7 @@ package com.wd.doctor.presenter;
 
 import com.bw.movie.base.BasePresenter;
 import com.wd.doctor.bean.FindInquiryRecordListBean;
+import com.wd.doctor.bean.WenZhenLeiBiaoBean;
 import com.wd.doctor.contract.WenZhenContract;
 import com.wd.doctor.model.WenZhenModel;
 
@@ -24,8 +25,8 @@ public class WenZhenPresenter extends BasePresenter<WenZhenContract.Iview> imple
     public void onWenZhenPresenter(String doctorId, String sessionId) {
         wenZhenModel.onWenZhenModel(doctorId, sessionId, new WenZhenContract.Imodel.IMtroWork() {
             @Override
-            public void onWenZhenSuccess(FindInquiryRecordListBean findInquiryRecordListBean) {
-                getView().onWenZhenSuccess(findInquiryRecordListBean);
+            public void onWenZhenSuccess(WenZhenLeiBiaoBean wenZhenLeiBiaoBean) {
+                getView().onWenZhenSuccess(wenZhenLeiBiaoBean);
             }
 
             @Override

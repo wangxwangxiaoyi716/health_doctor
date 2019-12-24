@@ -32,82 +32,137 @@
             />
     </RelativeLayout>
 
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+       <com.facebook.drawee.view.SimpleDraweeView
+           android:layout_width="16dp"
+           android:layout_height="16dp"
+           android:id="@+id/sim_shanchu"
+           android:visibility="gone"
+           android:background="@mipmap/common_icon_delete"
+           android:layout_alignParentRight="true"
+          android:layout_marginTop="40dp"
+           android:layout_marginRight="30dp"
+           />
+
+       <RelativeLayout
+           android:id="@+id/linearIdCardFront"
+           android:layout_marginTop="40dp"
+           android:layout_width="260dp"
+           android:background="@drawable/senfen_bian"
+           android:layout_marginLeft="50dp"
+           android:layout_marginRight="50dp"
+           android:layout_height="160dp">
+
+
+
+           <com.facebook.drawee.view.SimpleDraweeView
+               android:layout_width="290dp"
+               android:layout_height="160dp"
+               android:background="@mipmap/id_card_front"
+               />
+
+           <com.facebook.drawee.view.SimpleDraweeView
+               android:layout_width="64dp"
+               android:layout_height="64dp"
+               android:background="@mipmap/my_icon_camera_n"
+               android:layout_centerVertical="true"
+               android:layout_centerHorizontal="true"
+               android:id="@+id/sim_xjsfz"
+               />
+           <ImageView
+               android:id="@+id/imgIdCardFront"
+               android:visibility="gone"
+               android:layout_width="260dp"
+               android:layout_height="160dp"/>
+
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_centerVertical="true"
+               android:layout_below="@id/sim_xjsfz"
+               android:layout_marginTop="10dp"
+               android:layout_centerHorizontal="true"
+               android:text="点击拍摄/上传人像面"
+               android:textColor="@color/colorAccent3"
+               android:textSize="14sp"
+               android:id="@+id/text_paizhao"
+               />
+
+
+       </RelativeLayout>
+
+   </RelativeLayout>
+
+
     <RelativeLayout
-        android:layout_marginTop="40dp"
-        android:layout_width="260dp"
-        android:background="@drawable/senfen_bian"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_height="160dp">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <com.facebook.drawee.view.SimpleDraweeView
-            android:layout_width="290dp"
-            android:layout_height="160dp"
-            android:background="@mipmap/id_card_front"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:id="@+id/sim_delete"
+            android:visibility="gone"
+            android:background="@mipmap/common_icon_delete"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
             />
 
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:background="@mipmap/my_icon_camera_n"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/sim_xjsfz"
-            />
+        <RelativeLayout
+            android:id="@+id/linearIdCardBack"
+            android:layout_marginTop="20dp"
+            android:layout_width="260dp"
+            android:background="@drawable/senfen_bian"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_height="160dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_below="@id/sim_xjsfz"
-            android:layout_marginTop="10dp"
-            android:layout_centerHorizontal="true"
-            android:text="点击拍摄/上传人像面"
-            android:textColor="@color/colorAccent3"
-            android:textSize="14sp"
-            android:id="@+id/text_paizhao"
-            />
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:layout_width="290dp"
+                android:layout_height="160dp"
+                android:background="@mipmap/id_card_back"
+                />
 
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@mipmap/my_icon_camera_n"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/sim_pzsfz"
+                />
+            <ImageView
+                android:id="@+id/imgIdCardBack"
+                android:visibility="gone"
+                android:layout_width="260dp"
+                android:layout_height="160dp"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_below="@id/sim_pzsfz"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:text="点击拍摄/上传国徽面"
+                android:textColor="@color/colorAccent3"
+                android:textSize="14sp"
+                android:id="@+id/text_paishe"
+                />
+
+        </RelativeLayout>
 
     </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_marginTop="20dp"
-        android:layout_width="260dp"
-        android:background="@drawable/senfen_bian"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_height="160dp">
 
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:layout_width="290dp"
-            android:layout_height="160dp"
-            android:background="@mipmap/id_card_back"
-            />
 
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:background="@mipmap/my_icon_camera_n"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/sim_pzsfz"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_below="@id/sim_pzsfz"
-            android:layout_marginTop="10dp"
-            android:layout_centerHorizontal="true"
-            android:text="点击拍摄/上传国徽面"
-            android:textColor="@color/colorAccent3"
-            android:textSize="14sp"
-            android:id="@+id/text_paishe"
-            />
-
-    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -125,6 +180,20 @@
             android:layout_marginTop="50dp"
             android:background="@drawable/button_corners_blue"
             android:id="@+id/button_next"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:textColor="@color/bai"
+            android:text="确定"
+            android:visibility="gone"
+            android:layout_marginBottom="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/button_corners_blue"
+            android:id="@+id/button_quedingshow"
             />
 
     </RelativeLayout>

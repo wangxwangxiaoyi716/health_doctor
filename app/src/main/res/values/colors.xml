@@ -10,4 +10,6 @@
     <color name="bai2">#FCFCFC</color>
     <color name="fan">#783ece</color>
     <color name="bule">#3087EA</color>
+    <color name="text_title">#1b1b1b</color>
+    <color name="divider_line">#d9d9d9</color>
 </resources>

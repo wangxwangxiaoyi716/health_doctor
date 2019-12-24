@@ -10,10 +10,15 @@ import android.widget.Toast;
 import com.bw.movie.base.BaseActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.R;
+import com.wd.doctor.adapter.WhenZhenLeiBiaoAdapter;
 import com.wd.doctor.bean.FindInquiryRecordListBean;
+import com.wd.doctor.bean.WenZhenLeiBiaoBean;
 import com.wd.doctor.contract.WenZhenContract;
 import com.wd.doctor.presenter.WenZhenPresenter;
 
+import java.util.List;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,10 +30,6 @@ public class WenZhenActivity extends BaseActivity<WenZhenPresenter> implements W
     SimpleDraweeView simFanhuiView;
     @BindView(R.id.wenzhen_recy)
     RecyclerView wenzhenRecy;
-    @BindView(R.id.include_text)
-    TextView includeText;
-    @BindView(R.id.include_ke)
-    RelativeLayout includeRelate;
     private SharedPreferences sp;
 
     @Override
@@ -51,12 +52,19 @@ public class WenZhenActivity extends BaseActivity<WenZhenPresenter> implements W
     }
 
     @Override
-    public void onWenZhenSuccess(FindInquiryRecordListBean findInquiryRecordListBean) {
+    public void onWenZhenSuccess(WenZhenLeiBiaoBean wenZhenLeiBiaoBean) {
         //问诊列表
-        if (findInquiryRecordListBean.getStatus().equals("0000")) {
+        if (wenZhenLeiBiaoBean.getStatus().equals("0000")) {
+            List<WenZhenLeiBiaoBean.ResultBean> result = wenZhenLeiBiaoBean.getResult();
+            if (result != null){
+                WhenZhenLeiBiaoAdapter whenZhenLeiBiaoAdapter = new WhenZhenLeiBiaoAdapter(WenZhenActivity.this,result);
+                wenzhenRecy.setAdapter(whenZhenLeiBiaoAdapter);
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(WenZhenActivity.this);
+                wenzhenRecy.setLayoutManager(linearLayoutManager);
 
+            }
         } else {
-            Toast.makeText(this, findInquiryRecordListBean.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, wenZhenLeiBiaoBean.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 

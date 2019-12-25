@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".activity.PingJiaXiangQingActivity">
     <RelativeLayout
@@ -27,6 +28,91 @@
             android:textSize="16sp"
             android:gravity="center"
             />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="4dp"
+            android:layout_height="20dp"
+            android:background="@color/bule"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/xiangqing_view"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="文字评价"
+            android:textSize="14sp"
+            android:layout_toRightOf="@id/xiangqing_view"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="医生非常热情，服务到位，很专业！"
+            android:layout_marginLeft="30dp"
+            android:layout_below="@id/xiangqing_view"
+            android:layout_marginTop="16dp"
+            />
 
     </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="4dp"
+            android:layout_height="20dp"
+            android:background="@color/bule"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/xiangqing1_view"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="星级评价"
+            android:textSize="14sp"
+            android:layout_toRightOf="@id/xiangqing1_view"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="医生专业度"
+            android:layout_marginLeft="30dp"
+            android:textSize="12sp"
+            android:id="@+id/text_yisheng_zhuanyedu"
+            android:layout_below="@id/xiangqing1_view"
+            android:layout_marginTop="16dp"
+            />
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="医生专业度"
+            android:layout_marginLeft="30dp"
+            android:textSize="12sp"
+            android:id="@+id/text_fuwuxiaoxidu"
+            android:layout_below="@id/text_yisheng_zhuanyedu"
+            android:layout_marginTop="20dp"
+            />
+
+    </RelativeLayout>
+
+
+
+
 </LinearLayout>

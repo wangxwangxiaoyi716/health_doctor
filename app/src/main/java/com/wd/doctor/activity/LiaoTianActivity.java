@@ -38,6 +38,7 @@ import cn.jpush.im.android.api.JMessageClient;
 import cn.jpush.im.android.api.content.TextContent;
 import cn.jpush.im.android.api.event.MessageEvent;
 import cn.jpush.im.android.api.model.Message;
+import cn.jpush.im.api.BasicCallback;
 
 public class LiaoTianActivity extends BaseActivity<WenZhenPresenter> implements WenZhenContract.Iview {
     @BindView(R.id.sim_wenzhenliaotian_fanhui)
@@ -121,7 +122,6 @@ public class LiaoTianActivity extends BaseActivity<WenZhenPresenter> implements 
             }
         });
     }
-
 
 
     //接受消息的事件

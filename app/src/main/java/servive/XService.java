@@ -1,5 +1,6 @@
 package servive;
 
+import cn.jpush.android.service.JCommonService;
 import cn.jpush.android.service.PushService;
 
 /*
@@ -8,5 +9,5 @@ import cn.jpush.android.service.PushService;
  *@Time:10:41
  *@Description:
  **/
-public class XService extends PushService {
+public class XService extends JCommonService {
 }

@@ -25,12 +25,16 @@ import com.wd.doctor.contract.LoginContract;
 import com.wd.doctor.presenter.LoginPresenter;
 import com.wd.doctor.utils.RsaCoder;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.jpush.im.android.api.JMessageClient;
+import cn.jpush.im.api.BasicCallback;
 
 public class DengActivity extends BaseActivity<LoginPresenter> implements LoginContract.Iview {
     public static final String TAG = "DengActivity";
@@ -53,6 +57,13 @@ public class DengActivity extends BaseActivity<LoginPresenter> implements LoginC
     private String s;
     private SharedPreferences sp;
     public static final String REGEX_EMAIL = "^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";
+    private String email;
+    private String pwd;
+    private String userName;
+    private String jiGuangPwd;
+    private String s1;
+    private String md5;
+    private String s2;
 
     @Override
     protected LoginPresenter providePresenter() {
@@ -138,21 +149,57 @@ public class DengActivity extends BaseActivity<LoginPresenter> implements LoginC
         });
 
 
-        String check = "^([a-z0-9A-Z]+[-|_|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";
-        Pattern regex = Pattern.compile(check);
-        Matcher matcher = regex.matcher(edEmail.getText().toString());
-        boolean flag = matcher.matches();
-        Log.d("value", edEmail.getText().toString());
-        Log.d("boolean", flag + "");
-
 
     }
+    public void login() {
+        Log.d(TAG, "gotResult: "+"登录");
+        JMessageClient.login(userName, md5, new BasicCallback() {
 
+            @Override
+            public void gotResult(int arg0, String arg1) {
+                Log.d(TAG, "gotResult: "+arg1);
+                if (arg0==0) {
+                    Toast.makeText(DengActivity.this, "登陆成功", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    public static String MD5(String sourceStr) {
+        String result = "";
+        try {
+            MessageDigest md = null;
+            try {
+                md = MessageDigest.getInstance("MD5");
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+            }
+            md.update(sourceStr.getBytes());
+            byte b[] = md.digest();
+            int i;
+            StringBuffer buf = new StringBuffer("");
+            for (int offset = 0; offset < b.length; offset++) {
+                i = b[offset];
+                if (i < 0)
+                    i += 256;
+                if (i < 16)
+                    buf.append("0");
+                buf.append(Integer.toHexString(i));
+            }
+            result = buf.toString();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return result;
+    }
 
     @Override
     public void onDengSuccess(LoginBean loginBean) {
         Log.d(TAG, "onDengSuccess: " + loginBean.getMessage());
         if ("0000".equals(loginBean.getStatus())) {
+            LoginBean.ResultBean result = loginBean.getResult();
+            userName = result.getUserName();
+            jiGuangPwd = result.getJiGuangPwd();
             Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(DengActivity.this, HomeActivity.class);
             SharedPreferences.Editor edit = sp.edit();
@@ -160,7 +207,17 @@ public class DengActivity extends BaseActivity<LoginPresenter> implements LoginC
             edit.putString("s", loginBean.getResult().getSessionId());
             edit.commit();
             startActivity(intent);
+            try {
+                s2 = RsaCoder.decryptByPublicKey(jiGuangPwd);
+                Log.d(TAG, "jgpwd: "+jiGuangPwd);
+                Log.d(TAG, "jiguang: "+s2);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            md5 = MD5(s2);
 
+            Log.d(TAG, "onDengSuccess: "+md5);
+            login();
         } else {
             Toast.makeText(this, "登录失败", Toast.LENGTH_SHORT).show();
         }
@@ -190,20 +247,29 @@ public class DengActivity extends BaseActivity<LoginPresenter> implements LoginC
                 startActivity(intent);
                 break;
             case R.id.but_denglu:
-                String email = edEmail.getText().toString();
-                String pwd = edPwd.getText().toString();
+                email = edEmail.getText().toString();
+                pwd = edPwd.getText().toString();
 
                 if (email.isEmpty() || pwd.isEmpty()) {
                     Toast.makeText(this, "邮箱密码不可以为空", Toast.LENGTH_SHORT).show();
                 } else {
+
                     try {
+
                         s = RsaCoder.encryptByPublicKey(pwd);
+                        Log.d(TAG, "onViewClicked: "+s);
+
+
+
+
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
+
                     mpresenter.onDengPresenter(email, s);
                     Log.d(TAG, "onViewClicked: " + email + s);
                 }
+
                 break;
         }
     }

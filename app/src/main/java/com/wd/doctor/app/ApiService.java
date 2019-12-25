@@ -1,14 +1,15 @@
 package com.wd.doctor.app;
 
-import com.facebook.drawee.backends.pipeline.info.ImageOrigin;
 import com.wd.doctor.bean.ApplyJoinBean;
-import com.wd.doctor.bean.BangYinHuangCardBean;
+import com.wd.doctor.bean.ChaXinXiBean;
+import com.wd.doctor.bean.ChaYinHangCardBean;
 import com.wd.doctor.bean.DectorMomeyBean;
 import com.wd.doctor.bean.FaPingLunBean;
+import com.wd.doctor.bean.FaXinXiBean;
 import com.wd.doctor.bean.FindDepartmentBean;
 import com.wd.doctor.bean.FindDoctorByIdBean;
-import com.wd.doctor.bean.FindInquiryRecordListBean;
 import com.wd.doctor.bean.FindSickCircleListBean;
+import com.wd.doctor.bean.LiShiWenZhenBean;
 import com.wd.doctor.bean.LoginBean;
 import com.wd.doctor.bean.SearchSickCircleBean;
 import com.wd.doctor.bean.SendEmailCodeBean;
@@ -17,6 +18,7 @@ import com.wd.doctor.bean.ShenFenZhengBean;
 import com.wd.doctor.bean.SickCircleInfoBean;
 import com.wd.doctor.bean.WenZhenLeiBiaoBean;
 import com.wd.doctor.bean.XiTongZhaoBean;
+import com.wd.doctor.bean.YinHangCardBean;
 
 import java.util.Map;
 
@@ -98,12 +100,6 @@ public interface ApiService {
     @POST("health/doctor/sickCircle/verify/v1/publishComment")
     Observable<FaPingLunBean> getfapinglun(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId,@Query("sickCircleId") String sickCircleId,@Query("content") String content);
 
-    //绑定银行卡
-    //http://172.17.8.100/health/doctor/verify/v1/bindDoctorBankCard
-    @POST("health/doctor/verify/v1/bindDoctorBankCard")
-    Observable<BangYinHuangCardBean> getbangyinhangka(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId, @Query("bankCardNumber") String bankCardNumber, @Query("bankName") String bankName, @Query("bankCardType") String bankCardType);
-
-
     //图片上传
     // http://172.17.8.100/health/doctor/verify/v1/uploadImagePic
     @POST("health/doctor/verify/v1/uploadImagePic")
@@ -121,5 +117,32 @@ public interface ApiService {
     @POST("health/doctor/verify/v1/bindDoctorIdCard")
     @Headers({"Content-Type: application/json","Accept: application/json"})
     Observable<ShenFenZhengBean> getshenfenzheng(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId, @Body Map<String,Object> BodyMap);
+
+    //绑定银行卡
+    //http://172.17.8.100/health/doctor/verify/v1/bindDoctorBankCard
+    @POST("health/doctor/verify/v1/bindDoctorBankCard")
+    Observable<YinHangCardBean> getbangyinhangka(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId, @Query("bankCardNumber") String bankCardNumber, @Query("bankName") String bankName, @Query("bankCardType") String bankCardType);
+
+    //查询医生银行卡信息
+    //http://172.17.8.100/health/doctor/verify/v1/findDoctorBankCardById
+    @GET("health/doctor/verify/v1/findDoctorBankCardById")
+    Observable<ChaYinHangCardBean> getchayinhuang(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId);
+
+    //发送消息（文本消息）
+    //http://172.17.8.100/health/doctor/inquiry/verify/v1/pushMessage?inquiryId=3845&content=李泽楷个曲川&type=1&userId=436
+    @POST("health/doctor/inquiry/verify/v1/pushMessage")
+    Observable<FaXinXiBean> getfaxinxi(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId, @Query("inquiryId") String inquiryId, @Query("content") String content, @Query("type") String type, @Query("userId") String userId);
+
+
+    //查询聊天记录
+    //http://172.17.8.100/health/doctor/inquiry/verify/v1/findInquiryDetailsList?inquiryId=3845&page=1&count=10
+    @GET("health/doctor/inquiry/verify/v1/findInquiryDetailsList")
+    Observable<ChaXinXiBean> getchaxinxi(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId, @Query("inquiryId") String inquiryId, @Query("page") String page, @Query("count") String count);
+
+
+    //历史问诊记录
+    //http://172.17.8.100/health/doctor/inquiry/verify/v1/findHistoryInquiryRecord?page=1&count=10
+    @GET("health/doctor/inquiry/verify/v1/findHistoryInquiryRecord?page=1&count=10")
+    Observable<LiShiWenZhenBean> getlishijilu(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId, @Query("page") String page, @Query("count") String count);
 
 }

@@ -57,7 +57,15 @@ public class WhenZhenLeiBiaoAdapter extends RecyclerView.Adapter<RecyclerView.Vi
             ((MyList) holder).relativelayout_01.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    int recordId = list.get(position).getRecordId();
+                    int userId = list.get(position).getUserId();
+                    String userName = list.get(position).getUserName();
+                    String nickName = list.get(position).getNickName();
                     Intent intent = new Intent(context, LiaoTianActivity.class);
+                    intent.putExtra("recordId",recordId);
+                    intent.putExtra("userId",userId);
+                    intent.putExtra("nickName",nickName);
+                    intent.putExtra("userName",userName);
                     context.startActivity(intent);
                 }
             });

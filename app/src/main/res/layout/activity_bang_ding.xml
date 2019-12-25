@@ -18,7 +18,7 @@
             android:layout_marginLeft="30dp"
             android:padding="50dp"
             android:layout_marginTop="5dp"
-            android:id="@+id/sim_fanhui_view"
+            android:id="@+id/sim_fanhuibangding_view"
             android:background="@mipmap/common_icon_back_black_n"
             />
 
@@ -102,6 +102,43 @@
             android:layout_width="290dp"
             android:layout_height="160dp"
             android:background="@mipmap/bank_card_front"
+            />
+        <ImageView
+            android:layout_width="290dp"
+            android:layout_height="160dp"
+            android:src="@mipmap/bank_card"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="中国银行"
+            android:id="@+id/yinhangcrad_name"
+            android:textSize="16sp"
+            android:textColor="@color/bai2"
+            android:layout_marginTop="24dp"
+            android:layout_marginLeft="24dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="类型"
+            android:textSize="12sp"
+            android:id="@+id/yinhangcrad_type"
+            android:textColor="@color/bai2"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="24dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="******  6382 ******  9275"
+            android:textSize="18sp"
+            android:id="@+id/yinhangcrad_haoma"
+            android:textColor="@color/bai2"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="24dp"
             />
 
         <TextView

@@ -2,14 +2,14 @@ package com.wd.doctor.bean;
 
 /*
  *@auther:王晓义
- *@Date: 2019/12/19
- *@Time:15:33
+ *@Date: 2019/12/24
+ *@Time:15:52
  *@Description:
  **/
-public class BangYinHuangCardBean {
+public class FaXinXiBean {
 
     /**
-     * message : 绑定成功
+     * message : 推送成功
      * status : 0000
      */
 

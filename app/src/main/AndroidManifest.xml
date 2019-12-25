@@ -16,7 +16,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.LiaoTianActivity" android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".activity.LiWuActivity"></activity>
+        <activity android:name=".activity.WenZhenJiLuActivity" />
+        <activity android:name=".activity.PingJiaXiangQingActivity" />
+        <activity android:name=".activity.LiShiJILuActivity" />
+        <activity
+            android:name=".activity.LiaoTianActivity"
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name=".activity.YinHangKaActivity" />
         <activity android:name=".activity.ShenFenZhengActivity" />
         <activity android:name=".activity.BangDingActivity" />
@@ -60,6 +66,14 @@
         <meta-data
             android:name="design_height_in_dp"
             android:value="640" />
+
+        <service
+            android:name="servive.XService"
+            android:process=":pushcore">
+            <intent-filter>
+                <action android:name="cn.jiguang.user.service.action" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

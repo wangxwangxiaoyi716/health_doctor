@@ -19,8 +19,8 @@ import butterknife.OnClick;
 public class XiuGaiActivity extends BaseActivity {
 
 
-    @BindView(R.id.fanhui)
-    ImageView fanhui;
+    @BindView(R.id.fanhui_xiugai)
+    ImageView fanhui_xiugai;
     @BindView(R.id.new_email1)
     EditText newEmail1;
     @BindView(R.id.relativeLayout)
@@ -49,10 +49,10 @@ public class XiuGaiActivity extends BaseActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.fanhui, R.id.next2})
+    @OnClick({R.id.fanhui_xiugai, R.id.next2})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.fanhui:
+            case R.id.fanhui_xiugai:
                 finish();
                 break;
             case R.id.next2:

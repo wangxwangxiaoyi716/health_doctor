@@ -22,8 +22,8 @@ import butterknife.OnClick;
 
 public class WangJiActivity extends BaseActivity<EmailPresenter> implements EmailContract.Iview {
 
-    @BindView(R.id.fanhui)
-    ImageView fanhui;
+    @BindView(R.id.fanhui_wangji)
+    ImageView fanhui_wangji;
     @BindView(R.id.new_email)
     EditText newEmail;
     @BindView(R.id.btn_email)
@@ -70,10 +70,10 @@ public class WangJiActivity extends BaseActivity<EmailPresenter> implements Emai
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.fanhui, R.id.next})
+    @OnClick({R.id.fanhui_wangji, R.id.next})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.fanhui:
+            case R.id.fanhui_wangji:
                 finish();
                 break;
             case R.id.next:

@@ -16,8 +16,8 @@ import butterknife.OnClick;
 
 public class ChaiNaActivity extends BaseActivity {
 
-    @BindView(R.id.sim_fanhui_view)
-    SimpleDraweeView simFanhuiView;
+    @BindView(R.id.sim_fanhuicaina_view)
+    SimpleDraweeView sim_fanhuicaina_view;
     @BindView(R.id.relayout_vvv)
     RelativeLayout relayoutVvv;
     @BindView(R.id.recy_caina)
@@ -41,7 +41,7 @@ public class ChaiNaActivity extends BaseActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.sim_fanhui_view)
+    @OnClick(R.id.sim_fanhuicaina_view)
     public void onViewClicked() {
         finish();
     }

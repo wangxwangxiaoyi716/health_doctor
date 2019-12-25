@@ -23,8 +23,8 @@ import butterknife.OnClick;
 public class ZhiLiaoActivity extends BaseActivity<HomePresenter> implements HomeContract.Iview {
 
 
-    @BindView(R.id.fanhui)
-    SimpleDraweeView fanhui;
+    @BindView(R.id.fanhui_zhilaio)
+    SimpleDraweeView fanhui_zhilaio;
     @BindView(R.id.text_name)
     TextView textName;
     @BindView(R.id.textview_mz)
@@ -111,7 +111,7 @@ public class ZhiLiaoActivity extends BaseActivity<HomePresenter> implements Home
         ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.fanhui)
+    @OnClick(R.id.fanhui_zhilaio)
     public void onViewClicked() {
         finish();
     }

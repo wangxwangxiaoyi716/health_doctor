@@ -1,25 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="上午11:10"
-        android:textSize="10sp"
-        android:layout_marginTop="20dp"
-        android:id="@+id/textview_riqi"
-        android:layout_centerHorizontal="true"
-        />
+    android:layout_height="wrap_content">
+
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginLeft="30dp"
         android:background="@mipmap/ic_launcher_round"
-        android:layout_below="@id/textview_riqi"
-        android:layout_marginTop="20dp"
-        android:id="@+id/sim_liao_zp"
+        android:layout_marginTop="55dp"
+        android:id="@+id/sim_liao_zphuanzhe"
         />
 
     <TextView
@@ -34,7 +25,7 @@
         android:paddingLeft="10dp"
         android:paddingRight="20dp"
         android:layout_marginLeft="10dp"
-        android:id="@+id/text_liao1"
-        android:layout_toRightOf="@id/sim_liao_zp"
+        android:id="@+id/text_liao1huanzhe"
+        android:layout_toRightOf="@id/sim_liao_zphuanzhe"
         />
 </RelativeLayout>

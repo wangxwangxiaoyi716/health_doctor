@@ -25,8 +25,8 @@ import butterknife.OnClick;
 
 public class MoneyBaoActivity extends BaseActivity<DectorMoneyPresenter> implements DectorMoneyContract.Iview {
     public static final String TAG ="MoneyBaoActivity";
-    @BindView(R.id.sim_fanhui_view)
-    SimpleDraweeView simFanhuiView;
+    @BindView(R.id.sim_fanhuiqianbao_view)
+    SimpleDraweeView sim_fanhuiqianbao_view;
     @BindView(R.id.money)
     TextView money;
     @BindView(R.id.but_tixian)
@@ -94,10 +94,10 @@ public class MoneyBaoActivity extends BaseActivity<DectorMoneyPresenter> impleme
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.sim_fanhui_view, R.id.but_tixian})
+    @OnClick({R.id.sim_fanhuiqianbao_view, R.id.but_tixian})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.sim_fanhui_view:
+            case R.id.sim_fanhuiqianbao_view:
                 finish();
                 break;
             case R.id.but_tixian:

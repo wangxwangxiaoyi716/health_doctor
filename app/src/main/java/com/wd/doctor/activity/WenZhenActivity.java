@@ -11,6 +11,8 @@ import com.bw.movie.base.BaseActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.R;
 import com.wd.doctor.adapter.WhenZhenLeiBiaoAdapter;
+import com.wd.doctor.bean.ChaXinXiBean;
+import com.wd.doctor.bean.FaXinXiBean;
 import com.wd.doctor.bean.FindInquiryRecordListBean;
 import com.wd.doctor.bean.WenZhenLeiBiaoBean;
 import com.wd.doctor.contract.WenZhenContract;
@@ -26,8 +28,8 @@ import butterknife.OnClick;
 
 public class WenZhenActivity extends BaseActivity<WenZhenPresenter> implements WenZhenContract.Iview {
 
-    @BindView(R.id.sim_fanhui_view)
-    SimpleDraweeView simFanhuiView;
+    @BindView(R.id.sim_fanhuiwenleibiao_view)
+    SimpleDraweeView sim_fanhuiwenleibiao_view;
     @BindView(R.id.wenzhen_recy)
     RecyclerView wenzhenRecy;
     private SharedPreferences sp;
@@ -69,6 +71,16 @@ public class WenZhenActivity extends BaseActivity<WenZhenPresenter> implements W
     }
 
     @Override
+    public void onFaXinXiSuccess(FaXinXiBean faXinXiBean) {
+
+    }
+
+    @Override
+    public void onChaXinXiSuccess(ChaXinXiBean chaXinXiBean) {
+
+    }
+
+    @Override
     public void onWenZhenFiuse(String e) {
 
     }
@@ -80,7 +92,7 @@ public class WenZhenActivity extends BaseActivity<WenZhenPresenter> implements W
         ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.sim_fanhui_view)
+    @OnClick(R.id.sim_fanhuiwenleibiao_view)
     public void onViewClicked() {
         finish();
     }

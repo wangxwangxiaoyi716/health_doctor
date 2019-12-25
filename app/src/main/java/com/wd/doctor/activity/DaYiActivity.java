@@ -27,14 +27,13 @@ import butterknife.OnClick;
 
 public class DaYiActivity extends BaseActivity<HomePresenter> implements HomeContract.Iview {
 
-    @BindView(R.id.sim_shoushuo)
-    SimpleDraweeView simShoushuo;
+
     @BindView(R.id.tab_layout)
     TabLayout tabLayout;
     @BindView(R.id.view_page)
     ViewPager viewPage;
-    @BindView(R.id.fanhui)
-    SimpleDraweeView fanhui;
+    @BindView(R.id.fanhuidayi_sim)
+    SimpleDraweeView fanhuidayi_sim;
 
 
     @Override
@@ -117,10 +116,10 @@ public class DaYiActivity extends BaseActivity<HomePresenter> implements HomeCon
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.fanhui, R.id.sim_shoushuo})
+    @OnClick({R.id.fanhuidayi_sim, R.id.sim_shoushuo})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.fanhui:
+            case R.id.fanhuidayi_sim:
                 finish();
                 break;
             case R.id.sim_shoushuo:

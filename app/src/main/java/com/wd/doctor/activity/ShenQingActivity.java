@@ -18,8 +18,8 @@ import butterknife.OnClick;
 public class ShenQingActivity extends BaseActivity {
 
 
-    @BindView(R.id.fanhui)
-    SimpleDraweeView fanhui;
+    @BindView(R.id.fanhui_shenqing)
+    SimpleDraweeView fanhui_shenqing;
     @BindView(R.id.ed_jianjie)
     EditText edJianjie;
     @BindView(R.id.ed_lingyu)
@@ -44,10 +44,10 @@ public class ShenQingActivity extends BaseActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.fanhui, R.id.but_rz})
+    @OnClick({R.id.fanhui_shenqing, R.id.but_rz})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.fanhui:
+            case R.id.fanhui_shenqing:
                 finish();
                 break;
             case R.id.but_rz:

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto">
+
+
+    <RelativeLayout
+        android:background="@drawable/button_baibain"
+        android:layout_width="match_parent"
+        android:layout_height="130dp">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="40dp"
+            fresco:roundAsCircle="true"
+            android:background="@mipmap/ic_launcher_round"
+            android:id="@+id/wenzhen_sim"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="问诊人:"
+            android:layout_toRightOf="@id/wenzhen_sim"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="26dp"
+            android:textSize="14sp"
+            android:id="@+id/text_wenzhenren"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="问诊人:"
+            android:layout_toRightOf="@id/text_wenzhenren"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="20dp"
+            android:textSize="14sp"
+            android:id="@+id/text_wenzhen_name"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="问诊时间:"
+            android:layout_below="@id/text_wenzhenren"
+            android:layout_toRightOf="@id/wenzhen_sim"
+            android:layout_marginLeft="26dp"
+            android:layout_marginTop="5dp"
+            android:textSize="14sp"
+            android:id="@+id/text_wenzhentime"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2018:10.11 10:20"
+            android:layout_toRightOf="@id/text_wenzhenren"
+            android:layout_below="@id/text_wenzhen_name"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            android:textSize="14sp"
+            android:id="@+id/text_wenzhen_time"
+            />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="25dp"
+            android:layout_toRightOf="@id/wenzhen_sim"
+            android:layout_alignBottom="@id/wenzhen_sim"
+            android:layout_marginLeft="26dp"
+            android:background="@drawable/button_corners_blue"
+            android:text="查看问诊记录"
+            android:textColor="@color/bai2"
+            android:textSize="12sp"
+            android:id="@+id/but_chakanjilu"
+            />
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="25dp"
+            android:layout_toRightOf="@id/but_chakanjilu"
+            android:layout_alignBottom="@id/wenzhen_sim"
+            android:layout_marginLeft="43dp"
+            android:background="@drawable/button_corners_blue"
+            android:text="查看评价"
+            android:textColor="@color/bai2"
+            android:textSize="12sp"
+            android:id="@+id/but_chakanpingjia"
+            />
+
+    </RelativeLayout>
+</LinearLayout>

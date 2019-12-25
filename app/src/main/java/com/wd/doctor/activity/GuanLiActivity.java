@@ -140,6 +140,8 @@ public class GuanLiActivity extends BaseActivity {
                 startActivity(intent);
                 break;
             case R.id.sim_wenzhen:
+                Intent intent4 = new Intent(GuanLiActivity.this, LiShiJILuActivity.class);
+                startActivity(intent4);
                 break;
             case R.id.sim_qianbao:
                 Intent intent1 = new Intent(GuanLiActivity.this, MoneyBaoActivity.class);

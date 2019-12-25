@@ -15,8 +15,8 @@ import butterknife.OnClick;
 
 public class XiTongActivity extends BaseActivity {
 
-    @BindView(R.id.sim_fanhui_view)
-    SimpleDraweeView simFanhuiView;
+    @BindView(R.id.sim_fanhui_view_xitong)
+    SimpleDraweeView sim_fanhui_view_xitong;
     @BindView(R.id.bbbb)
     RelativeLayout bbbb;
     @BindView(R.id.recy_xitong)
@@ -39,7 +39,7 @@ public class XiTongActivity extends BaseActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.sim_fanhui_view)
+    @OnClick(R.id.sim_fanhui_view_xitong)
     public void onViewClicked() {
         finish();
     }

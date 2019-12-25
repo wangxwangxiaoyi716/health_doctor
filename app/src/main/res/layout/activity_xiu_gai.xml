@@ -15,7 +15,7 @@
         android:orientation="horizontal"
         android:layout_height="wrap_content">
         <ImageView
-            android:id="@+id/fanhui"
+            android:id="@+id/fanhui_xiugai"
             android:padding="10dp"
             android:src="@mipmap/common_icon_back_white_n"
             android:layout_marginLeft="30dp"

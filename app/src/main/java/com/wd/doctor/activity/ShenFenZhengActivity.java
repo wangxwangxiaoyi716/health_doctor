@@ -53,8 +53,8 @@ import butterknife.OnClick;
 public class ShenFenZhengActivity extends BaseActivity<ShenFenZhengPreseneter> implements ShenFenZhengContract.Iview {
 
 
-    @BindView(R.id.sim_fanhui_view)
-    SimpleDraweeView simFanhuiView;
+    @BindView(R.id.sim_fanhuishenfenzheng_view)
+    SimpleDraweeView sim_fanhuishenfenzheng_view;
     @BindView(R.id.sim_xjsfz)
     SimpleDraweeView simXj;
     @BindView(R.id.text_paizhao)
@@ -97,6 +97,7 @@ public class ShenFenZhengActivity extends BaseActivity<ShenFenZhengPreseneter> i
     private String birthday;
     private String address;
     private String issueAuthority;
+    private Map<String, Object> bodyMap;
 
     @Override
     protected ShenFenZhengPreseneter providePresenter() {
@@ -113,11 +114,10 @@ public class ShenFenZhengActivity extends BaseActivity<ShenFenZhengPreseneter> i
         super.initData();
 
         ToastUtils.init(this);
-        SPUtils user = new SPUtils(this, "user");
         sp = getSharedPreferences("sp", Context.MODE_PRIVATE);
         id = sp.getInt("id", 0);
         s = sp.getString("s", null);
-
+        mpresenter.onShenFenZhengPresenter(id + "", s, bodyMap);
         OCR.getInstance(this).initAccessTokenWithAkSk(new OnResultListener<AccessToken>() {
             @Override
             public void onResult(AccessToken accessToken) {
@@ -142,7 +142,7 @@ public class ShenFenZhengActivity extends BaseActivity<ShenFenZhengPreseneter> i
                     }
                 });
             }
-        }, getApplicationContext(), "byMKKK5ITVjFXqXND5SmNGws", "HNGHntyrYidFkwIGOrhW4OsRTpyw9ReV");
+        }, getApplicationContext(), "7DLt1gb5xVhQSyCxqhSkDHto", "O04NjaRNXOmdgUiabAAjFG7W8omF7P1R");
 
 
     }
@@ -152,10 +152,7 @@ public class ShenFenZhengActivity extends BaseActivity<ShenFenZhengPreseneter> i
     public void onShenFenZhengSuccess(ShenFenZhengBean shenFenZhengBean) {
         Log.d(TAG, "onShenFenZhengSuccess: " + shenFenZhengBean.getMessage());
         if (shenFenZhengBean.getStatus().equals("0000")) {
-            Toast.makeText(this, "绑定成功", Toast.LENGTH_SHORT).show();
-        } else {
             Toast.makeText(this, shenFenZhengBean.getMessage(), Toast.LENGTH_SHORT).show();
-
         }
 
 
@@ -204,10 +201,10 @@ public class ShenFenZhengActivity extends BaseActivity<ShenFenZhengPreseneter> i
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.sim_fanhui_view, R.id.sim_xjsfz, R.id.sim_pzsfz, R.id.button_next,R.id.sim_delete,R.id.sim_shanchu})
+    @OnClick({R.id.sim_fanhuishenfenzheng_view, R.id.sim_xjsfz, R.id.sim_pzsfz, R.id.button_next,R.id.sim_delete,R.id.sim_shanchu})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.sim_fanhui_view:
+            case R.id.sim_fanhuishenfenzheng_view:
                 finish();
                 break;
             case R.id.sim_xjsfz:
@@ -227,35 +224,8 @@ public class ShenFenZhengActivity extends BaseActivity<ShenFenZhengPreseneter> i
                 startActivityForResult(intent, REQUEST_CODE_CAMERA);
                 break;
             case R.id.button_next:
-                try {
-                    name = RsaCoder.encryptByPublicKey(name);
-                    sex = RsaCoder.encryptByPublicKey(sex);
-                    nation = RsaCoder.encryptByPublicKey(nation);
-                    birthday = RsaCoder.encryptByPublicKey(birthday);
-                    address = RsaCoder.encryptByPublicKey(address);
-                    num = RsaCoder.encryptByPublicKey(num);
-                    issueAuthority = RsaCoder.encryptByPublicKey(issueAuthority);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                JSONArray jsonArray = new JSONArray();
-                JSONObject jsonObject = new JSONObject();
-                try {
-                    jsonObject.put("doctorId", id + "");
-                    jsonObject.put("name", name);
-                    jsonObject.put("sex", sex);
-                    jsonObject.put("nation", nation);
-                    jsonObject.put("birthday", birthday);
-                    jsonObject.put("address", address);
-                    jsonObject.put("num", num);
-                    jsonObject.put("issueAuthority", issueAuthority);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                JSONArray put = jsonArray.put(jsonObject);
-                Map<String, Object> BodyMap = new HashMap<>();
-                BodyMap.put("BodyMap", put);
-                mpresenter.onShenFenZhengPresenter(id + "", s, BodyMap);
+
+
 
                 break;
 
@@ -309,6 +279,35 @@ public class ShenFenZhengActivity extends BaseActivity<ShenFenZhengPreseneter> i
 
     @OnClick(R.id.button_quedingshow)
     public void onViewClicked() {
+        try {
+            name = RsaCoder.encryptByPublicKey(name);
+            sex = RsaCoder.encryptByPublicKey(sex);
+            nation = RsaCoder.encryptByPublicKey(nation);
+            birthday = RsaCoder.encryptByPublicKey(birthday);
+            address = RsaCoder.encryptByPublicKey(address);
+            num = RsaCoder.encryptByPublicKey(num);
+            issueAuthority = RsaCoder.encryptByPublicKey(issueAuthority);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        JSONArray jsonArray = new JSONArray();
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("doctorId", id + "");
+            jsonObject.put("name", name);
+            jsonObject.put("sex", sex);
+            jsonObject.put("nation", nation);
+            jsonObject.put("birthday", birthday);
+            jsonObject.put("address", address);
+            jsonObject.put("num", num);
+            jsonObject.put("issueAuthority", issueAuthority);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        JSONArray put = jsonArray.put(jsonObject);
+        bodyMap = new HashMap<>();
+        bodyMap.put("BodyMap", put);
+
         finish();
     }
 

@@ -18,8 +18,8 @@ import butterknife.OnClick;
 
 public class TiXianActivity extends BaseActivity {
 
-    @BindView(R.id.sim_fanhui_view)
-    SimpleDraweeView simFanhuiView;
+    @BindView(R.id.sim_fanhuitixian_view)
+    SimpleDraweeView sim_fanhuitixian_view;
     @BindView(R.id.daozhang)
     TextView daozhang;
     @BindView(R.id.yinhang)
@@ -52,10 +52,10 @@ public class TiXianActivity extends BaseActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.sim_fanhui_view, R.id.button_tixian})
+    @OnClick({R.id.sim_fanhuitixian_view, R.id.button_tixian})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.sim_fanhui_view:
+            case R.id.sim_fanhuitixian_view:
                 finish();
                 break;
             case R.id.button_tixian:

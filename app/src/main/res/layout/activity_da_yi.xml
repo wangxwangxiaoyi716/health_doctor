@@ -16,7 +16,7 @@
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:layout_marginLeft="30dp"
-            android:id="@+id/fanhui"
+            android:id="@+id/fanhuidayi_sim"
             android:padding="10dp"
             android:background="@mipmap/common_icon_back_black_n"
             />

@@ -8,6 +8,7 @@ import com.bw.movie.base.BaseActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.android.material.tabs.TabLayout;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 import com.wd.doctor.bean.FindDepartmentBean;
 import com.wd.doctor.bean.FindDoctorByIdBean;
 import com.wd.doctor.bean.FindSickCircleListBean;
@@ -28,11 +29,11 @@ import butterknife.OnClick;
 public class DaYiActivity extends BaseActivity<HomePresenter> implements HomeContract.Iview {
 
 
-    @BindView(R.id.tab_layout)
+    @BindView(R2.id.tab_layout)
     TabLayout tabLayout;
-    @BindView(R.id.view_page)
+    @BindView(R2.id.view_page)
     ViewPager viewPage;
-    @BindView(R.id.fanhuidayi_sim)
+    @BindView(R2.id.fanhuidayi_sim)
     SimpleDraweeView fanhuidayi_sim;
 
 

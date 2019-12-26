@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.bw.movie.base.BaseActivity;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 import com.wd.doctor.bean.ApplyJoinBean;
 import com.wd.doctor.contract.RuZhuContract;
 import com.wd.doctor.presenter.RuZhuPresenter;
@@ -19,17 +20,17 @@ import butterknife.OnClick;
 
 public class RuZhuActivity extends BaseActivity<RuZhuPresenter> implements RuZhuContract.Iview {
 
-    @BindView(R.id.ed_ruzhuyx)
+    @BindView(R2.id.ed_ruzhuyx)
     EditText edRuzhuyx;
-    @BindView(R.id.ed_ruzhuyzm)
+    @BindView(R2.id.ed_ruzhuyzm)
     EditText edRuzhuyzm;
-    @BindView(R.id.ed_ruzhupwd)
+    @BindView(R2.id.ed_ruzhupwd)
     EditText edRuzhupwd;
-    @BindView(R.id.ed_ruzhupwd2)
+    @BindView(R2.id.ed_ruzhupwd2)
     EditText edRuzhupwd2;
-    @BindView(R.id.but_net)
+    @BindView(R2.id.but_net)
     Button butNet;
-    @BindView(R.id.huoqu_yzm)
+    @BindView(R2.id.huoqu_yzm)
     Button huoquYzm;
 
     @Override

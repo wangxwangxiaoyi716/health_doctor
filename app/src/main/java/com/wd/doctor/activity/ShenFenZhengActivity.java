@@ -32,6 +32,7 @@ import com.bw.movie.base.BaseActivity;
 import com.bw.movie.utils.SPUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 import com.wd.doctor.bean.ShenFenZhengBean;
 import com.wd.doctor.contract.ShenFenZhengContract;
 import com.wd.doctor.presenter.ShenFenZhengPreseneter;
@@ -53,31 +54,31 @@ import butterknife.OnClick;
 public class ShenFenZhengActivity extends BaseActivity<ShenFenZhengPreseneter> implements ShenFenZhengContract.Iview {
 
 
-    @BindView(R.id.sim_fanhuishenfenzheng_view)
+    @BindView(R2.id.sim_fanhuishenfenzheng_view)
     SimpleDraweeView sim_fanhuishenfenzheng_view;
-    @BindView(R.id.sim_xjsfz)
+    @BindView(R2.id.sim_xjsfz)
     SimpleDraweeView simXj;
-    @BindView(R.id.text_paizhao)
+    @BindView(R2.id.text_paizhao)
     TextView textPaizhao;
-    @BindView(R.id.text_paishe)
+    @BindView(R2.id.text_paishe)
     TextView textPaishe;
-    @BindView(R.id.button_next)
+    @BindView(R2.id.button_next)
     Button buttonNext;
-    @BindView(R.id.sim_pzsfz)
+    @BindView(R2.id.sim_pzsfz)
     SimpleDraweeView simPzsfz;
-    @BindView(R.id.imgIdCardFront)
+    @BindView(R2.id.imgIdCardFront)
     ImageView imgIdCardFront;
-    @BindView(R.id.linearIdCardFront)
+    @BindView(R2.id.linearIdCardFront)
     RelativeLayout linearIdCardFront;
-    @BindView(R.id.imgIdCardBack)
+    @BindView(R2.id.imgIdCardBack)
     ImageView imgIdCardBack;
-    @BindView(R.id.linearIdCardBack)
+    @BindView(R2.id.linearIdCardBack)
     RelativeLayout linearIdCardBack;
-    @BindView(R.id.button_quedingshow)
+    @BindView(R2.id.button_quedingshow)
     Button buttonQuedingshow;
-    @BindView(R.id.sim_shanchu)
+    @BindView(R2.id.sim_shanchu)
     SimpleDraweeView simShanchu;
-    @BindView(R.id.sim_delete)
+    @BindView(R2.id.sim_delete)
     SimpleDraweeView simDelete;
 
     private Dialog dialog;

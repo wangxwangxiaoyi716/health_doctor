@@ -32,11 +32,11 @@ public class WhenZhenLeiBiaoAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     List<WenZhenLeiBiaoBean.ResultBean> list;
     private View inflate;
 
+
     public WhenZhenLeiBiaoAdapter(Context context, List<WenZhenLeiBiaoBean.ResultBean> list) {
         this.context = context;
         this.list = list;
     }
-
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -91,5 +91,15 @@ public class WhenZhenLeiBiaoAdapter extends RecyclerView.Adapter<RecyclerView.Vi
             text_timeriqi = itemView.findViewById(R.id.text_timeriqi);
             text_info = itemView.findViewById(R.id.text_info);
         }
+    }
+
+    public SetOnclciklistnner setOnclciklistnner;
+
+    public void setonclick(SetOnclciklistnner setOnclciklistnner){
+        this.setOnclciklistnner = setOnclciklistnner;
+    }
+
+    public interface SetOnclciklistnner{
+        void click(int userid);
     }
 }

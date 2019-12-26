@@ -10,6 +10,7 @@ import com.bw.movie.base.BaseActivity;
 import com.bw.movie.base.BasePresenter;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -17,13 +18,13 @@ import butterknife.OnClick;
 
 public class XiaoXiActivity extends BaseActivity {
 
-    @BindView(R.id.sim_fanhui_view_wenzhen)
+    @BindView(R2.id.sim_fanhui_view_wenzhen)
     SimpleDraweeView sim_fanhui_view_wenzhen;
-    @BindView(R.id.xitongxiaoxi)
+    @BindView(R2.id.xitongxiaoxi)
     LinearLayout xitongxiaoxi;
-    @BindView(R.id.wenzhenxiaoxi)
+    @BindView(R2.id.wenzhenxiaoxi)
     LinearLayout wenzhenxiaoxi;
-    @BindView(R.id.ruzhangxinxi)
+    @BindView(R2.id.ruzhangxinxi)
     LinearLayout ruzhangxinxi;
 
     @Override

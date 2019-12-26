@@ -8,6 +8,7 @@ import android.widget.RadioGroup;
 import com.bw.movie.base.BaseActivity;
 import com.bw.movie.base.BasePresenter;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 import com.wd.doctor.fragment.ShangChuanZhaoFragment;
 import com.wd.doctor.fragment.XiTongZhaoFragment;
 
@@ -22,13 +23,13 @@ import butterknife.ButterKnife;
 
 public class ImagePhotoActivity extends BaseActivity {
     public static final String TAG = "ImagePhotoActivity";
-    @BindView(R.id.view_ge)
+    @BindView(R2.id.view_ge)
     ViewPager viewGe;
-    @BindView(R.id.radio_but01)
+    @BindView(R2.id.radio_but01)
     RadioButton radioBut01;
-    @BindView(R.id.radio_but02)
+    @BindView(R2.id.radio_but02)
     RadioButton radioBut02;
-    @BindView(R.id.radio_group)
+    @BindView(R2.id.radio_group)
     RadioGroup radioGroup;
 
     @Override

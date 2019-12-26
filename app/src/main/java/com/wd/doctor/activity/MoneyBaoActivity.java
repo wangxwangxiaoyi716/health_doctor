@@ -14,6 +14,7 @@ import com.bw.movie.base.BaseActivity;
 import com.bw.movie.base.BasePresenter;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 import com.wd.doctor.bean.DectorMomeyBean;
 import com.wd.doctor.contract.DectorMoneyContract;
 import com.wd.doctor.presenter.DectorMoneyPresenter;
@@ -25,15 +26,15 @@ import butterknife.OnClick;
 
 public class MoneyBaoActivity extends BaseActivity<DectorMoneyPresenter> implements DectorMoneyContract.Iview {
     public static final String TAG ="MoneyBaoActivity";
-    @BindView(R.id.sim_fanhuiqianbao_view)
+    @BindView(R2.id.sim_fanhuiqianbao_view)
     SimpleDraweeView sim_fanhuiqianbao_view;
-    @BindView(R.id.money)
+    @BindView(R2.id.money)
     TextView money;
-    @BindView(R.id.but_tixian)
+    @BindView(R2.id.but_tixian)
     Button butTixian;
-    @BindView(R.id.recy_moneybao)
+    @BindView(R2.id.recy_moneybao)
     RecyclerView recyMoneybao;
-    @BindView(R.id.text_bangding)
+    @BindView(R2.id.text_bangding)
     TextView textBangding;
     private SharedPreferences sp;
 

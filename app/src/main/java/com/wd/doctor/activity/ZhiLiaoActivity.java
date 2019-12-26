@@ -10,6 +10,7 @@ import com.bw.movie.base.BaseActivity;
 import com.bw.movie.base.BasePresenter;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 import com.wd.doctor.bean.FindDepartmentBean;
 import com.wd.doctor.bean.FindDoctorByIdBean;
 import com.wd.doctor.bean.FindSickCircleListBean;
@@ -23,27 +24,27 @@ import butterknife.OnClick;
 public class ZhiLiaoActivity extends BaseActivity<HomePresenter> implements HomeContract.Iview {
 
 
-    @BindView(R.id.fanhui_zhilaio)
+    @BindView(R2.id.fanhui_zhilaio)
     SimpleDraweeView fanhui_zhilaio;
-    @BindView(R.id.text_name)
+    @BindView(R2.id.text_name)
     TextView textName;
-    @BindView(R.id.textview_mz)
+    @BindView(R2.id.textview_mz)
     TextView textviewMz;
-    @BindView(R.id.text_yiyuan)
+    @BindView(R2.id.text_yiyuan)
     TextView textYiyuan;
-    @BindView(R.id.textview_yiyuan)
+    @BindView(R2.id.textview_yiyuan)
     TextView textviewYiyuan;
-    @BindView(R.id.text_keshi)
+    @BindView(R2.id.text_keshi)
     TextView textKeshi;
-    @BindView(R.id.textview_keshi)
+    @BindView(R2.id.textview_keshi)
     TextView textviewKeshi;
-    @BindView(R.id.text_zhicheng)
+    @BindView(R2.id.text_zhicheng)
     TextView textZhicheng;
-    @BindView(R.id.textview_zhicheng)
+    @BindView(R2.id.textview_zhicheng)
     TextView textviewZhicheng;
-    @BindView(R.id.text_gerenjieshao)
+    @BindView(R2.id.text_gerenjieshao)
     TextView textGerenjieshao;
-    @BindView(R.id.text_lingyu)
+    @BindView(R2.id.text_lingyu)
     TextView textLingyu;
     private SharedPreferences sp;
 

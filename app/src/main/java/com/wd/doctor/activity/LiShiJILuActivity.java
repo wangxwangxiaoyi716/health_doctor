@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.bw.movie.base.BaseActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 import com.wd.doctor.adapter.LiShiWhenZhenAdapter;
 import com.wd.doctor.bean.LiShiWenZhenBean;
 import com.wd.doctor.contract.LiShiWenZhenContract;
@@ -27,11 +28,11 @@ import butterknife.OnClick;
 
 public class LiShiJILuActivity extends BaseActivity<LiShiWenZhenPresenter> implements LiShiWenZhenContract.Iview {
 
-    @BindView(R.id.sim_lishifanhui_view)
+    @BindView(R2.id.sim_lishifanhui_view)
     SimpleDraweeView simLishifanhuiView;
-    @BindView(R.id.text_liwu)
+    @BindView(R2.id.text_liwu)
     TextView textLiwu;
-    @BindView(R.id.lishi_wenzhenrecy)
+    @BindView(R2.id.lishi_wenzhenrecy)
     RecyclerView lishiWenzhenrecy;
     private SharedPreferences sp;
 

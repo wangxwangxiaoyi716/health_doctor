@@ -12,6 +12,7 @@ import com.bw.movie.base.BaseActivity;
 import com.bw.movie.base.BasePresenter;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 import com.wd.doctor.bean.ChaYinHangCardBean;
 import com.wd.doctor.contract.ChaYinHangCardContract;
 import com.wd.doctor.presenter.ChaYinHuangCardPresenter;
@@ -22,17 +23,17 @@ import butterknife.OnClick;
 
 public class BangDingActivity extends BaseActivity<ChaYinHuangCardPresenter> implements ChaYinHangCardContract.Iview {
 
-    @BindView(R.id.sim_fanhuibangding_view)
+    @BindView(R2.id.sim_fanhuibangding_view)
     SimpleDraweeView sim_fanhuibangding_view;
-    @BindView(R.id.text_shenfenzheng)
+    @BindView(R2.id.text_shenfenzheng)
     TextView textShenfenzheng;
-    @BindView(R.id.text_yinhangka)
+    @BindView(R2.id.text_yinhangka)
     TextView textYinhangka;
-    @BindView(R.id.yinhangcrad_name)
+    @BindView(R2.id.yinhangcrad_name)
     TextView yinhangcradName;
-    @BindView(R.id.yinhangcrad_type)
+    @BindView(R2.id.yinhangcrad_type)
     TextView yinhangcradType;
-    @BindView(R.id.yinhangcrad_haoma)
+    @BindView(R2.id.yinhangcrad_haoma)
     TextView yinhangcradHaoma;
     private SharedPreferences sp;
     private int id;

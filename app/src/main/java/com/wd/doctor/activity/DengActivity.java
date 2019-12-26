@@ -20,6 +20,7 @@ import android.widget.ToggleButton;
 import com.bw.movie.base.BaseActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 import com.wd.doctor.bean.LoginBean;
 import com.wd.doctor.contract.LoginContract;
 import com.wd.doctor.presenter.LoginPresenter;
@@ -38,21 +39,21 @@ import cn.jpush.im.api.BasicCallback;
 
 public class DengActivity extends BaseActivity<LoginPresenter> implements LoginContract.Iview {
     public static final String TAG = "DengActivity";
-    @BindView(R.id.emil_img)
+    @BindView(R2.id.emil_img)
     SimpleDraweeView emilImg;
-    @BindView(R.id.ed_email)
+    @BindView(R2.id.ed_email)
     EditText edEmail;
-    @BindView(R.id.pwd_img)
+    @BindView(R2.id.pwd_img)
     SimpleDraweeView pwdImg;
-    @BindView(R.id.ed_pwd)
+    @BindView(R2.id.ed_pwd)
     EditText edPwd;
-    @BindView(R.id.wjmm)
+    @BindView(R2.id.wjmm)
     TextView wjmm;
-    @BindView(R.id.shenqing_ruzhu)
+    @BindView(R2.id.shenqing_ruzhu)
     TextView shenqingRuzhu;
-    @BindView(R.id.but_denglu)
+    @BindView(R2.id.but_denglu)
     Button butDenglu;
-    @BindView(R.id.togg_log_eye)
+    @BindView(R2.id.togg_log_eye)
     ToggleButton toggLogEye;
     private String s;
     private SharedPreferences sp;

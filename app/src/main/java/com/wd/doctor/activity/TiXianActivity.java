@@ -11,6 +11,7 @@ import com.bw.movie.base.BaseActivity;
 import com.bw.movie.base.BasePresenter;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -18,21 +19,21 @@ import butterknife.OnClick;
 
 public class TiXianActivity extends BaseActivity {
 
-    @BindView(R.id.sim_fanhuitixian_view)
+    @BindView(R2.id.sim_fanhuitixian_view)
     SimpleDraweeView sim_fanhuitixian_view;
-    @BindView(R.id.daozhang)
+    @BindView(R2.id.daozhang)
     TextView daozhang;
-    @BindView(R.id.yinhang)
+    @BindView(R2.id.yinhang)
     TextView yinhang;
-    @BindView(R.id.jine)
+    @BindView(R2.id.jine)
     TextView jine;
-    @BindView(R.id.qian)
+    @BindView(R2.id.qian)
     TextView qian;
-    @BindView(R.id.xuan)
+    @BindView(R2.id.xuan)
     CheckBox xuan;
-    @BindView(R.id.xian)
+    @BindView(R2.id.xian)
     TextView xian;
-    @BindView(R.id.button_tixian)
+    @BindView(R2.id.button_tixian)
     Button buttonTixian;
 
     @Override

@@ -34,6 +34,7 @@ import com.bw.movie.base.BaseActivity;
 import com.bw.movie.base.BasePresenter;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 import com.wd.doctor.bean.YinHangCardBean;
 import com.wd.doctor.contract.BangYinHangCradContract;
 import com.wd.doctor.presenter.BangYinHangCardPresenter;
@@ -46,22 +47,22 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class YinHangKaActivity extends BaseActivity<BangYinHangCardPresenter> implements BangYinHangCradContract.Iview {
-    @BindView(R.id.sim_fanhui_view_bangdingka)
+    @BindView(R2.id.sim_fanhui_view_bangdingka)
     SimpleDraweeView sim_fanhui_view_bangdingka;
-    @BindView(R.id.sim_pz)
+    @BindView(R2.id.sim_pz)
     SimpleDraweeView simPz;
 
-    @BindView(R.id.bu_next)
+    @BindView(R2.id.bu_next)
     Button buNext;
-    @BindView(R.id.sim_yinhuangshanchu)
+    @BindView(R2.id.sim_yinhuangshanchu)
     SimpleDraweeView simYinhuangshanchu;
-    @BindView(R.id.yinhang_image)
+    @BindView(R2.id.yinhang_image)
     ImageView yinhangImage;
-    @BindView(R.id.button_yinhuangquedingshow)
+    @BindView(R2.id.button_yinhuangquedingshow)
     Button buttonYinhuangquedingshow;
-    @BindView(R.id.bank_card)
+    @BindView(R2.id.bank_card)
     EditText bankCard;
-    @BindView(R.id.text_paishezp)
+    @BindView(R2.id.text_paishezp)
     TextView textPaishezp;
     private Dialog dialog;
     private View mInflate;

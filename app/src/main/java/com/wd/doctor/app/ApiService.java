@@ -9,6 +9,7 @@ import com.wd.doctor.bean.FaXinXiBean;
 import com.wd.doctor.bean.FindDepartmentBean;
 import com.wd.doctor.bean.FindDoctorByIdBean;
 import com.wd.doctor.bean.FindSickCircleListBean;
+import com.wd.doctor.bean.HuanZheXiangQingBean;
 import com.wd.doctor.bean.LiShiWenZhenBean;
 import com.wd.doctor.bean.LoginBean;
 import com.wd.doctor.bean.SearchSickCircleBean;
@@ -144,5 +145,12 @@ public interface ApiService {
     //http://172.17.8.100/health/doctor/inquiry/verify/v1/findHistoryInquiryRecord?page=1&count=10
     @GET("health/doctor/inquiry/verify/v1/findHistoryInquiryRecord?page=1&count=10")
     Observable<LiShiWenZhenBean> getlishijilu(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId, @Query("page") String page, @Query("count") String count);
+
+
+    //查询用户信息
+    //http://172.17.8.100/health/doctor/inquiry/verify/v1/findUserInfo
+    @GET("health/doctor/inquiry/verify/v1/findUserInfo")
+    Observable<HuanZheXiangQingBean> gethuanzhexiangqing(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId, @Query("userId") String userId);
+
 
 }

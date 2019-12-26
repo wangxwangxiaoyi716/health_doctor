@@ -6,16 +6,19 @@ import android.widget.Switch;
 import com.bw.movie.base.BaseActivity;
 import com.bw.movie.base.BasePresenter;
 import com.facebook.drawee.view.SimpleDraweeView;
+
+
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class HuiFuActivity extends BaseActivity {
-    @BindView(R.id.fanhui_sim)
+    @BindView(R2.id.fanhui_sim)
     SimpleDraweeView fanhuiSim;
-    @BindView(R.id.item_switch)
+    @BindView(R2.id.item_switch)
     Switch itemSwitch;
 
     @Override

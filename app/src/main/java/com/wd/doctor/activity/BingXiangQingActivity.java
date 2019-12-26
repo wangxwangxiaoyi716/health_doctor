@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.bw.movie.base.BaseActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 import com.wd.doctor.bean.FaPingLunBean;
 import com.wd.doctor.bean.SickCircleInfoBean;
 import com.wd.doctor.contract.BingXiangQingContract;
@@ -30,43 +31,43 @@ import butterknife.OnClick;
 
 public class BingXiangQingActivity extends BaseActivity<BingXiangQingPresenter> implements BingXiangQingContract.Iview {
 
-    @BindView(R.id.sim_fanhui)
+    @BindView(R2.id.sim_fanhui)
     SimpleDraweeView simFanhui;
-    @BindView(R.id.text_title)
+    @BindView(R2.id.text_title)
     TextView textTitle;
-    @BindView(R.id.text_xm)
+    @BindView(R2.id.text_xm)
     TextView textXm;
-    @BindView(R.id.text_bingzhneg)
+    @BindView(R2.id.text_bingzhneg)
     TextView textBingzhneg;
-    @BindView(R.id.text_neike)
+    @BindView(R2.id.text_neike)
     TextView textNeike;
-    @BindView(R.id.text_xiangqing)
+    @BindView(R2.id.text_xiangqing)
     TextView textXiangqing;
-    @BindView(R.id.text_tiantan)
+    @BindView(R2.id.text_tiantan)
     TextView textTiantan;
-    @BindView(R.id.text_riqi)
+    @BindView(R2.id.text_riqi)
     TextView textRiqi;
-    @BindView(R.id.text_jingli)
+    @BindView(R2.id.text_jingli)
     TextView textJingli;
-    @BindView(R.id.but_jieda)
+    @BindView(R2.id.but_jieda)
     Button butJieda;
-    @BindView(R.id.text_pinglun)
+    @BindView(R2.id.text_pinglun)
     TextView textPinglun;
-    @BindView(R.id.et_find_sick_info)
+    @BindView(R2.id.et_find_sick_info)
     EditText etFindSickInfo;
-    @BindView(R.id.tv_expression)
+    @BindView(R2.id.tv_expression)
     TextView tvExpression;
-    @BindView(R.id.tv_send)
+    @BindView(R2.id.tv_send)
     TextView tvSend;
-    @BindView(R.id.linner_ping)
+    @BindView(R2.id.linner_ping)
     LinearLayout linnerPing;
-    @BindView(R.id.shuru)
+    @BindView(R2.id.shuru)
     LinearLayout shuru;
-    @BindView(R.id.sim_xiangqingzp)
+    @BindView(R2.id.sim_xiangqingzp)
     SimpleDraweeView simXiangqingzp;
-    @BindView(R.id.recyxq_include)
+    @BindView(R2.id.recyxq_include)
     RelativeLayout recyxqInclude;
-    @BindView(R.id.textHbi)
+    @BindView(R2.id.textHbi)
     TextView textHbi;
     private SharedPreferences sp;
     private int id;
@@ -113,48 +114,15 @@ public class BingXiangQingActivity extends BaseActivity<BingXiangQingPresenter> 
             }
         });
 
-
-        /*shuru.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                if (whetherContent == 1){
-                    recyxqInclude.setVisibility(View.VISIBLE);
-                    textHbi.setVisibility(View.GONE);
-                    butJieda.setVisibility(View.GONE);
-                }else if (whetherContent == 2){
-                    recyxqInclude.setVisibility(View.GONE);
-                    textHbi.setVisibility(View.VISIBLE);
-                    butJieda.setVisibility(View.VISIBLE);
-                }
-                etFindSickInfo.setVisibility(View.GONE);
-                HideIMEUtil.wrap(BingXiangQingActivity.this);
-            }
-        });*/
-
     }
 
 
     @Override
     public void onBingXiangQing(SickCircleInfoBean sickCircleInfoBean) {
-
         if (sickCircleInfoBean.getStatus().equals("0000")) {
             //病友圈详情
             SickCircleInfoBean.ResultBean result = sickCircleInfoBean.getResult();
-
             if (result != null) {
-                /*whetherContent = result.getWhetherContent();
-                if (whetherContent == 1){
-                    recyxqInclude.setVisibility(View.VISIBLE);
-                    textHbi.setVisibility(View.GONE);
-                    butJieda.setVisibility(View.GONE);
-                }else if (whetherContent == 2){
-                    recyxqInclude.setVisibility(View.GONE);
-                    textHbi.setVisibility(View.VISIBLE);
-                    butJieda.setVisibility(View.VISIBLE);
-                }
-                recyxqInclude.setVisibility(View.GONE);
-                HideIMEUtil.wrap(BingXiangQingActivity.this);*/
                 textTitle.setText(result.getTitle());
                 textXm.setText(result.getAuthorName());
                 textBingzhneg.setText(result.getDisease());

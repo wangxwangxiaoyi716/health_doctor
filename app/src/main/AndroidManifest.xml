@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.wd.doctor">
-    <uses-permission android:name="android.permission.ACCEPT_HANDOVER"/>
+
+    <uses-permission android:name="android.permission.ACCEPT_HANDOVER" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -16,14 +17,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.LiWuActivity"></activity>
+        <activity android:name=".activity.HuanZheXinXIActivity"></activity>
+        <activity android:name=".activity.LiWuActivity" />
         <activity android:name=".activity.WenZhenJiLuActivity" />
         <activity android:name=".activity.PingJiaXiangQingActivity" />
         <activity android:name=".activity.LiShiJILuActivity" />
         <activity
             android:name=".activity.LiaoTianActivity"
-            android:windowSoftInputMode="adjustPan"
-            />
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name=".activity.YinHangKaActivity" />
         <activity android:name=".activity.ShenFenZhengActivity" />
         <activity android:name=".activity.BangDingActivity" />
@@ -68,19 +69,15 @@
             android:name="design_height_in_dp"
             android:value="640" />
 
-
         <service
             android:name="servive.XService"
             android:enabled="true"
             android:exported="false"
-            android:process=":pushcore"
-            >
+            android:process=":pushcore">
             <intent-filter>
                 <action android:name="cn.jiguang.user.service.action" />
             </intent-filter>
         </service>
-
-
     </application>
 
 </manifest>

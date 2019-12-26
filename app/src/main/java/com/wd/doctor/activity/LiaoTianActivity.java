@@ -5,9 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -22,23 +22,30 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.R;
 import com.wd.doctor.adapter.LiaoTianAdapter;
 import com.wd.doctor.bean.ChaXinXiBean;
+import com.wd.doctor.bean.EventBusBean;
 import com.wd.doctor.bean.FaXinXiBean;
 import com.wd.doctor.bean.WenZhenLeiBiaoBean;
 import com.wd.doctor.contract.WenZhenContract;
 import com.wd.doctor.presenter.WenZhenPresenter;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.util.List;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.jpush.im.android.api.JMessageClient;
+import cn.jpush.im.android.api.content.MessageContent;
 import cn.jpush.im.android.api.content.TextContent;
 import cn.jpush.im.android.api.event.MessageEvent;
+import cn.jpush.im.android.api.model.Conversation;
 import cn.jpush.im.android.api.model.Message;
-import cn.jpush.im.api.BasicCallback;
 
 public class LiaoTianActivity extends BaseActivity<WenZhenPresenter> implements WenZhenContract.Iview {
     @BindView(R.id.sim_wenzhenliaotian_fanhui)
@@ -61,6 +68,8 @@ public class LiaoTianActivity extends BaseActivity<WenZhenPresenter> implements 
     ImageView emotionFa;
     @BindView(R.id.liaotian_linner)
     LinearLayout liaotianLinner;
+    @BindView(R.id.linner_editex)
+    LinearLayout linnerEditex;
     private String nickName;
     private SharedPreferences sp;
     private int userId;
@@ -69,6 +78,8 @@ public class LiaoTianActivity extends BaseActivity<WenZhenPresenter> implements 
     private int id;
     private String shurukuang;
     private String userName;
+    private List<ChaXinXiBean.ResultBean> result;
+
 
     @Override
     protected WenZhenPresenter providePresenter() {
@@ -80,6 +91,19 @@ public class LiaoTianActivity extends BaseActivity<WenZhenPresenter> implements 
         return R.layout.activity_liao_tian;
     }
 
+    Handler handler = new Handler() {
+        @Override
+        public void handleMessage(@NonNull android.os.Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case 0:
+                    liaotianRecy.scrollToPosition(result.size() - 1);
+                    break;
+            }
+        }
+    };
+
+
     @Override
     protected void initData() {
         super.initData();
@@ -89,12 +113,17 @@ public class LiaoTianActivity extends BaseActivity<WenZhenPresenter> implements 
         Intent intent = getIntent();
         recordId = intent.getIntExtra("recordId", 0);
         userId = intent.getIntExtra("userId", 0);
+
+        //EventBus传值
+        EventBus.getDefault().postSticky(new EventBusBean(userId));
+
         //标题名字
         nickName = intent.getStringExtra("nickName");
         //查询聊天记录
         mpresenter.onChaXinXiModel(id + "", s, recordId + "", "1", "20");
         titleName.setText(nickName);
-
+        //注册一个接受的广播
+        JMessageClient.registerEventReceiver(this);
 
 
         edLiaotian.addTextChangedListener(new TextWatcher() {
@@ -121,6 +150,9 @@ public class LiaoTianActivity extends BaseActivity<WenZhenPresenter> implements 
 
             }
         });
+
+
+
     }
 
 
@@ -156,7 +188,7 @@ public class LiaoTianActivity extends BaseActivity<WenZhenPresenter> implements 
     public void onChaXinXiSuccess(ChaXinXiBean chaXinXiBean) {
         //查信息
         if (chaXinXiBean.getStatus().equals("0000")) {
-            List<ChaXinXiBean.ResultBean> result = chaXinXiBean.getResult();
+            result = chaXinXiBean.getResult();
             if (result != null) {
                 //适配器
                 LiaoTianAdapter liaoTianAdapter = new LiaoTianAdapter(LiaoTianActivity.this, result);
@@ -167,6 +199,18 @@ public class LiaoTianActivity extends BaseActivity<WenZhenPresenter> implements 
                 liaotianRecy.setLayoutManager(linearLayoutManager);
                 linearLayoutManager.setReverseLayout(true);//布局反向
                 linearLayoutManager.setStackFromEnd(true);//数据反向
+
+
+                linnerEditex.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        edLiaotian.requestFocus();
+                        showSoftInput(LiaoTianActivity.this, edLiaotian);
+                        handler.sendEmptyMessageDelayed(0, 250);
+                    }
+                });
+
+
                 liaotianRecy.setOnTouchListener(new View.OnTouchListener() {
                     @Override
                     public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -215,13 +259,14 @@ public class LiaoTianActivity extends BaseActivity<WenZhenPresenter> implements 
                 //发消息
                 shurukuang = edLiaotian.getText().toString();
                 mpresenter.onFaXinXiModel(id + "", s, recordId + "", shurukuang, "1", userId + "");
-                //创建一个消息对象
-                Message m = JMessageClient.createSingleTextMessage(userName, shurukuang);
-                //发送消息
-                JMessageClient.sendMessage(m);
-                //注册一个接受的广播
-                JMessageClient.registerEventReceiver(this);
 
+
+                Conversation con = Conversation.createSingleConversation(userName, "c7f6a1d56cb8da740fd18bfa");
+                MessageContent content = new TextContent(shurukuang);
+                //创建一条消息
+                Message message = con.createSendMessage(content);
+                //发送消息
+                JMessageClient.sendMessage(message);
                 edLiaotian.setText("");
                 break;
         }
@@ -238,7 +283,6 @@ public class LiaoTianActivity extends BaseActivity<WenZhenPresenter> implements 
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
 
     }
-
 
 
 }

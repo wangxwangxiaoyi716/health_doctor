@@ -97,12 +97,23 @@
             android:layout_marginTop="16dp"
             />
 
+        <RatingBar
+            android:id="@+id/write_ratfenfilmxiangqing1"
+            style="@style/Widget.AppCompat.RatingBar.Indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="45dp"
+            android:layout_toRightOf="@id/text_yisheng_zhuanyedu"
+            android:numStars="5"
+            android:progressBackgroundTint="#D8D8D8"
+            android:progressTint="#3087EA" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="医生专业度"
+            android:text="服务消费度"
             android:layout_marginLeft="30dp"
             android:textSize="12sp"
             android:id="@+id/text_fuwuxiaoxidu"
@@ -110,9 +121,51 @@
             android:layout_marginTop="20dp"
             />
 
+        <RatingBar
+            android:id="@+id/write_ratfenfilmxiangqing2"
+            style="@style/Widget.AppCompat.RatingBar.Indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="85dp"
+            android:layout_toRightOf="@id/text_fuwuxiaoxidu"
+            android:numStars="5"
+            android:progressBackgroundTint="#D8D8D8"
+            android:progressTint="#3087EA" />
     </RelativeLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <View
+            android:layout_width="4dp"
+            android:layout_height="20dp"
+            android:background="@color/bule"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/xiangqing2_view"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="送了礼物"
+            android:textSize="14sp"
+            android:layout_toRightOf="@id/xiangqing2_view"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@mipmap/gift_flower"
+            android:layout_below="@id/xiangqing2_view"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            />
+
+    </RelativeLayout>
 
 
 </LinearLayout>

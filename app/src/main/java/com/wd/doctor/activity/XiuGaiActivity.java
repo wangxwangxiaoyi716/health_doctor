@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import com.bw.movie.base.BaseActivity;
 import com.bw.movie.base.BasePresenter;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -19,17 +20,17 @@ import butterknife.OnClick;
 public class XiuGaiActivity extends BaseActivity {
 
 
-    @BindView(R.id.fanhui_xiugai)
+    @BindView(R2.id.fanhui_xiugai)
     ImageView fanhui_xiugai;
-    @BindView(R.id.new_email1)
+    @BindView(R2.id.new_email1)
     EditText newEmail1;
-    @BindView(R.id.relativeLayout)
+    @BindView(R2.id.relativeLayout)
     RelativeLayout relativeLayout;
-    @BindView(R.id.edit_code1)
+    @BindView(R2.id.edit_code1)
     EditText editCode1;
-    @BindView(R.id.relativeLayout2)
+    @BindView(R2.id.relativeLayout2)
     RelativeLayout relativeLayout2;
-    @BindView(R.id.next2)
+    @BindView(R2.id.next2)
     Button next2;
 
     @Override

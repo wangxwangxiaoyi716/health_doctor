@@ -18,6 +18,7 @@ import com.bw.movie.base.BasePresenter;
 import com.bw.movie.utils.SPUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,19 +27,19 @@ import butterknife.OnClick;
 public class GuanLiActivity extends BaseActivity {
 
 
-    @BindView(R.id.img_zpys)
+    @BindView(R2.id.img_zpys)
     ImageView imgZpys;
-    @BindView(R.id.text_zhiliao)
+    @BindView(R2.id.text_zhiliao)
     TextView textZhiliao;
-    @BindView(R.id.sim_wenzhen)
+    @BindView(R2.id.sim_wenzhen)
     SimpleDraweeView simWenzhen;
-    @BindView(R.id.sim_qianbao)
+    @BindView(R2.id.sim_qianbao)
     SimpleDraweeView simQianbao;
-    @BindView(R.id.sim_jianyi)
+    @BindView(R2.id.sim_jianyi)
     SimpleDraweeView simJianyi;
-    @BindView(R.id.sim_xiaoxi)
+    @BindView(R2.id.sim_xiaoxi)
     SimpleDraweeView simXiaoxi;
-    @BindView(R.id.hui)
+    @BindView(R2.id.hui)
     SimpleDraweeView hui;
     private Dialog dialog;
     private View mInflate;

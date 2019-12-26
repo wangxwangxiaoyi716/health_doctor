@@ -12,11 +12,14 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.R;
 import com.wd.doctor.adapter.WhenZhenLeiBiaoAdapter;
 import com.wd.doctor.bean.ChaXinXiBean;
+import com.wd.doctor.bean.EventBusBean;
 import com.wd.doctor.bean.FaXinXiBean;
 import com.wd.doctor.bean.FindInquiryRecordListBean;
 import com.wd.doctor.bean.WenZhenLeiBiaoBean;
 import com.wd.doctor.contract.WenZhenContract;
 import com.wd.doctor.presenter.WenZhenPresenter;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 
@@ -51,6 +54,9 @@ public class WenZhenActivity extends BaseActivity<WenZhenPresenter> implements W
         int id = sp.getInt("id", 0);
         String s = sp.getString("s", null);
         mpresenter.onWenZhenPresenter(id + "", s);
+
+
+
     }
 
     @Override
@@ -63,7 +69,6 @@ public class WenZhenActivity extends BaseActivity<WenZhenPresenter> implements W
                 wenzhenRecy.setAdapter(whenZhenLeiBiaoAdapter);
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(WenZhenActivity.this);
                 wenzhenRecy.setLayoutManager(linearLayoutManager);
-
             }
         } else {
             Toast.makeText(this, wenZhenLeiBiaoBean.getMessage(), Toast.LENGTH_SHORT).show();

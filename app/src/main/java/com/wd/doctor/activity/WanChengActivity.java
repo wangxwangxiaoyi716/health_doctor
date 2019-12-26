@@ -7,6 +7,7 @@ import android.widget.Button;
 import com.bw.movie.base.BaseActivity;
 import com.bw.movie.base.BasePresenter;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -14,7 +15,7 @@ import butterknife.OnClick;
 
 public class WanChengActivity extends BaseActivity {
 
-    @BindView(R.id.back_fanhui)
+    @BindView(R2.id.back_fanhui)
     Button backFanhui;
 
     @Override

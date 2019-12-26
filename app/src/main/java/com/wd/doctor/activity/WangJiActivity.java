@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.bw.movie.base.BaseActivity;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 import com.wd.doctor.bean.SendEmailCodeBean;
 import com.wd.doctor.contract.EmailContract;
 import com.wd.doctor.presenter.EmailPresenter;
@@ -22,19 +23,19 @@ import butterknife.OnClick;
 
 public class WangJiActivity extends BaseActivity<EmailPresenter> implements EmailContract.Iview {
 
-    @BindView(R.id.fanhui_wangji)
+    @BindView(R2.id.fanhui_wangji)
     ImageView fanhui_wangji;
-    @BindView(R.id.new_email)
+    @BindView(R2.id.new_email)
     EditText newEmail;
-    @BindView(R.id.btn_email)
+    @BindView(R2.id.btn_email)
     CheckBox btnEmail;
-    @BindView(R.id.relativeLayout)
+    @BindView(R2.id.relativeLayout)
     RelativeLayout relativeLayout;
-    @BindView(R.id.edit_code)
+    @BindView(R2.id.edit_code)
     EditText editCode;
-    @BindView(R.id.relativeLayout2)
+    @BindView(R2.id.relativeLayout2)
     RelativeLayout relativeLayout2;
-    @BindView(R.id.next)
+    @BindView(R2.id.next)
     Button next;
 
     @Override

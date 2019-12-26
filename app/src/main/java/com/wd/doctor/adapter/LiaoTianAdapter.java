@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.R;
 import com.wd.doctor.activity.BingXiangQingActivity;
+import com.wd.doctor.activity.HuanZheXinXIActivity;
 import com.wd.doctor.bean.ChaXinXiBean;
 import com.wd.doctor.bean.FindSickCircleListBean;
 
@@ -65,8 +66,17 @@ public class LiaoTianAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         switch (itemViewType){
             case ONE:
                 if (holder instanceof LiaoLeft){
-                    ((LiaoLeft) holder).sim_liao_zphuanzhe.setImageURI(list.get(position).getDoctorHeadPic());
+                    ((LiaoLeft) holder).sim_liao_zphuanzhe.setImageURI(list.get(position).getUserHeadPic());
                     ((LiaoLeft) holder).text_liao1huanzhe.setText(list.get(position).getContent());
+
+
+                    ((LiaoLeft) holder).sim_liao_zphuanzhe.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(context, HuanZheXinXIActivity.class);
+                            context.startActivity(intent);
+                        }
+                    });
                 }
                 break;
             case TWO:

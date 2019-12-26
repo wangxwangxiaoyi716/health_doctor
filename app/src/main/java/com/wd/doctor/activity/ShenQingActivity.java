@@ -10,6 +10,7 @@ import com.bw.movie.base.BaseActivity;
 import com.bw.movie.base.BasePresenter;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -18,13 +19,13 @@ import butterknife.OnClick;
 public class ShenQingActivity extends BaseActivity {
 
 
-    @BindView(R.id.fanhui_shenqing)
+    @BindView(R2.id.fanhui_shenqing)
     SimpleDraweeView fanhui_shenqing;
-    @BindView(R.id.ed_jianjie)
+    @BindView(R2.id.ed_jianjie)
     EditText edJianjie;
-    @BindView(R.id.ed_lingyu)
+    @BindView(R2.id.ed_lingyu)
     EditText edLingyu;
-    @BindView(R.id.but_rz)
+    @BindView(R2.id.but_rz)
     Button butRz;
 
     @Override

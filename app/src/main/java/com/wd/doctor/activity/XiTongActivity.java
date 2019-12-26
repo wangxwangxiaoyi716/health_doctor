@@ -7,6 +7,7 @@ import com.bw.movie.base.BaseActivity;
 import com.bw.movie.base.BasePresenter;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
@@ -15,11 +16,11 @@ import butterknife.OnClick;
 
 public class XiTongActivity extends BaseActivity {
 
-    @BindView(R.id.sim_fanhui_view_xitong)
+    @BindView(R2.id.sim_fanhui_view_xitong)
     SimpleDraweeView sim_fanhui_view_xitong;
-    @BindView(R.id.bbbb)
+    @BindView(R2.id.bbbb)
     RelativeLayout bbbb;
-    @BindView(R.id.recy_xitong)
+    @BindView(R2.id.recy_xitong)
     RecyclerView recyXitong;
 
     @Override

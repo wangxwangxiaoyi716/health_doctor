@@ -8,6 +8,7 @@ import android.widget.EditText;
 import com.bw.movie.base.BaseActivity;
 import com.bw.movie.base.BasePresenter;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -19,15 +20,15 @@ import butterknife.OnClick;
 public class GeRenXinXiActivity extends BaseActivity {
 
 
-    @BindView(R.id.but_netgeren)
+    @BindView(R2.id.but_netgeren)
     Button butNetgeren;
-    @BindView(R.id.ed_xm)
+    @BindView(R2.id.ed_xm)
     EditText edXm;
-    @BindView(R.id.ed_yi)
+    @BindView(R2.id.ed_yi)
     EditText edYi;
-    @BindView(R.id.ed_mm1)
+    @BindView(R2.id.ed_mm1)
     EditText edMm1;
-    @BindView(R.id.ed_mm2)
+    @BindView(R2.id.ed_mm2)
     EditText edMm2;
 
     @Override

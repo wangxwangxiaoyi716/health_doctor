@@ -8,6 +8,7 @@ import com.bw.movie.base.BaseActivity;
 import com.bw.movie.base.BasePresenter;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -15,7 +16,7 @@ import butterknife.OnClick;
 
 public class TiActivity extends BaseActivity {
 
-    @BindView(R.id.bu_tixian)
+    @BindView(R2.id.bu_tixian)
     Button buTixian;
 
     @Override

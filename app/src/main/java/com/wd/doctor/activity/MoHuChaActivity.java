@@ -17,6 +17,7 @@ import com.bw.movie.app.App;
 import com.bw.movie.base.BaseActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 import com.wd.doctor.adapter.MoHuChaXunAdapter;
 import com.wd.doctor.bean.SearchSickCircleBean;
 import com.wd.doctor.contract.MoHuChaContract;
@@ -32,17 +33,17 @@ import butterknife.OnClick;
 
 public class MoHuChaActivity extends BaseActivity<MoHuChaPresenter> implements MoHuChaContract.Iview {
 
-    @BindView(R.id.fanhui_text)
+    @BindView(R2.id.fanhui_text)
     SimpleDraweeView fanhuiText;
-    @BindView(R.id.ed_mohucha)
+    @BindView(R2.id.ed_mohucha)
     EditText edMohucha;
-    @BindView(R.id.but_bingquanshou)
+    @BindView(R2.id.but_bingquanshou)
     Button butBingquanshou;
-    @BindView(R.id.recy_modainying)
+    @BindView(R2.id.recy_modainying)
     RecyclerView recyModainying;
-    @BindView(R.id.include_img)
+    @BindView(R2.id.include_img)
     SimpleDraweeView includeImg;
-    @BindView(R.id.include_mao)
+    @BindView(R2.id.include_mao)
     RelativeLayout includeRelate;
 
     @Override

@@ -15,6 +15,7 @@ import com.bw.movie.base.BaseActivity;
 import com.bw.movie.utils.SPUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 import com.wd.doctor.bean.FindDepartmentBean;
 import com.wd.doctor.bean.FindDoctorByIdBean;
 import com.wd.doctor.bean.FindSickCircleListBean;
@@ -27,29 +28,29 @@ import butterknife.OnClick;
 
 public class HomeActivity extends BaseActivity<HomePresenter> implements HomeContract.Iview {
 
-    @BindView(R.id.text_wenzhen)
+    @BindView(R2.id.text_wenzhen)
     TextView textWenzhen;
-    @BindView(R.id.text_dayi)
+    @BindView(R2.id.text_dayi)
     TextView textDayi;
-    @BindView(R.id.sim_doclor)
+    @BindView(R2.id.sim_doclor)
     ImageView simDoclor;
-    @BindView(R.id.text_name)
+    @BindView(R2.id.text_name)
     TextView textName;
-    @BindView(R.id.text_dzyiyuan)
+    @BindView(R2.id.text_dzyiyuan)
     TextView textDzyiyuan;
-    @BindView(R.id.text_yishi)
+    @BindView(R2.id.text_yishi)
     TextView textYishi;
-    @BindView(R.id.text_erke)
+    @BindView(R2.id.text_erke)
     TextView textErke;
-    @BindView(R.id.text_guanli)
+    @BindView(R2.id.text_guanli)
     TextView textGuanli;
-    @BindView(R.id.relate_bage01)
+    @BindView(R2.id.relate_bage01)
     RelativeLayout relateBage01;
-    @BindView(R.id.relate_bage02)
+    @BindView(R2.id.relate_bage02)
     RelativeLayout relateBage02;
-    @BindView(R.id.sim_xiaoxi)
+    @BindView(R2.id.sim_xiaoxi)
     SimpleDraweeView simXiaoxi;
-    @BindView(R.id.relayout_gl)
+    @BindView(R2.id.relayout_gl)
     RelativeLayout relayoutGl;
     private SharedPreferences sp;
 

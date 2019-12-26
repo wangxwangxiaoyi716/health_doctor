@@ -8,6 +8,7 @@ import com.bw.movie.base.BaseActivity;
 import com.bw.movie.base.BasePresenter;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.R;
+import com.wd.doctor.R2;
 
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
@@ -16,11 +17,11 @@ import butterknife.OnClick;
 
 public class ChaiNaActivity extends BaseActivity {
 
-    @BindView(R.id.sim_fanhuicaina_view)
+    @BindView(R2.id.sim_fanhuicaina_view)
     SimpleDraweeView sim_fanhuicaina_view;
-    @BindView(R.id.relayout_vvv)
+    @BindView(R2.id.relayout_vvv)
     RelativeLayout relayoutVvv;
-    @BindView(R.id.recy_caina)
+    @BindView(R2.id.recy_caina)
     RecyclerView recyCaina;
 
 

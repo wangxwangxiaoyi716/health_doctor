@@ -4,6 +4,7 @@ import com.bw.movie.base.BaseView;
 import com.wd.doctor.bean.ChaXinXiBean;
 import com.wd.doctor.bean.FaXinXiBean;
 import com.wd.doctor.bean.FindInquiryRecordListBean;
+import com.wd.doctor.bean.JieShuWhenZhenBean;
 import com.wd.doctor.bean.SickCircleInfoBean;
 import com.wd.doctor.bean.WenZhenLeiBiaoBean;
 
@@ -21,6 +22,7 @@ public interface WenZhenContract {
         void onWenZhenSuccess(WenZhenLeiBiaoBean wenZhenLeiBiaoBean);
         void onFaXinXiSuccess(FaXinXiBean faXinXiBean);
         void onChaXinXiSuccess(ChaXinXiBean chaXinXiBean);
+        void onJieShuWenZhenSuccess(JieShuWhenZhenBean jieShuWhenZhenBean);
         void onWenZhenFiuse(String e);
     }
 
@@ -29,10 +31,12 @@ public interface WenZhenContract {
         void onWenZhenModel(String doctorId,String sessionId,IMtroWork iMtroWork);
         void onFaXinXiModel(String doctorId, String sessionId,String inquiryId, String content, String type,String userId, IMtroWork iMtroWork);
         void onChaXinXiModel(String doctorId, String sessionId,String inquiryId,String page,String count, IMtroWork iMtroWork);
+        void onJieShuWenZhenModel(String doctorId, String sessionId, String recordId,IMtroWork iMtroWork);
         interface IMtroWork{
             void onWenZhenSuccess(WenZhenLeiBiaoBean wenZhenLeiBiaoBean);
             void onFaXinXiSuccess(FaXinXiBean faXinXiBean);
             void onChaXinXiSuccess(ChaXinXiBean chaXinXiBean);
+            void onJieShuWenZhenSuccess(JieShuWhenZhenBean jieShuWhenZhenBean);
             void onWenZhenFiuse(String resultes);
         }
     }
@@ -41,5 +45,6 @@ public interface WenZhenContract {
         void onWenZhenPresenter(String doctorId, String sessionId);
         void onFaXinXiModel(String doctorId, String sessionId,String inquiryId,String content, String type,String userId);
         void onChaXinXiModel(String doctorId, String sessionId,String inquiryId,String page,String count);
+        void onJieShuWenZhenPresenter(String doctorId, String sessionId, String recordId);
     }
 }

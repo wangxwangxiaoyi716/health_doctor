@@ -4,49 +4,72 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:background="#F2F2F2"
     android:layout_height="match_parent"
     tools:context=".activity.WenZhenActivity">
 
-    <RelativeLayout
-        android:id="@+id/uuu"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:layout_marginLeft="30dp"
-            android:id="@+id/sim_fanhuiwenleibiao_view"
-            android:padding="10dp"
-            android:background="@mipmap/common_icon_back_black_n"
-            />
-
-        <TextView
+        <RelativeLayout
+            android:background="#FFFFFF"
+            android:id="@+id/uuu"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="问诊列表"
-            android:textSize="16sp"
-            android:gravity="center"
-            />
+            android:layout_height="60dp">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginLeft="30dp"
+                android:id="@+id/sim_fanhuiwenleibiao_view"
+                android:padding="10dp"
+                android:layout_marginTop="20dp"
+                android:background="@mipmap/common_icon_back_black_n"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="问诊列表"
+                android:layout_marginTop="20dp"
+                android:textSize="16sp"
+                android:gravity="center"
+                />
 
 
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:background="@mipmap/common_nav_message_black_n"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="30dp"
-            />
-    </RelativeLayout>
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@mipmap/common_nav_message_black_n"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="20dp"
+                />
+        </RelativeLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_below="@id/uuu"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/wenzhen_recy"
-        />
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/uuu"
+            android:background="#FFFFFF"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_below="@id/uuu"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/wenzhen_recy"
+                />
+
+
+            <include layout="@layout/wenzhen_include"
+                />
+        </LinearLayout>
+
+
+
+
+
+
 
 
 </RelativeLayout>

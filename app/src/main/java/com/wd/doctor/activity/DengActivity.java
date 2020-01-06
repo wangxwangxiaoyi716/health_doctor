@@ -160,7 +160,7 @@ public class DengActivity extends BaseActivity<LoginPresenter> implements LoginC
             public void gotResult(int arg0, String arg1) {
                 Log.d(TAG, "gotResult: "+arg1);
                 if (arg0==0) {
-                    Toast.makeText(DengActivity.this, "登陆成功", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DengActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
                 }
             }
         });

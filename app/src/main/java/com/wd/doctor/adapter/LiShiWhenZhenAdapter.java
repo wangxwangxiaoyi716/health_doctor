@@ -13,8 +13,11 @@ import com.wd.doctor.R;
 import com.wd.doctor.activity.BingXiangQingActivity;
 import com.wd.doctor.activity.PingJiaXiangQingActivity;
 import com.wd.doctor.activity.WenZhenJiLuActivity;
+import com.wd.doctor.bean.EventBusBean;
 import com.wd.doctor.bean.FindSickCircleListBean;
 import com.wd.doctor.bean.LiShiWenZhenBean;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -33,6 +36,7 @@ public class LiShiWhenZhenAdapter extends RecyclerView.Adapter<RecyclerView.View
     private Context context;
     List<LiShiWenZhenBean.ResultBean> list;
     private View inflate;
+    private String nickName;
 
     public LiShiWhenZhenAdapter(Context context, List<LiShiWenZhenBean.ResultBean> list) {
         this.context = context;
@@ -54,13 +58,14 @@ public class LiShiWhenZhenAdapter extends RecyclerView.Adapter<RecyclerView.View
             Date date = new Date(list.get(position).getInquiryTime());
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
             ((MyList) holder).text_wenzhen_time.setText(simpleDateFormat.format(date));
-
             ((MyList) holder).but_chakanjilu.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     int userId = list.get(position).getUserId();
+                    String nickName = list.get(position).getNickName();
                     Intent intent = new Intent(context, WenZhenJiLuActivity.class);
                     intent.putExtra("userId",userId);
+                    intent.putExtra("nickName",nickName);
                     context.startActivity(intent);
                 }
             });
@@ -96,4 +101,14 @@ public class LiShiWhenZhenAdapter extends RecyclerView.Adapter<RecyclerView.View
             but_chakanpingjia = itemView.findViewById(R.id.but_chakanpingjia);
         }
     }
+    public SetOnClickListenner setOnClickListenner;
+
+    public void setSetOnClickListenner(SetOnClickListenner setOnClickListenner){
+        this.setOnClickListenner = setOnClickListenner;
+    }
+
+    public interface SetOnClickListenner{
+        void click(String NickName);
+    }
+
 }

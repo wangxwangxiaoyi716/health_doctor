@@ -6,6 +6,7 @@ import com.wd.doctor.app.ApiService;
 import com.wd.doctor.bean.ChaXinXiBean;
 import com.wd.doctor.bean.FaXinXiBean;
 import com.wd.doctor.bean.FindInquiryRecordListBean;
+import com.wd.doctor.bean.JieShuWhenZhenBean;
 import com.wd.doctor.bean.WenZhenLeiBiaoBean;
 import com.wd.doctor.contract.WenZhenContract;
 
@@ -89,6 +90,34 @@ public class WenZhenModel implements WenZhenContract.Imodel {
                     @Override
                     public void onNext(ChaXinXiBean chaXinXiBean) {
                         iMtroWork.onChaXinXiSuccess(chaXinXiBean);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        iMtroWork.onWenZhenFiuse(e.toString());
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+
+    @Override
+    public void onJieShuWenZhenModel(String doctorId, String sessionId, String recordId, IMtroWork iMtroWork) {
+        RetrofitManager.getInstance().create(ApiService.class)
+                .getjieshuwenzhen(doctorId, sessionId, recordId)
+                .compose(CommonSchedulers.<JieShuWhenZhenBean> io2main())
+                .subscribe(new Observer<JieShuWhenZhenBean>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(JieShuWhenZhenBean jieShuWhenZhenBean) {
+                        iMtroWork.onJieShuWenZhenSuccess(jieShuWhenZhenBean);
                     }
 
                     @Override

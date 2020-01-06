@@ -4,20 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:background="@color/bai2"
     android:layout_height="match_parent"
     tools:context=".activity.LiShiJILuActivity">
 
 
     <RelativeLayout
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="50dp">
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="5dp"
+            android:layout_centerVertical="true"
             android:id="@+id/sim_lishifanhui_view"
             android:padding="10dp"
             android:background="@mipmap/common_icon_back_black_n"
@@ -29,6 +30,7 @@
             android:text="历史问诊"
             android:textStyle="bold"
             android:textSize="16sp"
+            android:layout_centerVertical="true"
             android:gravity="center"
             />
 
@@ -38,17 +40,38 @@
             android:text="收到的礼物"
             android:layout_alignParentRight="true"
             android:textSize="12sp"
+            android:layout_centerVertical="true"
             android:id="@+id/text_liwu"
-            android:layout_marginTop="5dp"
             android:layout_marginRight="30dp"
             />
     </RelativeLayout>
 
 
-    <androidx.recyclerview.widget.RecyclerView
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/ward_smartlishijilu"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/lishi_wenzhenrecy"
-        />
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:srlEnableLoadMore="false"
+        app:srlEnablePreviewInEditMode="true">
+
+        <com.scwang.smartrefresh.header.WaveSwipeHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lishijilu_rlv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.scwang.smartrefresh.layout.footer.BallPulseFooter
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srlClassicsSpinnerStyle="Translate"
+            app:srlPrimaryColor="@color/colorAccent3" />
+
+
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
 </LinearLayout>

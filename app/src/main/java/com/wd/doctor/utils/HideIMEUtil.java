@@ -10,10 +10,10 @@ import androidx.fragment.app.Fragment;
 
 
 /**
- * 作者:dongyanjun
- * 时间：2019/12/19
- * 描述:Doctor
- * 功能：
+ *@describe(描述)：HideIMEUtil
+ *@data（日期）: 2019/12/26
+ *@time（时间）: 19:28
+ *@author（作者）: 王晓义
  **/
 public class HideIMEUtil {
     public static void wrap(Activity activity) {

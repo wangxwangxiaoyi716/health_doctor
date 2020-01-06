@@ -9,7 +9,7 @@ import java.security.PublicKey;
 import java.security.spec.X509EncodedKeySpec;
 
 /**
- * Created by 樊彦龙 on 2018/9/1.
+ * Created by 王晓义 on 2018/9/1.
  * RSA公钥处理工具类
  */
 public class RsaCoder {

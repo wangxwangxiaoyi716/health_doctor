@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.bw.movie.base.BasePresenter;
 import com.wd.doctor.bean.DectorMomeyBean;
+import com.wd.doctor.bean.ShouZhiJiLuBean;
 import com.wd.doctor.contract.DectorMoneyContract;
 import com.wd.doctor.model.DectorMoneyModel;
 
@@ -32,10 +33,38 @@ public class DectorMoneyPresenter extends BasePresenter<DectorMoneyContract.Ivie
             }
 
             @Override
+            public void onShouZhiJiLuSuccess(ShouZhiJiLuBean shouZhiJiLuBean) {
+
+            }
+
+            @Override
             public void onDectorMoneyFliuse(String resultes) {
                 Log.d(TAG, "onDectorMoneyFliuse: "+resultes);
                 getView().onDectorMoneyFliuse(resultes);
             }
         });
     }
+
+    @Override
+    public void onShouZhiJiLuPresenter(String doctorId, String sessionId, String page, String count) {
+        dectorMoneyModel.onShouZhiJiLuModel(doctorId, sessionId, page, count, new DectorMoneyContract.Imodel.IMtroWork() {
+            @Override
+            public void onDectorMoneySuccess(DectorMomeyBean dectorMomeyBean) {
+
+            }
+
+            @Override
+            public void onShouZhiJiLuSuccess(ShouZhiJiLuBean shouZhiJiLuBean) {
+                Log.d(TAG, "onShouZhiJiLuSuccess: "+shouZhiJiLuBean.getMessage());
+                getView().onShouZhiJiLuSuccess(shouZhiJiLuBean);
+            }
+
+            @Override
+            public void onDectorMoneyFliuse(String resultes) {
+                getView().onDectorMoneyFliuse(resultes);
+            }
+        });
+    }
+
+
 }

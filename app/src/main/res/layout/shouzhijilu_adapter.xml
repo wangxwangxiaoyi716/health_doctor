@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="问诊咨询"
+        android:textSize="14sp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/text_type"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+500H币"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30dp"
+        android:textColor="#f00"
+        android:id="@+id/text_money"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2019-2.15"
+        android:textSize="14sp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/text_time_shouzhijilu"
+        android:layout_below="@id/text_type"
+        />
+</RelativeLayout>

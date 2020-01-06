@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:id="@+id/include_ke"
+    android:id="@+id/include_ke_wenzhen"
     android:visibility="gone"
     android:layout_height="match_parent">
         <com.facebook.drawee.view.SimpleDraweeView
@@ -12,7 +12,7 @@
             android:background="@mipmap/none_bg"
             />
         <TextView
-            android:id="@+id/include_text"
+            android:id="@+id/include_wenzhen"
             android:layout_marginTop="40dp"
             android:textSize="14sp"
             android:text="嘤-空空如也!"

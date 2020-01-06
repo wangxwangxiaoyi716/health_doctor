@@ -4,6 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -49,12 +52,18 @@ public class WhenZhenLeiBiaoAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         if(holder instanceof MyList){
             ((MyList) holder).wenzhen_sim.setImageURI(list.get(position).getUserHeadPic());
             ((MyList) holder).text_namemz.setText(list.get(position).getNickName());
-            ((MyList) holder).text_info.setText(list.get(position).getUserName());
+            ((MyList) holder).text_info.setText(list.get(position).getLastContent());
             Date date = new Date(list.get(position).getInquiryTime());
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
             ((MyList) holder).text_timeriqi.setText(simpleDateFormat.format(date));
 
-            ((MyList) holder).relativelayout_01.setOnClickListener(new View.OnClickListener() {
+            if (list.get(position).getStatus() == 1) {
+                ((MyList) holder).questioning_prompt.setVisibility(View.GONE);//不显示提示(小红点)
+            } else {
+                ((MyList) holder).questioning_prompt.setVisibility(View.VISIBLE);//显示提示(小红点)
+            }
+
+            ((MyList) holder).relativelayout_whenzhen.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     int recordId = list.get(position).getRecordId();
@@ -69,6 +78,13 @@ public class WhenZhenLeiBiaoAdapter extends RecyclerView.Adapter<RecyclerView.Vi
                     context.startActivity(intent);
                 }
             });
+
+            ((MyList) holder).quxiao.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    setOnclciklistnner.click(list.get(position).getRecordId());
+                }
+            });
         }
     }
 
@@ -81,15 +97,19 @@ public class WhenZhenLeiBiaoAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     class MyList extends RecyclerView.ViewHolder{
         SimpleDraweeView wenzhen_sim;
         TextView text_info,text_timeriqi,text_namemz;
-        RelativeLayout relativelayout_01;
+        RelativeLayout relativelayout_whenzhen;
+        Button quxiao;
+        ImageView questioning_prompt;
 
         public MyList(@NonNull View itemView) {
             super(itemView);
-            relativelayout_01 = itemView.findViewById(R.id.relativelayout_01);
+            relativelayout_whenzhen = itemView.findViewById(R.id.relativelayout_whenzhen);
             wenzhen_sim = itemView.findViewById(R.id.wenzhen_sim);
             text_namemz = itemView.findViewById(R.id.text_namemz);
             text_timeriqi = itemView.findViewById(R.id.text_timeriqi);
             text_info = itemView.findViewById(R.id.text_info);
+            quxiao = itemView.findViewById(R.id.quxiao);
+            questioning_prompt = itemView.findViewById(R.id.questioning_prompt);
         }
     }
 
@@ -100,6 +120,6 @@ public class WhenZhenLeiBiaoAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     }
 
     public interface SetOnclciklistnner{
-        void click(int userid);
+        void click(int recordid);
     }
 }

@@ -24,7 +24,10 @@
         <activity android:name=".activity.LiShiJILuActivity" />
         <activity
             android:name=".activity.LiaoTianActivity"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="adjustPan"
+            android:supportsRtl="true"
+            android:allowBackup="true"
+            />
         <activity android:name=".activity.YinHangKaActivity" />
         <activity android:name=".activity.ShenFenZhengActivity" />
         <activity android:name=".activity.BangDingActivity" />

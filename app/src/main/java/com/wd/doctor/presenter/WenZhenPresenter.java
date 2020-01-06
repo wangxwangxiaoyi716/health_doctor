@@ -4,6 +4,7 @@ import com.bw.movie.base.BasePresenter;
 import com.wd.doctor.bean.ChaXinXiBean;
 import com.wd.doctor.bean.FaXinXiBean;
 import com.wd.doctor.bean.FindInquiryRecordListBean;
+import com.wd.doctor.bean.JieShuWhenZhenBean;
 import com.wd.doctor.bean.WenZhenLeiBiaoBean;
 import com.wd.doctor.contract.WenZhenContract;
 import com.wd.doctor.model.WenZhenModel;
@@ -42,6 +43,11 @@ public class WenZhenPresenter extends BasePresenter<WenZhenContract.Iview> imple
             }
 
             @Override
+            public void onJieShuWenZhenSuccess(JieShuWhenZhenBean jieShuWhenZhenBean) {
+
+            }
+
+            @Override
             public void onWenZhenFiuse(String resultes) {
                 getView().onWenZhenFiuse(resultes);
             }
@@ -63,6 +69,11 @@ public class WenZhenPresenter extends BasePresenter<WenZhenContract.Iview> imple
 
             @Override
             public void onChaXinXiSuccess(ChaXinXiBean chaXinXiBean) {
+
+            }
+
+            @Override
+            public void onJieShuWenZhenSuccess(JieShuWhenZhenBean jieShuWhenZhenBean) {
 
             }
 
@@ -92,8 +103,43 @@ public class WenZhenPresenter extends BasePresenter<WenZhenContract.Iview> imple
             }
 
             @Override
+            public void onJieShuWenZhenSuccess(JieShuWhenZhenBean jieShuWhenZhenBean) {
+
+            }
+
+            @Override
             public void onWenZhenFiuse(String resultes) {
                 getView().onWenZhenFiuse(resultes);
+            }
+        });
+    }
+
+    @Override
+    public void onJieShuWenZhenPresenter(String doctorId, String sessionId, String recordId) {
+        wenZhenModel.onJieShuWenZhenModel(doctorId, sessionId, recordId, new WenZhenContract.Imodel.IMtroWork() {
+            @Override
+            public void onWenZhenSuccess(WenZhenLeiBiaoBean wenZhenLeiBiaoBean) {
+
+            }
+
+            @Override
+            public void onFaXinXiSuccess(FaXinXiBean faXinXiBean) {
+
+            }
+
+            @Override
+            public void onChaXinXiSuccess(ChaXinXiBean chaXinXiBean) {
+
+            }
+
+            @Override
+            public void onJieShuWenZhenSuccess(JieShuWhenZhenBean jieShuWhenZhenBean) {
+                getView().onJieShuWenZhenSuccess(jieShuWhenZhenBean);
+            }
+
+            @Override
+            public void onWenZhenFiuse(String resultes) {
+                getView().onWenZhenFiuse(recordId);
             }
         });
     }

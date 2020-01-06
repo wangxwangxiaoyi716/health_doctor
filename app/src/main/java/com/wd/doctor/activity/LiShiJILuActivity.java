@@ -5,19 +5,23 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bw.movie.base.BaseActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.wd.doctor.R;
 import com.wd.doctor.R2;
 import com.wd.doctor.adapter.LiShiWhenZhenAdapter;
+import com.wd.doctor.bean.FindSickCircleListBean;
 import com.wd.doctor.bean.LiShiWenZhenBean;
 import com.wd.doctor.contract.LiShiWenZhenContract;
 import com.wd.doctor.presenter.LiShiWenZhenPresenter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -32,9 +36,13 @@ public class LiShiJILuActivity extends BaseActivity<LiShiWenZhenPresenter> imple
     SimpleDraweeView simLishifanhuiView;
     @BindView(R2.id.text_liwu)
     TextView textLiwu;
-    @BindView(R2.id.lishi_wenzhenrecy)
-    RecyclerView lishiWenzhenrecy;
+    @BindView(R.id.lishijilu_rlv)
+    RecyclerView lishijiluRlv;
+    @BindView(R.id.ward_smartlishijilu)
+    SmartRefreshLayout wardSmartlishijilu;
     private SharedPreferences sp;
+    int current_page = 1;//当前页，默认第一页
+    private List<LiShiWenZhenBean.ResultBean> result;
 
     @Override
     protected LiShiWenZhenPresenter providePresenter() {
@@ -52,19 +60,41 @@ public class LiShiJILuActivity extends BaseActivity<LiShiWenZhenPresenter> imple
         sp = getSharedPreferences("sp", Context.MODE_PRIVATE);
         int id = sp.getInt("id", 0);
         String s = sp.getString("s", null);
-        mpresenter.onLiShiWenZhenPresenter(id + "", s, "1", "10");
+        mpresenter.onLiShiWenZhenPresenter(id + "", s, "1", "5");
+
+        wardSmartlishijilu.setEnableRefresh(true);
+        wardSmartlishijilu.setEnableLoadMore(true);
+        wardSmartlishijilu.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
+            @Override
+            public void onLoadMore(RefreshLayout refreshLayout) {
+                current_page++;
+                mpresenter.onLiShiWenZhenPresenter(id + "", s, current_page+"", "5");
+                refreshLayout.finishLoadMore();
+            }
+
+            @Override
+            public void onRefresh(RefreshLayout refreshLayout) {
+                result.clear();
+                current_page = 1;
+                mpresenter.onLiShiWenZhenPresenter(id + "", s, current_page+"", "5");
+                refreshLayout.finishRefresh();
+            }
+        });
+
     }
 
     @Override
     public void onLiShiWenZhenSuccess(LiShiWenZhenBean liShiWenZhenBean) {
         //历史问诊
         if (liShiWenZhenBean.getStatus().equals("0000")) {
-            List<LiShiWenZhenBean.ResultBean> result = liShiWenZhenBean.getResult();
+            result = liShiWenZhenBean.getResult();
             if (result != null) {
-                LiShiWhenZhenAdapter liShiWhenZhenAdapter = new LiShiWhenZhenAdapter(LiShiJILuActivity.this,result);
-                lishiWenzhenrecy.setAdapter(liShiWhenZhenAdapter);
+                LiShiWhenZhenAdapter liShiWhenZhenAdapter = new LiShiWhenZhenAdapter(LiShiJILuActivity.this, result);
+                lishijiluRlv.setAdapter(liShiWhenZhenAdapter);
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(LiShiJILuActivity.this);
-                lishiWenzhenrecy.setLayoutManager(linearLayoutManager);
+                lishijiluRlv.setLayoutManager(linearLayoutManager);
+
+
             }
         } else {
             Toast.makeText(this, liShiWenZhenBean.getMessage(), Toast.LENGTH_SHORT).show();

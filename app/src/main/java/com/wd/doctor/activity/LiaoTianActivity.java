@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -24,6 +25,7 @@ import com.wd.doctor.adapter.LiaoTianAdapter;
 import com.wd.doctor.bean.ChaXinXiBean;
 import com.wd.doctor.bean.EventBusBean;
 import com.wd.doctor.bean.FaXinXiBean;
+import com.wd.doctor.bean.JieShuWhenZhenBean;
 import com.wd.doctor.bean.WenZhenLeiBiaoBean;
 import com.wd.doctor.contract.WenZhenContract;
 import com.wd.doctor.presenter.WenZhenPresenter;
@@ -48,6 +50,7 @@ import cn.jpush.im.android.api.model.Conversation;
 import cn.jpush.im.android.api.model.Message;
 
 public class LiaoTianActivity extends BaseActivity<WenZhenPresenter> implements WenZhenContract.Iview {
+    public static final String TAG = "LiaoTianActivity";
     @BindView(R.id.sim_wenzhenliaotian_fanhui)
     SimpleDraweeView sim_wenzhenliaotian_fanhui;
     @BindView(R.id.title_name)
@@ -71,9 +74,9 @@ public class LiaoTianActivity extends BaseActivity<WenZhenPresenter> implements 
     @BindView(R.id.linner_editex)
     LinearLayout linnerEditex;
     private String nickName;
-    private SharedPreferences sp;
     private int userId;
     private int recordId;
+    private SharedPreferences sp;
     private String s;
     private int id;
     private String shurukuang;
@@ -115,12 +118,12 @@ public class LiaoTianActivity extends BaseActivity<WenZhenPresenter> implements 
         userId = intent.getIntExtra("userId", 0);
 
         //EventBus传值
-        EventBus.getDefault().postSticky(new EventBusBean(userId));
-
+        EventBus.getDefault().postSticky(new EventBusBean(userId,null,recordId));
         //标题名字
         nickName = intent.getStringExtra("nickName");
         //查询聊天记录
         mpresenter.onChaXinXiModel(id + "", s, recordId + "", "1", "20");
+        Log.d(TAG, "initData: "+nickName);
         titleName.setText(nickName);
         //注册一个接受的广播
         JMessageClient.registerEventReceiver(this);
@@ -225,6 +228,11 @@ public class LiaoTianActivity extends BaseActivity<WenZhenPresenter> implements 
     }
 
     @Override
+    public void onJieShuWenZhenSuccess(JieShuWhenZhenBean jieShuWhenZhenBean) {
+
+    }
+
+    @Override
     public void onWenZhenFiuse(String e) {
 
     }
@@ -240,7 +248,8 @@ public class LiaoTianActivity extends BaseActivity<WenZhenPresenter> implements 
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.sim_wenzhenliaotian_fanhui:
-                finish();
+                Intent intent1 = new Intent(LiaoTianActivity.this, WenZhenActivity.class);
+                startActivity(intent1);
                 break;
             case R.id.liaotian_linner:
                 InputMethodManager imm = (InputMethodManager)

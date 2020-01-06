@@ -10,12 +10,14 @@ import com.wd.doctor.bean.FindDepartmentBean;
 import com.wd.doctor.bean.FindDoctorByIdBean;
 import com.wd.doctor.bean.FindSickCircleListBean;
 import com.wd.doctor.bean.HuanZheXiangQingBean;
+import com.wd.doctor.bean.JieShuWhenZhenBean;
 import com.wd.doctor.bean.LiShiWenZhenBean;
 import com.wd.doctor.bean.LoginBean;
 import com.wd.doctor.bean.SearchSickCircleBean;
 import com.wd.doctor.bean.SendEmailCodeBean;
 import com.wd.doctor.bean.ShangChuanBean;
 import com.wd.doctor.bean.ShenFenZhengBean;
+import com.wd.doctor.bean.ShouZhiJiLuBean;
 import com.wd.doctor.bean.SickCircleInfoBean;
 import com.wd.doctor.bean.WenZhenLeiBiaoBean;
 import com.wd.doctor.bean.XiTongZhaoBean;
@@ -33,6 +35,7 @@ import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Part;
 import retrofit2.http.Query;
 
@@ -151,6 +154,19 @@ public interface ApiService {
     //http://172.17.8.100/health/doctor/inquiry/verify/v1/findUserInfo
     @GET("health/doctor/inquiry/verify/v1/findUserInfo")
     Observable<HuanZheXiangQingBean> gethuanzhexiangqing(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId, @Query("userId") String userId);
+
+
+
+    //结束问诊
+    //http://172.17.8.100/health/doctor/inquiry/verify/v1/endInquiry?recordId=3918
+    @PUT("health/doctor/inquiry/verify/v1/endInquiry")
+    Observable<JieShuWhenZhenBean> getjieshuwenzhen(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId, @Query("recordId") String recordId);
+
+    //查询医生收支记录
+    //http://172.17.8.100/health/doctor/verify/v1/findDoctorIncomeRecordList?page=1&count=10
+    @GET("health/doctor/verify/v1/findDoctorIncomeRecordList")
+    Observable<ShouZhiJiLuBean> getshouzhijilu(@Header("doctorId") String doctorId, @Header("sessionId") String sessionId, @Query("page") String page, @Query("count") String count);
+
 
 
 }

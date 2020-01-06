@@ -1,8 +1,10 @@
 package com.wd.doctor.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -12,14 +14,11 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.R;
 import com.wd.doctor.adapter.WhenZhenLeiBiaoAdapter;
 import com.wd.doctor.bean.ChaXinXiBean;
-import com.wd.doctor.bean.EventBusBean;
 import com.wd.doctor.bean.FaXinXiBean;
-import com.wd.doctor.bean.FindInquiryRecordListBean;
+import com.wd.doctor.bean.JieShuWhenZhenBean;
 import com.wd.doctor.bean.WenZhenLeiBiaoBean;
 import com.wd.doctor.contract.WenZhenContract;
 import com.wd.doctor.presenter.WenZhenPresenter;
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 
@@ -35,7 +34,15 @@ public class WenZhenActivity extends BaseActivity<WenZhenPresenter> implements W
     SimpleDraweeView sim_fanhuiwenleibiao_view;
     @BindView(R.id.wenzhen_recy)
     RecyclerView wenzhenRecy;
+    @BindView(R.id.inc_img)
+    SimpleDraweeView incImg;
+    @BindView(R.id.include_wenzhen)
+    TextView include_wenzhen;
+    @BindView(R.id.include_ke_wenzhen)
+    RelativeLayout includeKeWenzhen;
     private SharedPreferences sp;
+    private int id;
+    private String s;
 
     @Override
     protected WenZhenPresenter providePresenter() {
@@ -51,10 +58,9 @@ public class WenZhenActivity extends BaseActivity<WenZhenPresenter> implements W
     protected void initData() {
         super.initData();
         sp = getSharedPreferences("sp", Context.MODE_PRIVATE);
-        int id = sp.getInt("id", 0);
-        String s = sp.getString("s", null);
+        id = sp.getInt("id", 0);
+        s = sp.getString("s", null);
         mpresenter.onWenZhenPresenter(id + "", s);
-
 
 
     }
@@ -64,11 +70,25 @@ public class WenZhenActivity extends BaseActivity<WenZhenPresenter> implements W
         //问诊列表
         if (wenZhenLeiBiaoBean.getStatus().equals("0000")) {
             List<WenZhenLeiBiaoBean.ResultBean> result = wenZhenLeiBiaoBean.getResult();
-            if (result != null){
-                WhenZhenLeiBiaoAdapter whenZhenLeiBiaoAdapter = new WhenZhenLeiBiaoAdapter(WenZhenActivity.this,result);
-                wenzhenRecy.setAdapter(whenZhenLeiBiaoAdapter);
-                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(WenZhenActivity.this);
-                wenzhenRecy.setLayoutManager(linearLayoutManager);
+            if (result != null) {
+                if (result.isEmpty()) {
+                    wenzhenRecy.setVisibility(View.GONE);
+                    includeKeWenzhen.setVisibility(View.VISIBLE);
+                } else {
+                    wenzhenRecy.setVisibility(View.VISIBLE);
+                    includeKeWenzhen.setVisibility(View.GONE);
+                    WhenZhenLeiBiaoAdapter whenZhenLeiBiaoAdapter = new WhenZhenLeiBiaoAdapter(WenZhenActivity.this, result);
+                    wenzhenRecy.setAdapter(whenZhenLeiBiaoAdapter);
+                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(WenZhenActivity.this);
+                    wenzhenRecy.setLayoutManager(linearLayoutManager);
+                    whenZhenLeiBiaoAdapter.setonclick(new WhenZhenLeiBiaoAdapter.SetOnclciklistnner() {
+                        @Override
+                        public void click(int recordid) {
+                            mpresenter.onJieShuWenZhenPresenter(id + "", s, recordid + "");
+                        }
+                    });
+                }
+
             }
         } else {
             Toast.makeText(this, wenZhenLeiBiaoBean.getMessage(), Toast.LENGTH_SHORT).show();
@@ -86,6 +106,15 @@ public class WenZhenActivity extends BaseActivity<WenZhenPresenter> implements W
     }
 
     @Override
+    public void onJieShuWenZhenSuccess(JieShuWhenZhenBean jieShuWhenZhenBean) {
+        //结束问诊
+        if (jieShuWhenZhenBean.getStatus().equals("0000")) {
+            Toast.makeText(this, jieShuWhenZhenBean.getMessage(), Toast.LENGTH_SHORT).show();
+            mpresenter.onWenZhenPresenter(id + "", s);
+        }
+    }
+
+    @Override
     public void onWenZhenFiuse(String e) {
 
     }
@@ -99,7 +128,8 @@ public class WenZhenActivity extends BaseActivity<WenZhenPresenter> implements W
 
     @OnClick(R.id.sim_fanhuiwenleibiao_view)
     public void onViewClicked() {
-        finish();
+        Intent intent = new Intent(WenZhenActivity.this, HomeActivity.class);
+        startActivity(intent);
     }
 
 

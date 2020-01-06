@@ -15,10 +15,15 @@ import com.bw.movie.base.BasePresenter;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wd.doctor.R;
 import com.wd.doctor.R2;
+import com.wd.doctor.adapter.ShouZhiJiLuAdapter;
 import com.wd.doctor.bean.DectorMomeyBean;
+import com.wd.doctor.bean.ShouZhiJiLuBean;
 import com.wd.doctor.contract.DectorMoneyContract;
 import com.wd.doctor.presenter.DectorMoneyPresenter;
 
+import java.util.List;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -58,6 +63,8 @@ public class MoneyBaoActivity extends BaseActivity<DectorMoneyPresenter> impleme
         String s = sp.getString("s", null);
         mpresenter.onDectorMoneyPresenter(id+"",s);
 
+       mpresenter.onShouZhiJiLuPresenter(id+"",s,"1","10");
+
         //跳转绑定
         textBangding.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +88,24 @@ public class MoneyBaoActivity extends BaseActivity<DectorMoneyPresenter> impleme
         }
 
 
+    }
+
+    @Override
+    public void onShouZhiJiLuSuccess(ShouZhiJiLuBean shouZhiJiLuBean) {
+        //收支记录
+        Log.d(TAG, "onShouZhiJiLuSuccess: "+shouZhiJiLuBean.getMessage());
+        if (shouZhiJiLuBean.getStatus().equals("0000")){
+            List<ShouZhiJiLuBean.ResultBean> result = shouZhiJiLuBean.getResult();
+            if (result != null){
+
+                ShouZhiJiLuAdapter shouZhiJiLuAdapter = new ShouZhiJiLuAdapter(MoneyBaoActivity.this,result);
+                recyMoneybao.setAdapter(shouZhiJiLuAdapter);
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MoneyBaoActivity.this);
+                recyMoneybao.setLayoutManager(linearLayoutManager);
+            }
+        }else {
+            Toast.makeText(this, shouZhiJiLuBean.getMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
